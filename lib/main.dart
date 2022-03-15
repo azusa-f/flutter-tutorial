@@ -16,11 +16,9 @@ class MyApp extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            /*1*/
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /*2*/
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
@@ -39,7 +37,6 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-          /*3*/
           Icon(
             Icons.star,
             color: Colors.red[500],
@@ -82,7 +79,7 @@ class MyApp extends StatelessWidget {
           child: Column(
             children: [
               Image.asset(
-                'images/3066743278946115134_IMG_5039.JPG',
+                'images/charch.JPG',
                 width: 600,
                 height: 240,
                 fit: BoxFit.cover,
