@@ -49,7 +49,9 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     controller = AnimationController(
-        duration: const Duration(seconds: 2), vsync: this); //2秒で変化させる
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    ); //2秒で変化させる
     animation = CurvedAnimation(parent: controller, curve: Curves.easeIn)
       ..addStatusListener((status) {
         //アニメーションの状態が切り替わったときに呼び出される

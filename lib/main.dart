@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'tutorial_1/animation.dart';
-//import './charch.dart';
 
 void main() => runApp(MainApp());
 
 class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: PageChanege());
+    return MaterialApp(home: IndexPage());
   }
 }
 
-class PageChanege extends StatelessWidget {
+class IndexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text('目次')),
         body: Center(
             child: ElevatedButton(
-                child: const Text("flutter_tutorial"),
+                child: const Text("AnimationTutorial"),
                 onPressed: () {
                   Navigator.push(
                     context,
