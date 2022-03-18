@@ -16,7 +16,7 @@ class PageChanege extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('☆☆')),
+        appBar: AppBar(title: Text('目次')),
         body: Center(
             child: ElevatedButton(
                 child: const Text("flutter_tutorial"),
