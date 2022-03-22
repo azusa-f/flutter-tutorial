@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tutorial/tutorial_1/animation.dart';
+import 'package:tutorial/tutorial_1/animation_page.dart';
 
 import 'package:tutorial/main.dart';
 

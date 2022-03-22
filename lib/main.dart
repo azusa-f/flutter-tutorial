@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'tutorial_1/animation.dart';
+import 'tutorial_1/animation_page.dart';
+import 'youtube/youtube_screen.dart';
 
 void main() => runApp(MainApp());
 
@@ -16,7 +17,10 @@ class IndexPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(title: Text('目次')),
         body: Center(
-            child: ElevatedButton(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
                 child: const Text("AnimationTutorial"),
                 onPressed: () {
                   Navigator.push(
@@ -24,6 +28,17 @@ class IndexPage extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const AnimationPage()),
                   );
-                })));
+                }),
+            ElevatedButton(
+                child: const Text("YouTube"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const YoutubeScreen()),
+                  );
+                }),
+          ],
+        )));
   }
 }
