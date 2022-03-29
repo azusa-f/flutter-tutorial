@@ -9,14 +9,16 @@ class YoutubeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(context),
-      body: Column(
-        children: [
-          _categoryButtonSection(),
-        ],
-      ),
-      bottomNavigationBar: _bottomNavigationBar(context),
-    );
+        appBar: _buildAppBar(context),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              _buildcategoryButtonSection(),
+              _buildPopularMovieSection(),
+            ],
+          ),
+        ),
+        bottomNavigationBar: _bottomNavigationBar(context));
   }
 
   AppBar _buildAppBar(BuildContext context) {
@@ -37,46 +39,184 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
-  Widget _categoryButtonSection() {
-    return SizedBox(
-      height: 200,
-      child: GridView.count(
-        childAspectRatio: 4,
-        crossAxisCount: 2,
-        children: <Widget>[
-          _elevatedButton(Color.fromARGB(177, 155, 38, 29),
-              Icons.local_fire_department, '急上昇'),
-          _elevatedButton(
-              Color.fromARGB(255, 18, 190, 124), Icons.music_note, '音楽'),
-          _elevatedButton(
-              Color.fromARGB(255, 196, 130, 152), Icons.sports_esports, 'ゲーム'),
-          _elevatedButton(Color.fromARGB(255, 36, 52, 196), Icons.feed, 'ニュース'),
-          _elevatedButton(Color.fromARGB(255, 26, 143, 75), Icons.school, '学び'),
-          _elevatedButton(
-              Color.fromARGB(255, 225, 137, 65), Icons.live_tv, 'ライブ'),
-          _elevatedButton(
-              Color.fromARGB(255, 55, 141, 194), Icons.sports, 'スポーツ'),
-        ],
+  Widget _buildcategoryButtonSection() {
+    return Container(
+      color: Colors.black,
+      child: SizedBox(
+        height: 210,
+        child: GridView.count(
+          childAspectRatio: 4,
+          crossAxisCount: 2,
+          children: <Widget>[
+            _buildelevatedButton(
+              Color.fromARGB(177, 155, 38, 29),
+              Icons.local_fire_department,
+              '急上昇',
+            ),
+            _buildelevatedButton(
+              Color.fromARGB(255, 18, 190, 124),
+              Icons.music_note,
+              '音楽',
+            ),
+            _buildelevatedButton(
+              Color.fromARGB(255, 196, 130, 152),
+              Icons.sports_esports,
+              'ゲーム',
+            ),
+            _buildelevatedButton(
+              Color.fromARGB(255, 36, 52, 196),
+              Icons.feed,
+              'ニュース',
+            ),
+            _buildelevatedButton(
+              Color.fromARGB(255, 26, 143, 75),
+              Icons.school,
+              '学び',
+            ),
+            _buildelevatedButton(
+              Color.fromARGB(255, 225, 137, 65),
+              Icons.live_tv,
+              'ライブ',
+            ),
+            _buildelevatedButton(
+              Color.fromARGB(255, 55, 141, 194),
+              Icons.sports,
+              'スポーツ',
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _elevatedButton(Color color, IconData icon, String label) {
+  Widget _buildelevatedButton(Color color, IconData icon, String label) {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: 10,
-        right: 10,
-        top: 10,
-        // bottom: 10,
-      ),
+      padding: const EdgeInsets.all(5.0),
       child: ElevatedButton.icon(
           onPressed: () {},
           icon: Icon(icon),
           label: Text(label),
           style: ElevatedButton.styleFrom(
             primary: color,
-            // minimumSize: const Size(160, 50),
+            alignment: Alignment.centerLeft,
           )),
+    );
+  }
+
+  Widget _buildPopularMovieSection() {
+    return Container(
+      color: const Color.fromARGB(255, 39, 36, 36),
+      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsets.all(0.0),
+        child: Column(
+          children: _buildVideoItems(),
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _buildVideoItems() {
+    List<String> videoImages = ['images/charch.JPG', 'images/charch.JPG'];
+    List<String> videoTitles = [
+      'test~~~~test~~~~test~~~~test~~~~test~~~',
+      'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~'
+    ];
+    List<String> acountNames = ['donadona_pooh', 'kawaii_pooh'];
+    List<String> acountImages = [
+      'images/icons/pooh.png',
+      'images/icons/pooh_2.jpeg'
+    ];
+
+    List<Widget> children = [];
+    children.add(
+      const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: SizedBox(
+          width: double.infinity,
+          child: Text(
+            "急上昇動画",
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+
+    for (var i = 0; i < videoImages.length; i++) {
+      final container = Column(
+        children: [
+          Image.asset(
+            videoImages[i],
+            fit: BoxFit.contain,
+          ),
+          _buildVideoTitle(
+            videoTitles[i],
+            acountNames[i],
+            acountImages[i],
+          ),
+        ],
+      );
+      children.add(container);
+    }
+    return children;
+  }
+
+  Row _buildVideoTitle(videoTitle, acountName, acountImage) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        GestureDetector(
+          onTap: () {},
+          child: Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage(acountImage),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+            child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                videoTitle,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
+              ),
+              Text(
+                acountName,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w200,
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        )),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 30),
+          child: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.more_vert,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -92,7 +232,7 @@ class YoutubeScreen extends StatelessWidget {
           label: '検索',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_circle_outline, size: 60),
+          icon: Icon(Icons.add_circle_outline, size: 50),
           label: '',
         ),
         BottomNavigationBarItem(
