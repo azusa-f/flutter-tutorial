@@ -131,13 +131,13 @@ class YoutubeScreen extends StatelessWidget {
     List<Widget> children = [];
     children.add(
       const Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(20.0),
         child: SizedBox(
           width: double.infinity,
           child: Text(
             "急上昇動画",
             style: TextStyle(
-              fontSize: 25,
+              fontSize: 20,
               color: Colors.white,
             ),
           ),
