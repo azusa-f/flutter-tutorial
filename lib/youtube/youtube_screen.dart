@@ -13,8 +13,8 @@ class YoutubeScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              _buildcategoryButtonSection(),
-              _buildPopularMovieSection(),
+              _buildcategoryButtonSection(), //カテゴリーボタンを表示
+              _buildPopularMovieSection(), //急上昇動画を表示
             ],
           ),
         ),
@@ -164,6 +164,7 @@ class YoutubeScreen extends StatelessWidget {
     return children;
   }
 
+  //ビデオの名前などを表示させる
   Row _buildVideoTitle(videoTitle, acountName, acountImage) {
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -220,6 +221,7 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
+  //ナビゲーションバー
   BottomNavigationBar _bottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(
       items: const [
