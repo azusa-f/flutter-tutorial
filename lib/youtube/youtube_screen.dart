@@ -31,11 +31,22 @@ class YoutubeScreen extends StatelessWidget {
       ),
       title: const Text('YouTube'),
       actions: <Widget>[
-        IconButton(onPressed: () {}, icon: const Icon(Icons.cast)),
         IconButton(
-            onPressed: () {}, icon: const Icon(Icons.notifications_none)),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-        IconButton(onPressed: () {}, icon: Image.asset('images/smile.png')),
+          onPressed: () {},
+          icon: const Icon(Icons.cast),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.notifications_none),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.search),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: Image.asset('images/smile.png'),
+        ),
       ],
     );
   }
@@ -44,49 +55,47 @@ class YoutubeScreen extends StatelessWidget {
   Widget _buildCategorySection() {
     return Container(
       color: Colors.black,
-      child: SizedBox(
-        height: 210,
-        child: GridView.count(
-          childAspectRatio: 4,
-          crossAxisCount: 2,
-          children: <Widget>[
-            _buildCategoryButton(
-              const Color.fromARGB(177, 155, 38, 29),
-              Icons.local_fire_department,
-              '急上昇',
-            ),
-            _buildCategoryButton(
-              const Color.fromARGB(255, 18, 190, 124),
-              Icons.music_note,
-              '音楽',
-            ),
-            _buildCategoryButton(
-              const Color.fromARGB(255, 196, 130, 152),
-              Icons.sports_esports,
-              'ゲーム',
-            ),
-            _buildCategoryButton(
-              const Color.fromARGB(255, 36, 52, 196),
-              Icons.feed,
-              'ニュース',
-            ),
-            _buildCategoryButton(
-              const Color.fromARGB(255, 26, 143, 75),
-              Icons.school,
-              '学び',
-            ),
-            _buildCategoryButton(
-              const Color.fromARGB(255, 225, 137, 65),
-              Icons.live_tv,
-              'ライブ',
-            ),
-            _buildCategoryButton(
-              const Color.fromARGB(255, 55, 141, 194),
-              Icons.sports,
-              'スポーツ',
-            ),
-          ],
-        ),
+      height: 210,
+      child: GridView.count(
+        childAspectRatio: 4,
+        crossAxisCount: 2,
+        children: <Widget>[
+          _buildCategoryButton(
+            const Color.fromARGB(177, 155, 38, 29),
+            Icons.local_fire_department,
+            '急上昇',
+          ),
+          _buildCategoryButton(
+            const Color.fromARGB(255, 18, 190, 124),
+            Icons.music_note,
+            '音楽',
+          ),
+          _buildCategoryButton(
+            const Color.fromARGB(255, 196, 130, 152),
+            Icons.sports_esports,
+            'ゲーム',
+          ),
+          _buildCategoryButton(
+            const Color.fromARGB(255, 36, 52, 196),
+            Icons.feed,
+            'ニュース',
+          ),
+          _buildCategoryButton(
+            const Color.fromARGB(255, 26, 143, 75),
+            Icons.school,
+            '学び',
+          ),
+          _buildCategoryButton(
+            const Color.fromARGB(255, 225, 137, 65),
+            Icons.live_tv,
+            'ライブ',
+          ),
+          _buildCategoryButton(
+            const Color.fromARGB(255, 55, 141, 194),
+            Icons.sports,
+            'スポーツ',
+          ),
+        ],
       ),
     );
   }
@@ -111,11 +120,8 @@ class YoutubeScreen extends StatelessWidget {
     return Container(
       color: const Color.fromARGB(255, 39, 36, 36),
       width: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.all(0.0),
-        child: Column(
-          children: _buildVideoItems(),
-        ),
+      child: Column(
+        children: _buildVideoItems(),
       ),
     );
   }
@@ -174,16 +180,13 @@ class YoutubeScreen extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        GestureDetector(
-          onTap: () {},
-          child: Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage(acountImage),
-              ),
+        Container(
+          width: 50,
+          height: 50,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage(acountImage),
             ),
           ),
         ),
