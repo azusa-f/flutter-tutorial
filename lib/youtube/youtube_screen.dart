@@ -13,7 +13,7 @@ class YoutubeScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              _buildcategoryButtonSection(), //カテゴリーボタンを表示
+              _buildCategorySection(), //カテゴリーボタンを表示
               _buildPopularMovieSection(), //急上昇動画を表示
             ],
           ),
@@ -21,6 +21,7 @@ class YoutubeScreen extends StatelessWidget {
         bottomNavigationBar: _bottomNavigationBar(context));
   }
 
+  //appBarを表示
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.black,
@@ -39,7 +40,8 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildcategoryButtonSection() {
+  //カテゴリーボタンセクションを表示
+  Widget _buildCategorySection() {
     return Container(
       color: Colors.black,
       child: SizedBox(
@@ -48,38 +50,38 @@ class YoutubeScreen extends StatelessWidget {
           childAspectRatio: 4,
           crossAxisCount: 2,
           children: <Widget>[
-            _buildelevatedButton(
-              Color.fromARGB(177, 155, 38, 29),
+            _buildCategoryButton(
+              const Color.fromARGB(177, 155, 38, 29),
               Icons.local_fire_department,
               '急上昇',
             ),
-            _buildelevatedButton(
-              Color.fromARGB(255, 18, 190, 124),
+            _buildCategoryButton(
+              const Color.fromARGB(255, 18, 190, 124),
               Icons.music_note,
               '音楽',
             ),
-            _buildelevatedButton(
-              Color.fromARGB(255, 196, 130, 152),
+            _buildCategoryButton(
+              const Color.fromARGB(255, 196, 130, 152),
               Icons.sports_esports,
               'ゲーム',
             ),
-            _buildelevatedButton(
-              Color.fromARGB(255, 36, 52, 196),
+            _buildCategoryButton(
+              const Color.fromARGB(255, 36, 52, 196),
               Icons.feed,
               'ニュース',
             ),
-            _buildelevatedButton(
-              Color.fromARGB(255, 26, 143, 75),
+            _buildCategoryButton(
+              const Color.fromARGB(255, 26, 143, 75),
               Icons.school,
               '学び',
             ),
-            _buildelevatedButton(
-              Color.fromARGB(255, 225, 137, 65),
+            _buildCategoryButton(
+              const Color.fromARGB(255, 225, 137, 65),
               Icons.live_tv,
               'ライブ',
             ),
-            _buildelevatedButton(
-              Color.fromARGB(255, 55, 141, 194),
+            _buildCategoryButton(
+              const Color.fromARGB(255, 55, 141, 194),
               Icons.sports,
               'スポーツ',
             ),
@@ -89,7 +91,8 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildelevatedButton(Color color, IconData icon, String label) {
+  //カテゴリーボタンを作成
+  Widget _buildCategoryButton(Color color, IconData icon, String label) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: ElevatedButton.icon(
@@ -103,6 +106,7 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
+  //急上昇動画セクションを表示
   Widget _buildPopularMovieSection() {
     return Container(
       color: const Color.fromARGB(255, 39, 36, 36),
@@ -116,6 +120,7 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
+  //急上昇動画セクションに表示するアイテムを作成
   List<Widget> _buildVideoItems() {
     List<String> videoImages = ['images/charch.JPG', 'images/charch.JPG'];
     List<String> videoTitles = [
@@ -165,7 +170,7 @@ class YoutubeScreen extends StatelessWidget {
   }
 
   //ビデオの名前などを表示させる
-  Row _buildVideoTitle(videoTitle, acountName, acountImage) {
+  Widget _buildVideoTitle(videoTitle, acountName, acountImage) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
