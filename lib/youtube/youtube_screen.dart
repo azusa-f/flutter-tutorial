@@ -122,11 +122,8 @@ class YoutubeScreen extends StatelessWidget {
     return Container(
       color: const Color.fromARGB(255, 39, 36, 36),
       width: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.all(0.0),
-        child: Column(
-          children: _buildVideoItems(),
-        ),
+      child: Column(
+        children: _buildVideoItems(),
       ),
     );
   }
