@@ -13,15 +13,15 @@ class YoutubeScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              _buildCategorySection(), //カテゴリーボタンを表示
-              _buildPopularMovieSection(), //急上昇動画を表示
+              _buildCategorySection(), // カテゴリーボタンを構築
+              _buildPopularMovieSection(), // 急上昇動画を構築
             ],
           ),
         ),
-        bottomNavigationBar: _bottomNavigationBar(context));
+        bottomNavigationBar: _buildBottomNavigationBar(context));
   }
 
-  //appBarを表示
+  // appBarを構築
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.black,
@@ -31,16 +31,27 @@ class YoutubeScreen extends StatelessWidget {
       ),
       title: const Text('YouTube'),
       actions: <Widget>[
-        IconButton(onPressed: () {}, icon: const Icon(Icons.cast)),
         IconButton(
-            onPressed: () {}, icon: const Icon(Icons.notifications_none)),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-        IconButton(onPressed: () {}, icon: Image.asset('images/smile.png')),
+          onPressed: () {},
+          icon: const Icon(Icons.cast),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.notifications_none),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.search),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: Image.asset('images/smile.png'),
+        ),
       ],
     );
   }
 
-  //カテゴリーボタンセクションを表示
+  // カテゴリーボタンセクションを構築
   Widget _buildCategorySection() {
     return Container(
       color: Colors.black,
@@ -91,7 +102,7 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
-  //カテゴリーボタンを作成
+  // カテゴリーボタンを構築
   Widget _buildCategoryButton(Color color, IconData icon, String label) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
@@ -106,21 +117,18 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
-  //急上昇動画セクションを表示
+  // 急上昇動画セクションを構築
   Widget _buildPopularMovieSection() {
     return Container(
       color: const Color.fromARGB(255, 39, 36, 36),
       width: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.all(0.0),
-        child: Column(
-          children: _buildVideoItems(),
-        ),
+      child: Column(
+        children: _buildVideoItems(),
       ),
     );
   }
 
-  //急上昇動画セクションに表示するアイテムを作成
+  // 急上昇動画セクションに表示するアイテムを構築
   List<Widget> _buildVideoItems() {
     List<String> videoImages = ['images/charch.JPG', 'images/charch.JPG'];
     List<String> videoTitles = [
@@ -169,21 +177,18 @@ class YoutubeScreen extends StatelessWidget {
     return children;
   }
 
-  //ビデオの名前などを表示させる
+  // ビデオの名前などを構築
   Widget _buildVideoTitle(videoTitle, acountName, acountImage) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        GestureDetector(
-          onTap: () {},
-          child: Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage(acountImage),
-              ),
+        Container(
+          width: 50,
+          height: 50,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage(acountImage),
             ),
           ),
         ),
@@ -226,8 +231,8 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
-  //ナビゲーションバー
-  BottomNavigationBar _bottomNavigationBar(BuildContext context) {
+  // ナビゲーションバーを構築
+  BottomNavigationBar _buildBottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(
       items: const [
         BottomNavigationBarItem(
