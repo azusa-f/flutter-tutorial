@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'tutorial_1/animation_page.dart';
 import 'youtube/youtube_screen.dart';
+import 'residence/residence_screen.dart';
 
 void main() => runApp(MainApp());
 
@@ -36,6 +37,15 @@ class IndexPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => const YoutubeScreen()),
+                  );
+                }),
+            ElevatedButton(
+                child: const Text("賃貸アプリ"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ResidenceScreen()),
                   );
                 }),
           ],
