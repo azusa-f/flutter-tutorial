@@ -230,38 +230,39 @@ Widget _buildRoomInformationSection() {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Colors.black26)),
-      child: Column(children: [
-        Row(
-          children: <Widget>[
-            Expanded(
-                child: Image.network(
-                    "https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg")),
-            Expanded(
-                child: Image.network(
-                    "https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg"))
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 15),
-          child: Row(
-            children: const [
-              Text(
-                "Rising place 川崎",
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 20,
-                ),
-              )
+      child: Column(
+        children: [
+          Row(
+            children: <Widget>[
+              Expanded(
+                  child: Image.network(
+                      "https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg")),
+              Expanded(
+                  child: Image.network(
+                      "https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg"))
             ],
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 15),
-          child: Row(
-            children: const [
-              Text(
-                "2,000万円",
-                style: TextStyle(
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Row(
+              children: const [
+                Text(
+                  "Rising place 川崎",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 20,
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Row(
+              children: const [
+                Text(
+                  "2,000万円",
+                  style: TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 20,
                     color: Color.fromARGB(
@@ -269,51 +270,48 @@ Widget _buildRoomInformationSection() {
                       219,
                       73,
                       73,
-                    )),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 15),
-          child: Column(
-            children: [
-              Row(children: const [
-                Icon(Icons.train),
-                Text("test~~~~~~~~~~~~~~"),
-              ]),
-              Row(children: const [
-                Icon(Icons.dashboard),
-                Text("testtesttesttesttesttesttesttest"),
-              ]),
-              Row(children: const [
-                Icon(Icons.apartment),
-                Text("testtesttesttesttesttesttesttest"),
-              ]),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(
-                width: 150,
-                child: ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.delete,
-                    color: Color.fromARGB(
-                      213,
-                      90,
-                      86,
-                      86,
                     ),
                   ),
-                  label: const Text(
-                    "興味なし",
-                    style: TextStyle(
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Column(
+              children: [
+                Row(
+                  children: const [
+                    Icon(Icons.train),
+                    Text("test~~~~~~~~~~~~~~"),
+                  ],
+                ),
+                Row(
+                  children: const [
+                    Icon(Icons.dashboard),
+                    Text("testtesttesttesttesttesttesttest"),
+                  ],
+                ),
+                Row(
+                  children: const [
+                    Icon(Icons.apartment),
+                    Text("testtesttesttesttesttesttesttest"),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  width: 150,
+                  child: ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.delete,
                       color: Color.fromARGB(
                         213,
                         90,
@@ -321,60 +319,72 @@ Widget _buildRoomInformationSection() {
                         86,
                       ),
                     ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    side: const BorderSide(
-                      color: Color.fromARGB(
-                        66,
-                        119,
-                        114,
-                        114,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 150,
-                child: ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.favorite_border,
-                    color: Color.fromARGB(
-                      213,
-                      90,
-                      86,
-                      86,
-                    ),
-                  ),
-                  label: const Text(
-                    "お気に入り",
-                    style: TextStyle(
+                    label: const Text(
+                      "興味なし",
+                      style: TextStyle(
                         color: Color.fromARGB(
-                      213,
-                      90,
-                      86,
-                      86,
-                    )),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    side: const BorderSide(
-                      color: Color.fromARGB(
-                        66,
-                        119,
-                        114,
-                        114,
+                          213,
+                          90,
+                          86,
+                          86,
+                        ),
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      side: const BorderSide(
+                        color: Color.fromARGB(
+                          66,
+                          119,
+                          114,
+                          114,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        )
-      ]),
+                SizedBox(
+                  width: 150,
+                  child: ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.favorite_border,
+                      color: Color.fromARGB(
+                        213,
+                        90,
+                        86,
+                        86,
+                      ),
+                    ),
+                    label: const Text(
+                      "お気に入り",
+                      style: TextStyle(
+                        color: Color.fromARGB(
+                          213,
+                          90,
+                          86,
+                          86,
+                        ),
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      side: const BorderSide(
+                        color: Color.fromARGB(
+                          66,
+                          119,
+                          114,
+                          114,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     ),
   );
 }
