@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 
@@ -28,6 +25,7 @@ class ResidenceScreen extends StatelessWidget {
   }
 }
 
+// appBarを構築
 AppBar _buildAppBar(BuildContext context) {
   return AppBar(
     backgroundColor: Colors.white,
@@ -81,6 +79,7 @@ AppBar _buildAppBar(BuildContext context) {
   );
 }
 
+// おすすめ物件セクションを構築
 Widget _buildRecomendSection() {
   return Padding(
     padding: const EdgeInsets.all(13.0),
@@ -161,6 +160,7 @@ Widget _buildRecomendSection() {
   );
 }
 
+// 部屋情報一覧セクションを構築
 Widget _buildRoomInformationSection() {
   return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -273,6 +273,7 @@ Widget _buildRoomInformationSection() {
       ));
 }
 
+// ボトムナビゲーションバーを構築
 BottomNavigationBar _bottomNavigationBar(BuildContext context) {
   return BottomNavigationBar(
     items: [
