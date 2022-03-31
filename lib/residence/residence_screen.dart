@@ -1,4 +1,4 @@
-//import 'dart:ui';
+import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +18,11 @@ class ResidenceScreen extends StatelessWidget {
               for (var i = 0; i < 10; i++) _buildRoomInformationSection(),
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
+          backgroundColor: const Color.fromARGB(255, 45, 144, 174),
         ),
         bottomNavigationBar: _bottomNavigationBar(context));
   }
@@ -270,20 +275,42 @@ Widget _buildRoomInformationSection() {
 
 BottomNavigationBar _bottomNavigationBar(BuildContext context) {
   return BottomNavigationBar(
-    items: const [
-      BottomNavigationBarItem(
+    items: [
+      const BottomNavigationBarItem(
         icon: Icon(Icons.home),
         label: 'ホーム',
       ),
-      BottomNavigationBarItem(
+      const BottomNavigationBarItem(
         icon: Icon(Icons.favorite_outline_outlined),
         label: 'お気に入り',
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.chat),
+        icon: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            const Icon(Icons.chat),
+            Positioned(
+                right: -5,
+                top: -4,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.red,
+                    shape: BoxShape.circle,
+                  ),
+                  constraints:
+                      const BoxConstraints(minHeight: 15, minWidth: 15),
+                  child: const Center(
+                    child: Text(
+                      "1",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ))
+          ],
+        ),
         label: 'メッセージ',
       ),
-      BottomNavigationBarItem(
+      const BottomNavigationBarItem(
         icon: Icon(Icons.perm_identity),
         label: 'マイページ',
       ),
