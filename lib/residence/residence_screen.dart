@@ -26,7 +26,7 @@ class ResidenceScreen extends StatelessWidget {
           174,
         ),
       ),
-      bottomNavigationBar: _bottomNavigationBar(context),
+      bottomNavigationBar: _buildBottomNavigationBar(context),
     );
   }
 }
@@ -390,7 +390,7 @@ Widget _buildRoomInformationSection() {
 }
 
 // ボトムナビゲーションバーを構築
-BottomNavigationBar _bottomNavigationBar(BuildContext context) {
+BottomNavigationBar _buildBottomNavigationBar(BuildContext context) {
   return BottomNavigationBar(
     items: [
       const BottomNavigationBarItem(
