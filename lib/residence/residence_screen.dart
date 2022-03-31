@@ -11,7 +11,7 @@ class ResidenceScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              _buildRecomendSection(),
+              _buildEditConditionSection(),
               for (var i = 0; i < 10; i++) _buildRoomInformationSection(),
             ],
           ),
@@ -79,8 +79,8 @@ AppBar _buildAppBar(BuildContext context) {
   );
 }
 
-// おすすめ物件セクションを構築
-Widget _buildRecomendSection() {
+// 条件設定セクションを構築
+Widget _buildEditConditionSection() {
   return Padding(
     padding: const EdgeInsets.all(13.0),
     child: Container(
