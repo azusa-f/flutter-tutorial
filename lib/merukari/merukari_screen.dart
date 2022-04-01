@@ -26,6 +26,7 @@ class MerikariScreen extends StatelessWidget {
     );
   }
 
+  // appBarを構築
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
@@ -40,6 +41,7 @@ class MerikariScreen extends StatelessWidget {
     );
   }
 
+  // 出品ガイドセクションを構築
   Widget _buildGuideSection() {
     return Container(
       color: const Color.fromARGB(
@@ -87,6 +89,7 @@ class MerikariScreen extends StatelessWidget {
     );
   }
 
+  // 出品ボタンを構築
   Widget _buildListingButton(listingIcon, listingText) {
     return SizedBox(
       height: 90,
@@ -116,6 +119,7 @@ class MerikariScreen extends StatelessWidget {
     );
   }
 
+  // 売れやすい物一覧セクションを構築
   Widget _buildPopularArticlesSection() {
     const popularArticleNum = 10;
     return Column(
@@ -155,6 +159,7 @@ class MerikariScreen extends StatelessWidget {
     );
   }
 
+  // 売れやすいもの一覧を構築
   Widget _buildPopularArticle() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -208,6 +213,7 @@ class MerikariScreen extends StatelessWidget {
     );
   }
 
+  //ボトムナビゲーションバーを構築
   BottomNavigationBar _buildBottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(
       items: [
