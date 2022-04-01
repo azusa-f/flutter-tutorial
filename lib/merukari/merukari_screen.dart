@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MerikariScreen extends StatelessWidget {
@@ -13,18 +10,20 @@ class MerikariScreen extends StatelessWidget {
     return Scaffold(
       appBar: _buildAppBar(context),
       body: SingleChildScrollView(
-          child: Column(
-        children: [
-          _buildGuideSection(),
-          _buildPopularArticlesSection(),
-        ],
-      )),
+        child: Column(
+          children: [
+            _buildGuideSection(),
+            _buildPopularArticlesSection(),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.camera_alt),
+        backgroundColor: Colors.red,
+      ),
       bottomNavigationBar: _buildBottomNavigationBar(context),
     );
-  }
-
-  Widget _buildPopularArticlesSection() {
-    return Container();
   }
 
   AppBar _buildAppBar(BuildContext context) {
@@ -88,7 +87,7 @@ class MerikariScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildListingButton(ListingIcon, ListingText) {
+  Widget _buildListingButton(listingIcon, listingText) {
     return SizedBox(
       height: 90,
       width: 80,
@@ -99,20 +98,112 @@ class MerikariScreen extends StatelessWidget {
           color: Colors.white,
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 16),
           child: Column(
             children: [
               Icon(
-                ListingIcon,
+                listingIcon,
                 size: 40,
               ),
               Text(
-                ListingText,
-                style: TextStyle(fontSize: 10),
+                listingText,
+                style: const TextStyle(fontSize: 10),
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildPopularArticlesSection() {
+    const popularArticleNum = 10;
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.all(15.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      "売れやすい持ち物",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text("使わないモノを出品してみよう！"),
+                  ],
+                ),
+              ),
+              const Text(
+                "すべて見る＞",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.blue,
+                ),
+              ),
+            ],
+          ),
+        ),
+        _buildPopularArticle(),
+        for (var i = 0; i < popularArticleNum; i++) _buildPopularArticle(),
+      ],
+    );
+  }
+
+  Widget _buildPopularArticle() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              SizedBox(
+                width: 70,
+                height: 70,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    'https://arinkosan.net/wp-content/uploads/2019/01/cafe-camera-classic-413960-e1547616175240.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const Text("カメラ〜カメラ〜〜カメラ"),
+                    const Text("¥5555.0"),
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.local_fire_department,
+                          color: Colors.blue,
+                          size: 20,
+                        ),
+                        Text("8000人が探しています"),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const Spacer(),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text("出品する"),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }
