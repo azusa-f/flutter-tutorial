@@ -6,13 +6,15 @@ class ResidenceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const roomInformationNum = 10;
     return Scaffold(
       appBar: _buildAppBar(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
             _buildEditConditionSection(),
-            for (var i = 0; i < 10; i++) _buildRoomInformationSection(),
+            for (var i = 0; i < roomInformationNum; i++)
+              _buildRoomInformationSection(),
           ],
         ),
       ),
@@ -154,9 +156,7 @@ Widget _buildEditConditionSection() {
                   fontSize: 17,
                 ),
               ),
-              SizedBox(
-                width: 80,
-              ),
+              Spacer(),
               Text(
                 "編集",
                 style: TextStyle(
@@ -207,10 +207,12 @@ Widget _buildEditConditionSection() {
                         Text("下限なし〜2,000万円"),
                       ],
                     ),
-                    Row(children: const [
-                      Icon(Icons.info),
-                      Text("1R~4LDK / 10㎡以上 / 徒歩20分"),
-                    ]),
+                    Row(
+                      children: const [
+                        Icon(Icons.info),
+                        Text("1R~4LDK / 10㎡以上 / 徒歩20分"),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -228,52 +230,48 @@ Widget _buildRoomInformationSection() {
     padding: const EdgeInsets.all(8.0),
     child: Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.black26)),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.black26),
+      ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: <Widget>[
               Expanded(
-                  child: Image.network(
-                      "https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg")),
+                child: Image.network(
+                    "https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg"),
+              ),
               Expanded(
-                  child: Image.network(
-                      "https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg"))
+                child: Image.network(
+                    "https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg"),
+              )
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Row(
-              children: const [
-                Text(
-                  "Rising place 川崎",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 20,
-                  ),
-                )
-              ],
+          const Padding(
+            padding: EdgeInsets.only(left: 15),
+            child: Text(
+              "Rising place 川崎",
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                fontSize: 20,
+              ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Row(
-              children: const [
-                Text(
-                  "2,000万円",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 20,
-                    color: Color.fromARGB(
-                      255,
-                      219,
-                      73,
-                      73,
-                    ),
-                  ),
+          const Padding(
+            padding: EdgeInsets.only(left: 15),
+            child: Text(
+              "2,000万円",
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                fontSize: 20,
+                color: Color.fromARGB(
+                  255,
+                  219,
+                  73,
+                  73,
                 ),
-              ],
+              ),
             ),
           ),
           Padding(
