@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MerikariScreen extends StatelessWidget {
-  const MerikariScreen({Key? key}) : super(key: key);
-
-  get child => null;
+class MerukariScreen extends StatelessWidget {
+  const MerukariScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,32 +48,29 @@ class MerikariScreen extends StatelessWidget {
         188,
         188,
       ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Image.network(
-                'https://about.mercari.com/images/about-us-mv.webp'),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Row(
-              children: const [
-                Text(
-                  "出品へのショートカット",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 58, 52, 52),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            Image.network('https://about.mercari.com/images/about-us-mv.webp'),
+            SizedBox(
+              height: 60,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Text(
+                    "出品へのショートカット",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 58, 52, 52),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _buildListingButton(Icons.photo_camera, "写真を撮る"),
                 _buildListingButton(Icons.photo_library, "アルバム"),
@@ -83,8 +78,8 @@ class MerikariScreen extends StatelessWidget {
                 _buildListingButton(Icons.edit_note, "下書き一覧"),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -153,7 +148,6 @@ class MerikariScreen extends StatelessWidget {
             ],
           ),
         ),
-        _buildPopularArticle(),
         for (var i = 0; i < popularArticleNum; i++) _buildPopularArticle(),
       ],
     );
