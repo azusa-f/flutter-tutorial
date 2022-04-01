@@ -86,29 +86,27 @@ class MerukariScreen extends StatelessWidget {
 
   // 出品ボタンを構築
   Widget _buildListingButton(listingIcon, listingText) {
-    return SizedBox(
+    return Container(
       height: 90,
       width: 80,
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.white),
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 16),
-          child: Column(
-            children: [
-              Icon(
-                listingIcon,
-                size: 40,
-              ),
-              Text(
-                listingText,
-                style: const TextStyle(fontSize: 10),
-              ),
-            ],
-          ),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.white),
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 16),
+        child: Column(
+          children: [
+            Icon(
+              listingIcon,
+              size: 40,
+            ),
+            Text(
+              listingText,
+              style: const TextStyle(fontSize: 10),
+            ),
+          ],
         ),
       ),
     );
