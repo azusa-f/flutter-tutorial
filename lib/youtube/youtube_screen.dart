@@ -59,37 +59,72 @@ class YoutubeScreen extends StatelessWidget {
           crossAxisCount: 2,
           children: <Widget>[
             _buildCategoryButton(
-              const Color.fromARGB(177, 155, 38, 29),
+              const Color.fromARGB(
+                177,
+                155,
+                38,
+                29,
+              ),
               Icons.local_fire_department,
               '急上昇',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 18, 190, 124),
+              const Color.fromARGB(
+                255,
+                18,
+                190,
+                124,
+              ),
               Icons.music_note,
               '音楽',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 196, 130, 152),
+              const Color.fromARGB(
+                255,
+                196,
+                130,
+                152,
+              ),
               Icons.sports_esports,
               'ゲーム',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 36, 52, 196),
+              const Color.fromARGB(
+                255,
+                36,
+                52,
+                196,
+              ),
               Icons.feed,
               'ニュース',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 26, 143, 75),
+              const Color.fromARGB(
+                255,
+                26,
+                143,
+                75,
+              ),
               Icons.school,
               '学び',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 225, 137, 65),
+              const Color.fromARGB(
+                255,
+                225,
+                137,
+                65,
+              ),
               Icons.live_tv,
               'ライブ',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 55, 141, 194),
+              const Color.fromARGB(
+                255,
+                55,
+                141,
+                194,
+              ),
               Icons.sports,
               'スポーツ',
             ),
@@ -104,20 +139,26 @@ class YoutubeScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: ElevatedButton.icon(
-          onPressed: () {},
-          icon: Icon(icon),
-          label: Text(label),
-          style: ElevatedButton.styleFrom(
-            primary: color,
-            alignment: Alignment.centerLeft,
-          )),
+        onPressed: () {},
+        icon: Icon(icon),
+        label: Text(label),
+        style: ElevatedButton.styleFrom(
+          primary: color,
+          alignment: Alignment.centerLeft,
+        ),
+      ),
     );
   }
 
   // 急上昇動画セクションを構築
   Widget _buildPopularMovieSection() {
     return Container(
-      color: const Color.fromARGB(255, 39, 36, 36),
+      color: const Color.fromARGB(
+        255,
+        39,
+        36,
+        36,
+      ),
       width: double.infinity,
       child: Column(
         children: _buildVideoItems(),
@@ -200,30 +241,31 @@ class YoutubeScreen extends StatelessWidget {
           ),
         ),
         Expanded(
-            child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                videoTitle,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                  color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  videoTitle,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              Text(
-                acountName,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w200,
-                  fontSize: 16,
-                  color: Colors.white,
+                Text(
+                  acountName,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w200,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        )),
+        ),
         Padding(
           padding: const EdgeInsets.only(bottom: 30),
           child: IconButton(
