@@ -1,10 +1,7 @@
-import 'dart:ui';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class YoutubeScreen extends StatelessWidget {
-  const YoutubeScreen({Key? key}) : super(key: key);
+  YoutubeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -128,19 +125,29 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
+  final List<MovieInfo> _createDummyData = [
+    MovieInfo(
+      imagePath: 'images/charch.JPG',
+      iconPath: 'images/icons/pooh.png',
+      title: 'test~~~~test~~~~test~~~~test~~~~test~~~',
+      subTitle: 'donadona_pooh',
+    ),
+    MovieInfo(
+      imagePath: 'images/charch.JPG',
+      iconPath: 'images/icons/pooh_2.jpeg',
+      title: 'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~',
+      subTitle: 'kawaii_pooh',
+    ),
+    MovieInfo(
+      imagePath: 'images/charch.JPG',
+      iconPath: 'images/icons/pooh_2.jpeg',
+      title: 'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~',
+      subTitle: 'kawaii_pooh',
+    ),
+  ];
+
   // 急上昇動画セクションに表示するアイテムを構築
   List<Widget> _buildVideoItems() {
-    List<String> videoImages = ['images/charch.JPG', 'images/charch.JPG'];
-    List<String> videoTitles = [
-      'test~~~~test~~~~test~~~~test~~~~test~~~',
-      'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~'
-    ];
-    List<String> acountNames = ['donadona_pooh', 'kawaii_pooh'];
-    List<String> acountImages = [
-      'images/icons/pooh.png',
-      'images/icons/pooh_2.jpeg'
-    ];
-
     List<Widget> children = [];
     children.add(
       const Padding(
@@ -158,17 +165,17 @@ class YoutubeScreen extends StatelessWidget {
       ),
     );
 
-    for (var i = 0; i < videoImages.length; i++) {
+    for (var i = 0; i < _createDummyData.length; i++) {
       final container = Column(
         children: [
           Image.asset(
-            videoImages[i],
+            _createDummyData[i].imagePath,
             fit: BoxFit.contain,
           ),
           _buildVideoTitle(
-            videoTitles[i],
-            acountNames[i],
-            acountImages[i],
+            _createDummyData[i].title,
+            _createDummyData[i].subTitle,
+            _createDummyData[i].iconPath,
           ),
         ],
       );
@@ -264,4 +271,18 @@ class YoutubeScreen extends StatelessWidget {
       backgroundColor: Colors.black,
     );
   }
+}
+
+class MovieInfo {
+  final String imagePath;
+  final String iconPath;
+  final String title;
+  final String subTitle;
+
+  MovieInfo({
+    required this.imagePath,
+    required this.iconPath,
+    required this.title,
+    required this.subTitle,
+  });
 }
