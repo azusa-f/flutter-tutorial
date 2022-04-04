@@ -11,7 +11,7 @@ class ResidenceScreen extends StatelessWidget {
     174,
   );
 
-  static const Color residenceBackGroundColor = Color.fromARGB(
+  static const Color residenceBackgroundColor = Color.fromARGB(
     161,
     172,
     175,
@@ -141,7 +141,7 @@ class ResidenceScreen extends StatelessWidget {
     );
   }
 
-// 条件設定セクションを構築
+  // 条件設定セクションを構築
   Widget _buildEditConditionSection() {
     return Padding(
       padding: const EdgeInsets.all(13.0),
@@ -234,7 +234,7 @@ class ResidenceScreen extends StatelessWidget {
     );
   }
 
-// 部屋情報一覧セクションを構築
+  // 部屋情報一覧セクションを構築
   Widget _buildRoomInformationSection(residenceData) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -365,7 +365,7 @@ class ResidenceScreen extends StatelessWidget {
     );
   }
 
-// ボトムナビゲーションバーを構築
+  // ボトムナビゲーションバーを構築
   BottomNavigationBar _buildBottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(
       items: [
