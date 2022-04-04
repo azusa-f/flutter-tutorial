@@ -35,6 +35,16 @@ class ResidenceScreen extends StatelessWidget {
       roomInformation: 'test情報',
       buildingInformation: '西向き',
     ),
+    RoomInfo(
+      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
+      floorImagePath:
+          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
+      buildingName: 'Rising place 川崎',
+      residencePrice: '2,000万円',
+      nearesetStation: 'test駅徒歩３分',
+      roomInformation: 'test情報',
+      buildingInformation: '西向き',
+    ),
   ];
 
   @override
