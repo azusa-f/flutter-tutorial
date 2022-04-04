@@ -104,7 +104,7 @@ class ResidenceScreen extends StatelessWidget {
                 ),
               ),
               style: ElevatedButton.styleFrom(
-                primary: residenceBackGroundColor,
+                primary: residenceBackgroundColor,
                 shape: const StadiumBorder(),
               ),
               onPressed: () {},
@@ -123,7 +123,7 @@ class ResidenceScreen extends StatelessWidget {
                 ),
               ),
               style: ElevatedButton.styleFrom(
-                primary: residenceBackGroundColor,
+                primary: residenceBackgroundColor,
                 shape: const StadiumBorder(),
               ),
               onPressed: () {},
@@ -318,18 +318,18 @@ class ResidenceScreen extends StatelessWidget {
                       onPressed: () {},
                       icon: const Icon(
                         Icons.delete,
-                        color: residenceBackGroundColor,
+                        color: residenceBackgroundColor,
                       ),
                       label: const Text(
                         "興味なし",
                         style: TextStyle(
-                          color: residenceBackGroundColor,
+                          color: residenceBackgroundColor,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white,
                         side: const BorderSide(
-                          color: residenceBackGroundColor,
+                          color: residenceBackgroundColor,
                         ),
                       ),
                     ),
@@ -340,18 +340,18 @@ class ResidenceScreen extends StatelessWidget {
                       onPressed: () {},
                       icon: const Icon(
                         Icons.favorite_border,
-                        color: residenceBackGroundColor,
+                        color: residenceBackgroundColor,
                       ),
                       label: const Text(
                         "お気に入り",
                         style: TextStyle(
-                          color: residenceBackGroundColor,
+                          color: residenceBackgroundColor,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white,
                         side: const BorderSide(
-                          color: residenceBackGroundColor,
+                          color: residenceBackgroundColor,
                         ),
                       ),
                     ),
@@ -410,7 +410,7 @@ class ResidenceScreen extends StatelessWidget {
         ),
       ],
       selectedItemColor: residenceMainColor,
-      unselectedItemColor: residenceBackGroundColor,
+      unselectedItemColor: residenceBackgroundColor,
       type: BottomNavigationBarType.fixed,
     );
   }
