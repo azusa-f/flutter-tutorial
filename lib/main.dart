@@ -68,6 +68,16 @@ class IndexPage extends StatelessWidget {
                     ),
                   );
                 }),
+            ElevatedButton(
+                child: const Text("Async"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MerukariScreen(),
+                    ),
+                  );
+                }),
           ],
         )));
   }
