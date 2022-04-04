@@ -183,7 +183,7 @@ class MerukariScreen extends StatelessWidget {
   }
 
   // 売れやすいもの一覧を構築
-  Widget _buildPopularArticle(articleData) {
+  Widget _buildPopularArticle(PopulaArticleInfo articleData) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
