@@ -1,7 +1,38 @@
 import 'package:flutter/material.dart';
 
 class MerukariScreen extends StatelessWidget {
-  const MerukariScreen({Key? key}) : super(key: key);
+  MerukariScreen({Key? key}) : super(key: key);
+
+  final List<PopulaArticleInfo> _dummyArticleData = [
+    PopulaArticleInfo(
+      imagePath:
+          'https://tshop.r10s.jp/goodgoodsshop/cabinet/07493463/08669315/new.jpg?fitin=720%3A720',
+      articleName: 'カメラ',
+      articlePrice: '¥50000',
+      articleInformation: '20人が探しています',
+    ),
+    PopulaArticleInfo(
+      imagePath:
+          'https://network.mobile.rakuten.co.jp/assets/img/product/iphone/iphone-13/pht-device-20.png?220309-01',
+      articleName: 'iphone',
+      articlePrice: '¥100000',
+      articleInformation: '500人が探しています',
+    ),
+    PopulaArticleInfo(
+      imagePath:
+          'https://tshop.r10s.jp/goodgoodsshop/cabinet/07493463/08669315/new.jpg?fitin=720%3A720',
+      articleName: 'カメラ',
+      articlePrice: '¥50000',
+      articleInformation: '20人が探しています',
+    ),
+    PopulaArticleInfo(
+      imagePath:
+          'https://network.mobile.rakuten.co.jp/assets/img/product/iphone/iphone-13/pht-device-20.png?220309-01',
+      articleName: 'iphone',
+      articlePrice: '¥100000',
+      articleInformation: '500人が探しています',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +145,6 @@ class MerukariScreen extends StatelessWidget {
 
   // 売れやすい物一覧セクションを構築
   Widget _buildPopularArticlesSection() {
-    const popularArticleNum = 10;
     return Column(
       children: [
         Container(
@@ -146,13 +176,14 @@ class MerukariScreen extends StatelessWidget {
             ],
           ),
         ),
-        for (var i = 0; i < popularArticleNum; i++) _buildPopularArticle(),
+        for (var i = 0; i < _dummyArticleData.length; i++)
+          _buildPopularArticle(_dummyArticleData[i]),
       ],
     );
   }
 
   // 売れやすいもの一覧を構築
-  Widget _buildPopularArticle() {
+  Widget _buildPopularArticle(PopulaArticleInfo articleData) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -165,7 +196,7 @@ class MerukariScreen extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.network(
-                    'https://arinkosan.net/wp-content/uploads/2019/01/cafe-camera-classic-413960-e1547616175240.jpg',
+                    articleData.imagePath,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -175,16 +206,16 @@ class MerukariScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Text("カメラ〜カメラ〜〜カメラ"),
-                    const Text("¥5555.0"),
+                    Text(articleData.articleName),
+                    Text(articleData.articlePrice),
                     Row(
-                      children: const [
-                        Icon(
+                      children: [
+                        const Icon(
                           Icons.local_fire_department,
                           color: Colors.blue,
                           size: 20,
                         ),
-                        Text("8000人が探しています"),
+                        Text(articleData.articleInformation),
                       ],
                     ),
                   ],
@@ -256,4 +287,18 @@ class MerukariScreen extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
     );
   }
+}
+
+class PopulaArticleInfo {
+  final String imagePath;
+  final String articleName;
+  final String articlePrice;
+  final String articleInformation;
+
+  PopulaArticleInfo({
+    required this.imagePath,
+    required this.articleName,
+    required this.articlePrice,
+    required this.articleInformation,
+  });
 }
