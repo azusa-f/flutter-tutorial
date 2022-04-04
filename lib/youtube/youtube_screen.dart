@@ -1,10 +1,28 @@
-import 'dart:ui';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class YoutubeScreen extends StatelessWidget {
-  const YoutubeScreen({Key? key}) : super(key: key);
+  YoutubeScreen({Key? key}) : super(key: key);
+
+  final List<MovieInfo> _dummyMovieData = [
+    MovieInfo(
+      imagePath: 'images/charch.JPG',
+      iconPath: 'images/icons/pooh.png',
+      title: 'test~~~~test~~~~test~~~~test~~~~test~~~',
+      subTitle: 'donadona_pooh',
+    ),
+    MovieInfo(
+      imagePath: 'images/charch.JPG',
+      iconPath: 'images/icons/pooh_2.jpeg',
+      title: 'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~',
+      subTitle: 'kawaii_pooh',
+    ),
+    MovieInfo(
+      imagePath: 'images/charch.JPG',
+      iconPath: 'images/icons/pooh_2.jpeg',
+      title: 'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~',
+      subTitle: 'kawaii_pooh',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -62,37 +80,72 @@ class YoutubeScreen extends StatelessWidget {
           crossAxisCount: 2,
           children: <Widget>[
             _buildCategoryButton(
-              const Color.fromARGB(177, 155, 38, 29),
+              const Color.fromARGB(
+                177,
+                155,
+                38,
+                29,
+              ),
               Icons.local_fire_department,
               '急上昇',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 18, 190, 124),
+              const Color.fromARGB(
+                255,
+                18,
+                190,
+                124,
+              ),
               Icons.music_note,
               '音楽',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 196, 130, 152),
+              const Color.fromARGB(
+                255,
+                196,
+                130,
+                152,
+              ),
               Icons.sports_esports,
               'ゲーム',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 36, 52, 196),
+              const Color.fromARGB(
+                255,
+                36,
+                52,
+                196,
+              ),
               Icons.feed,
               'ニュース',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 26, 143, 75),
+              const Color.fromARGB(
+                255,
+                26,
+                143,
+                75,
+              ),
               Icons.school,
               '学び',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 225, 137, 65),
+              const Color.fromARGB(
+                255,
+                225,
+                137,
+                65,
+              ),
               Icons.live_tv,
               'ライブ',
             ),
             _buildCategoryButton(
-              const Color.fromARGB(255, 55, 141, 194),
+              const Color.fromARGB(
+                255,
+                55,
+                141,
+                194,
+              ),
               Icons.sports,
               'スポーツ',
             ),
@@ -107,20 +160,26 @@ class YoutubeScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: ElevatedButton.icon(
-          onPressed: () {},
-          icon: Icon(icon),
-          label: Text(label),
-          style: ElevatedButton.styleFrom(
-            primary: color,
-            alignment: Alignment.centerLeft,
-          )),
+        onPressed: () {},
+        icon: Icon(icon),
+        label: Text(label),
+        style: ElevatedButton.styleFrom(
+          primary: color,
+          alignment: Alignment.centerLeft,
+        ),
+      ),
     );
   }
 
   // 急上昇動画セクションを構築
   Widget _buildPopularMovieSection() {
     return Container(
-      color: const Color.fromARGB(255, 39, 36, 36),
+      color: const Color.fromARGB(
+        255,
+        39,
+        36,
+        36,
+      ),
       width: double.infinity,
       child: Column(
         children: _buildVideoItems(),
@@ -130,17 +189,6 @@ class YoutubeScreen extends StatelessWidget {
 
   // 急上昇動画セクションに表示するアイテムを構築
   List<Widget> _buildVideoItems() {
-    List<String> videoImages = ['images/charch.JPG', 'images/charch.JPG'];
-    List<String> videoTitles = [
-      'test~~~~test~~~~test~~~~test~~~~test~~~',
-      'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~'
-    ];
-    List<String> acountNames = ['donadona_pooh', 'kawaii_pooh'];
-    List<String> acountImages = [
-      'images/icons/pooh.png',
-      'images/icons/pooh_2.jpeg'
-    ];
-
     List<Widget> children = [];
     children.add(
       const Padding(
@@ -158,17 +206,17 @@ class YoutubeScreen extends StatelessWidget {
       ),
     );
 
-    for (var i = 0; i < videoImages.length; i++) {
+    for (var i = 0; i < _dummyMovieData.length; i++) {
       final container = Column(
         children: [
           Image.asset(
-            videoImages[i],
+            _dummyMovieData[i].imagePath,
             fit: BoxFit.contain,
           ),
           _buildVideoTitle(
-            videoTitles[i],
-            acountNames[i],
-            acountImages[i],
+            _dummyMovieData[i].title,
+            _dummyMovieData[i].subTitle,
+            _dummyMovieData[i].iconPath,
           ),
         ],
       );
@@ -193,30 +241,31 @@ class YoutubeScreen extends StatelessWidget {
           ),
         ),
         Expanded(
-            child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                videoTitle,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                  color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  videoTitle,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              Text(
-                acountName,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w200,
-                  fontSize: 16,
-                  color: Colors.white,
+                Text(
+                  acountName,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w200,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        )),
+        ),
         Padding(
           padding: const EdgeInsets.only(bottom: 30),
           child: IconButton(
@@ -264,4 +313,18 @@ class YoutubeScreen extends StatelessWidget {
       backgroundColor: Colors.black,
     );
   }
+}
+
+class MovieInfo {
+  final String imagePath;
+  final String iconPath;
+  final String title;
+  final String subTitle;
+
+  MovieInfo({
+    required this.imagePath,
+    required this.iconPath,
+    required this.title,
+    required this.subTitle,
+  });
 }
