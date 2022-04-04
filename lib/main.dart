@@ -54,7 +54,7 @@ class IndexPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ResidenceScreen(),
+                      builder: (context) => ResidenceScreen(),
                     ),
                   );
                 }),
@@ -64,7 +64,7 @@ class IndexPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MerukariScreen(),
+                      builder: (context) => MerukariScreen(),
                     ),
                   );
                 }),
