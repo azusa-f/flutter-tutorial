@@ -21,12 +21,7 @@ class ResidenceScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.add),
-        backgroundColor: const Color.fromARGB(
-          255,
-          45,
-          144,
-          174,
-        ),
+        backgroundColor: residenceMainColor,
       ),
       bottomNavigationBar: _buildBottomNavigationBar(context),
     );
@@ -40,12 +35,7 @@ AppBar _buildAppBar(BuildContext context) {
     leading: IconButton(
       icon: const Icon(Icons.arrow_back_ios),
       onPressed: () {},
-      color: const Color.fromARGB(
-        255,
-        45,
-        144,
-        174,
-      ),
+      color: residenceMainColor,
     ),
     title: Row(
       children: [
@@ -55,21 +45,11 @@ AppBar _buildAppBar(BuildContext context) {
             child: const Text(
               "おすすめ",
               style: TextStyle(
-                color: Color.fromARGB(
-                  255,
-                  45,
-                  144,
-                  174,
-                ),
+                color: residenceMainColor,
               ),
             ),
             style: ElevatedButton.styleFrom(
-              primary: const Color.fromARGB(
-                161,
-                172,
-                175,
-                182,
-              ),
+              primary: residencebackGroundColor,
               shape: const StadiumBorder(),
             ),
             onPressed: () {},
@@ -84,21 +64,11 @@ AppBar _buildAppBar(BuildContext context) {
             child: const Text(
               "リフォーム",
               style: TextStyle(
-                color: Color.fromARGB(
-                  255,
-                  45,
-                  144,
-                  174,
-                ),
+                color: residenceMainColor,
               ),
             ),
             style: ElevatedButton.styleFrom(
-              primary: const Color.fromARGB(
-                161,
-                172,
-                175,
-                182,
-              ),
+              primary: residencebackGroundColor,
               shape: const StadiumBorder(),
             ),
             onPressed: () {},
@@ -110,12 +80,7 @@ AppBar _buildAppBar(BuildContext context) {
       IconButton(
         onPressed: () {},
         icon: const Icon(Icons.add_circle),
-        color: const Color.fromARGB(
-          255,
-          45,
-          144,
-          174,
-        ),
+        color: residenceMainColor,
       ),
     ],
   );
@@ -160,22 +125,12 @@ Widget _buildEditConditionSection() {
               Text(
                 "編集",
                 style: TextStyle(
-                  color: Color.fromARGB(
-                    255,
-                    45,
-                    144,
-                    174,
-                  ),
+                  color: residenceMainColor,
                 ),
               ),
               Icon(
                 Icons.edit,
-                color: Color.fromARGB(
-                  255,
-                  45,
-                  144,
-                  174,
-                ),
+                color: residenceMainColor,
               )
             ],
           ),
@@ -310,33 +265,18 @@ Widget _buildRoomInformationSection() {
                     onPressed: () {},
                     icon: const Icon(
                       Icons.delete,
-                      color: Color.fromARGB(
-                        213,
-                        90,
-                        86,
-                        86,
-                      ),
+                      color: residencebackGroundColor,
                     ),
                     label: const Text(
                       "興味なし",
                       style: TextStyle(
-                        color: Color.fromARGB(
-                          213,
-                          90,
-                          86,
-                          86,
-                        ),
+                        color: residencebackGroundColor,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
                       primary: Colors.white,
                       side: const BorderSide(
-                        color: Color.fromARGB(
-                          66,
-                          119,
-                          114,
-                          114,
-                        ),
+                        color: residencebackGroundColor,
                       ),
                     ),
                   ),
@@ -347,33 +287,18 @@ Widget _buildRoomInformationSection() {
                     onPressed: () {},
                     icon: const Icon(
                       Icons.favorite_border,
-                      color: Color.fromARGB(
-                        213,
-                        90,
-                        86,
-                        86,
-                      ),
+                      color: residencebackGroundColor,
                     ),
                     label: const Text(
                       "お気に入り",
                       style: TextStyle(
-                        color: Color.fromARGB(
-                          213,
-                          90,
-                          86,
-                          86,
-                        ),
+                        color: residencebackGroundColor,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
                       primary: Colors.white,
                       side: const BorderSide(
-                        color: Color.fromARGB(
-                          66,
-                          119,
-                          114,
-                          114,
-                        ),
+                        color: residencebackGroundColor,
                       ),
                     ),
                   ),
@@ -430,18 +355,22 @@ BottomNavigationBar _buildBottomNavigationBar(BuildContext context) {
         label: 'マイページ',
       ),
     ],
-    selectedItemColor: const Color.fromARGB(
-      255,
-      45,
-      144,
-      174,
-    ),
-    unselectedItemColor: const Color.fromARGB(
-      161,
-      172,
-      175,
-      182,
-    ),
+    selectedItemColor: residenceMainColor,
+    unselectedItemColor: residencebackGroundColor,
     type: BottomNavigationBarType.fixed,
   );
 }
+
+const Color residenceMainColor = Color.fromARGB(
+  255,
+  45,
+  144,
+  174,
+);
+
+const Color residencebackGroundColor = Color.fromARGB(
+  161,
+  172,
+  175,
+  182,
+);

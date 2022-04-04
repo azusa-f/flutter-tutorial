@@ -44,7 +44,7 @@ class IndexPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const YoutubeScreen(),
+                      builder: (context) => YoutubeScreen(),
                     ),
                   );
                 }),
