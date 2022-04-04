@@ -2,19 +2,59 @@ import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 
 class ResidenceScreen extends StatelessWidget {
-  const ResidenceScreen({Key? key}) : super(key: key);
+  ResidenceScreen({Key? key}) : super(key: key);
+
+  final List<RoomInfo> _createDummyData = [
+    RoomInfo(
+      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
+      floorImagePath:
+          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
+      buildingName: 'Rising place 川崎',
+      residencePrice: '2,000万円',
+      nearesetStation: 'test駅徒歩３分',
+      roomInformation: 'test情報',
+      buildingInformation: '西向き',
+    ),
+    RoomInfo(
+      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
+      floorImagePath:
+          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
+      buildingName: 'Rising place 川崎',
+      residencePrice: '2,000万円',
+      nearesetStation: 'test駅徒歩３分',
+      roomInformation: 'test情報',
+      buildingInformation: '西向き',
+    ),
+    RoomInfo(
+      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
+      floorImagePath:
+          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
+      buildingName: 'Rising place 川崎',
+      residencePrice: '2,000万円',
+      nearesetStation: 'test駅徒歩３分',
+      roomInformation: 'test情報',
+      buildingInformation: '西向き',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    const roomInformationNum = 10;
     return Scaffold(
       appBar: _buildAppBar(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
             _buildEditConditionSection(),
-            for (var i = 0; i < roomInformationNum; i++)
-              _buildRoomInformationSection(),
+            for (var i = 0; i < _createDummyData.length; i++)
+              _buildRoomInformationSection(
+                _createDummyData[i].imagePath,
+                _createDummyData[i].floorImagePath,
+                _createDummyData[i].buildingName,
+                _createDummyData[i].residencePrice,
+                _createDummyData[i].nearesetStation,
+                _createDummyData[i].roomInformation,
+                _createDummyData[i].buildingInformation,
+              ),
           ],
         ),
       ),
@@ -180,7 +220,15 @@ Widget _buildEditConditionSection() {
 }
 
 // 部屋情報一覧セクションを構築
-Widget _buildRoomInformationSection() {
+Widget _buildRoomInformationSection(
+  imagePath,
+  floorImagePath,
+  buildingName,
+  residencePrice,
+  nearestStation,
+  roomInformarion,
+  buildingInformation,
+) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Container(
@@ -194,30 +242,28 @@ Widget _buildRoomInformationSection() {
           Row(
             children: <Widget>[
               Expanded(
-                child: Image.network(
-                    "https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg"),
+                child: Image.network(imagePath),
               ),
               Expanded(
-                child: Image.network(
-                    "https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg"),
+                child: Image.network(floorImagePath),
               )
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 15),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
             child: Text(
-              "Rising place 川崎",
-              style: TextStyle(
+              buildingName,
+              style: const TextStyle(
                 fontWeight: FontWeight.w800,
                 fontSize: 20,
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 15),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
             child: Text(
-              "2,000万円",
-              style: TextStyle(
+              residencePrice,
+              style: const TextStyle(
                 fontWeight: FontWeight.w800,
                 fontSize: 20,
                 color: Color.fromARGB(
@@ -234,21 +280,21 @@ Widget _buildRoomInformationSection() {
             child: Column(
               children: [
                 Row(
-                  children: const [
-                    Icon(Icons.train),
-                    Text("test~~~~~~~~~~~~~~"),
+                  children: [
+                    const Icon(Icons.train),
+                    Text(nearestStation),
                   ],
                 ),
                 Row(
-                  children: const [
-                    Icon(Icons.dashboard),
-                    Text("testtesttesttesttesttesttesttest"),
+                  children: [
+                    const Icon(Icons.dashboard),
+                    Text(roomInformarion),
                   ],
                 ),
                 Row(
-                  children: const [
-                    Icon(Icons.apartment),
-                    Text("testtesttesttesttesttesttesttest"),
+                  children: [
+                    const Icon(Icons.apartment),
+                    Text(buildingInformation),
                   ],
                 ),
               ],
@@ -374,3 +420,23 @@ const Color residencebackGroundColor = Color.fromARGB(
   175,
   182,
 );
+
+class RoomInfo {
+  final String imagePath;
+  final String floorImagePath;
+  final String buildingName;
+  final String residencePrice;
+  final String nearesetStation;
+  final String roomInformation;
+  final String buildingInformation;
+
+  RoomInfo({
+    required this.imagePath,
+    required this.floorImagePath,
+    required this.buildingName,
+    required this.residencePrice,
+    required this.nearesetStation,
+    required this.roomInformation,
+    required this.buildingInformation,
+  });
+}
