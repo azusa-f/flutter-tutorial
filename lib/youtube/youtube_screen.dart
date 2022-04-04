@@ -3,6 +3,27 @@ import 'package:flutter/material.dart';
 class YoutubeScreen extends StatelessWidget {
   YoutubeScreen({Key? key}) : super(key: key);
 
+  final List<MovieInfo> _dummyMovieData = [
+    MovieInfo(
+      imagePath: 'images/charch.JPG',
+      iconPath: 'images/icons/pooh.png',
+      title: 'test~~~~test~~~~test~~~~test~~~~test~~~',
+      subTitle: 'donadona_pooh',
+    ),
+    MovieInfo(
+      imagePath: 'images/charch.JPG',
+      iconPath: 'images/icons/pooh_2.jpeg',
+      title: 'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~',
+      subTitle: 'kawaii_pooh',
+    ),
+    MovieInfo(
+      imagePath: 'images/charch.JPG',
+      iconPath: 'images/icons/pooh_2.jpeg',
+      title: 'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~',
+      subTitle: 'kawaii_pooh',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -166,27 +187,6 @@ class YoutubeScreen extends StatelessWidget {
     );
   }
 
-  final List<MovieInfo> _createDummyData = [
-    MovieInfo(
-      imagePath: 'images/charch.JPG',
-      iconPath: 'images/icons/pooh.png',
-      title: 'test~~~~test~~~~test~~~~test~~~~test~~~',
-      subTitle: 'donadona_pooh',
-    ),
-    MovieInfo(
-      imagePath: 'images/charch.JPG',
-      iconPath: 'images/icons/pooh_2.jpeg',
-      title: 'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~',
-      subTitle: 'kawaii_pooh',
-    ),
-    MovieInfo(
-      imagePath: 'images/charch.JPG',
-      iconPath: 'images/icons/pooh_2.jpeg',
-      title: 'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~',
-      subTitle: 'kawaii_pooh',
-    ),
-  ];
-
   // 急上昇動画セクションに表示するアイテムを構築
   List<Widget> _buildVideoItems() {
     List<Widget> children = [];
@@ -206,17 +206,17 @@ class YoutubeScreen extends StatelessWidget {
       ),
     );
 
-    for (var i = 0; i < _createDummyData.length; i++) {
+    for (var i = 0; i < _dummyMovieData.length; i++) {
       final container = Column(
         children: [
           Image.asset(
-            _createDummyData[i].imagePath,
+            _dummyMovieData[i].imagePath,
             fit: BoxFit.contain,
           ),
           _buildVideoTitle(
-            _createDummyData[i].title,
-            _createDummyData[i].subTitle,
-            _createDummyData[i].iconPath,
+            _dummyMovieData[i].title,
+            _dummyMovieData[i].subTitle,
+            _dummyMovieData[i].iconPath,
           ),
         ],
       );
