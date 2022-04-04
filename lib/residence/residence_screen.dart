@@ -4,7 +4,7 @@ import 'package:badges/badges.dart';
 class ResidenceScreen extends StatelessWidget {
   ResidenceScreen({Key? key}) : super(key: key);
 
-  final List<RoomInfo> _createDummyData = [
+  final List<RoomInfo> _dummyResidenceData = [
     RoomInfo(
       imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
       floorImagePath:
@@ -55,15 +55,15 @@ class ResidenceScreen extends StatelessWidget {
         child: Column(
           children: [
             _buildEditConditionSection(),
-            for (var i = 0; i < _createDummyData.length; i++)
+            for (var i = 0; i < _dummyResidenceData.length; i++)
               _buildRoomInformationSection(
-                _createDummyData[i].imagePath,
-                _createDummyData[i].floorImagePath,
-                _createDummyData[i].buildingName,
-                _createDummyData[i].residencePrice,
-                _createDummyData[i].nearesetStation,
-                _createDummyData[i].roomInformation,
-                _createDummyData[i].buildingInformation,
+                _dummyResidenceData[i].imagePath,
+                _dummyResidenceData[i].floorImagePath,
+                _dummyResidenceData[i].buildingName,
+                _dummyResidenceData[i].residencePrice,
+                _dummyResidenceData[i].nearesetStation,
+                _dummyResidenceData[i].roomInformation,
+                _dummyResidenceData[i].buildingInformation,
               ),
           ],
         ),
