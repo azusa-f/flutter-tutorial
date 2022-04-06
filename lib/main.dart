@@ -3,6 +3,7 @@ import 'tutorial_1/animation_page.dart';
 import 'youtube/youtube_screen.dart';
 import 'residence/residence_screen.dart';
 import 'merukari/merukari_screen.dart';
+import 'async/async.dart';
 
 void main() => runApp(
       MainApp(),
@@ -65,6 +66,16 @@ class IndexPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => MerukariScreen(),
+                    ),
+                  );
+                }),
+            ElevatedButton(
+                child: const Text("Async"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AsyncScreen(),
                     ),
                   );
                 }),
