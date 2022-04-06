@@ -50,14 +50,14 @@ class _AsyncScreen extends State<AsyncScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _buildInputDialog(context);
+          _showInputDialog(context);
         },
         child: const Icon(Icons.add),
       ),
     );
   }
 
-  _buildInputDialog(context) {
+  _showInputDialog(context) {
     return showDialog(
       context: context,
       builder: (context) {
