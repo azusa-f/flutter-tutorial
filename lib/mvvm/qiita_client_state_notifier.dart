@@ -21,7 +21,7 @@ class QiitaClientStateNotifier extends StateNotifier<QiitaClientState> {
           isLoading: false,
           isReadyData: true,
           currentTag: tag,
-          qiitaItems: qiitaItems);
+          qiitaItems: qiitaItems,);
     } else {
       state = state.copyWith(
         isLoading: false,

@@ -8,7 +8,7 @@ part of 'qiita_item.dart';
 
 _$_QiitaItem _$$_QiitaItemFromJson(Map<String, dynamic> json) => _$_QiitaItem(
       title: json['title'] as String?,
-      uel: json['uel'] as String?,
+      url: json['url'] as String?,
       user: json['user'] == null
           ? null
           : QiitaUser.fromJson(json['user'] as Map<String, dynamic>),
@@ -17,6 +17,6 @@ _$_QiitaItem _$$_QiitaItemFromJson(Map<String, dynamic> json) => _$_QiitaItem(
 Map<String, dynamic> _$$_QiitaItemToJson(_$_QiitaItem instance) =>
     <String, dynamic>{
       'title': instance.title,
-      'uel': instance.uel,
+      'url': instance.url,
       'user': instance.user,
     };

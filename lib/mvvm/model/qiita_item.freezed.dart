@@ -23,11 +23,11 @@ class _$QiitaItemTearOff {
 
   _QiitaItem call(
       {@JsonKey(name: "title") String? title,
-      @JsonKey(name: "uel") String? uel,
+      @JsonKey(name: "url") String? url,
       @JsonKey(name: "user") QiitaUser? user}) {
     return _QiitaItem(
       title: title,
-      uel: uel,
+      url: url,
       user: user,
     );
   }
@@ -44,8 +44,8 @@ const $QiitaItem = _$QiitaItemTearOff();
 mixin _$QiitaItem {
   @JsonKey(name: "title")
   String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: "uel")
-  String? get uel => throw _privateConstructorUsedError;
+  @JsonKey(name: "url")
+  String? get url => throw _privateConstructorUsedError;
   @JsonKey(name: "user")
   QiitaUser? get user => throw _privateConstructorUsedError;
 
@@ -61,7 +61,7 @@ abstract class $QiitaItemCopyWith<$Res> {
       _$QiitaItemCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: "title") String? title,
-      @JsonKey(name: "uel") String? uel,
+      @JsonKey(name: "url") String? url,
       @JsonKey(name: "user") QiitaUser? user});
 
   $QiitaUserCopyWith<$Res>? get user;
@@ -78,7 +78,7 @@ class _$QiitaItemCopyWithImpl<$Res> implements $QiitaItemCopyWith<$Res> {
   @override
   $Res call({
     Object? title = freezed,
-    Object? uel = freezed,
+    Object? url = freezed,
     Object? user = freezed,
   }) {
     return _then(_value.copyWith(
@@ -86,9 +86,9 @@ class _$QiitaItemCopyWithImpl<$Res> implements $QiitaItemCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      uel: uel == freezed
-          ? _value.uel
-          : uel // ignore: cast_nullable_to_non_nullable
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String?,
       user: user == freezed
           ? _value.user
@@ -117,7 +117,7 @@ abstract class _$QiitaItemCopyWith<$Res> implements $QiitaItemCopyWith<$Res> {
   @override
   $Res call(
       {@JsonKey(name: "title") String? title,
-      @JsonKey(name: "uel") String? uel,
+      @JsonKey(name: "url") String? url,
       @JsonKey(name: "user") QiitaUser? user});
 
   @override
@@ -136,7 +136,7 @@ class __$QiitaItemCopyWithImpl<$Res> extends _$QiitaItemCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = freezed,
-    Object? uel = freezed,
+    Object? url = freezed,
     Object? user = freezed,
   }) {
     return _then(_QiitaItem(
@@ -144,9 +144,9 @@ class __$QiitaItemCopyWithImpl<$Res> extends _$QiitaItemCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      uel: uel == freezed
-          ? _value.uel
-          : uel // ignore: cast_nullable_to_non_nullable
+      url: url== freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String?,
       user: user == freezed
           ? _value.user
@@ -161,7 +161,7 @@ class __$QiitaItemCopyWithImpl<$Res> extends _$QiitaItemCopyWithImpl<$Res>
 class _$_QiitaItem implements _QiitaItem {
   const _$_QiitaItem(
       {@JsonKey(name: "title") this.title,
-      @JsonKey(name: "uel") this.uel,
+      @JsonKey(name: "url") this.url,
       @JsonKey(name: "user") this.user});
 
   factory _$_QiitaItem.fromJson(Map<String, dynamic> json) =>
@@ -171,15 +171,15 @@ class _$_QiitaItem implements _QiitaItem {
   @JsonKey(name: "title")
   final String? title;
   @override
-  @JsonKey(name: "uel")
-  final String? uel;
+  @JsonKey(name: "url")
+  final String? url;
   @override
   @JsonKey(name: "user")
   final QiitaUser? user;
 
   @override
   String toString() {
-    return 'QiitaItem(title: $title, uel: $uel, user: $user)';
+    return 'QiitaItem(title: $title, url: $url, user: $user)';
   }
 
   @override
@@ -188,7 +188,7 @@ class _$_QiitaItem implements _QiitaItem {
         (other.runtimeType == runtimeType &&
             other is _QiitaItem &&
             const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.uel, uel) &&
+            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.user, user));
   }
 
@@ -196,7 +196,7 @@ class _$_QiitaItem implements _QiitaItem {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(uel),
+      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(user));
 
   @JsonKey(ignore: true)
@@ -213,7 +213,7 @@ class _$_QiitaItem implements _QiitaItem {
 abstract class _QiitaItem implements QiitaItem {
   const factory _QiitaItem(
       {@JsonKey(name: "title") String? title,
-      @JsonKey(name: "uel") String? uel,
+      @JsonKey(name: "url") String? url,
       @JsonKey(name: "user") QiitaUser? user}) = _$_QiitaItem;
 
   factory _QiitaItem.fromJson(Map<String, dynamic> json) =
@@ -223,8 +223,8 @@ abstract class _QiitaItem implements QiitaItem {
   @JsonKey(name: "title")
   String? get title;
   @override
-  @JsonKey(name: "uel")
-  String? get uel;
+  @JsonKey(name: "url")
+  String? get url;
   @override
   @JsonKey(name: "user")
   QiitaUser? get user;

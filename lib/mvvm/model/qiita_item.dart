@@ -8,7 +8,7 @@ part 'qiita_item.g.dart';
 class QiitaItem with _$QiitaItem {
   const factory QiitaItem({
     @JsonKey(name: "title") String? title,
-    @JsonKey(name: "uel") String? uel,
+    @JsonKey(name: "url") String? url,
     @JsonKey(name: "user") QiitaUser? user,
   }) = _QiitaItem;
 
