@@ -4,10 +4,10 @@ import 'youtube/youtube_screen.dart';
 import 'residence/residence_screen.dart';
 import 'merukari/merukari_screen.dart';
 import 'async/async.dart';
+import 'mvvm/qiita_top_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() => runApp(
-      MainApp(),
-    );
+void main() => runApp(ProviderScope(child: MainApp()));
 
 class MainApp extends StatelessWidget {
   @override
@@ -76,6 +76,16 @@ class IndexPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const AsyncScreen(),
+                    ),
+                  );
+                }),
+            ElevatedButton(
+                child: const Text("qiita"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => QiitaTopScreen(),
                     ),
                   );
                 }),
