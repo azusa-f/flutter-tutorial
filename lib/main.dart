@@ -7,7 +7,7 @@ import 'async/async.dart';
 import 'mvvm/qiita_top_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() =>  runApp(ProviderScope(child: MainApp()));
+void main() => runApp(ProviderScope(child: MainApp()));
 
 class MainApp extends StatelessWidget {
   @override

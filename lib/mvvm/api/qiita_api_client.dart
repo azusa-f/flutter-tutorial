@@ -16,4 +16,5 @@ abstract class QiitaApiClient {
   }
 
   @GET("/tags/{tag}/items")
-  Future<List<QiitaItem>> fetchQiitaItems(@Path("tag") String tag);}
+  Future<List<QiitaItem>> fetchQiitaItems(@Path("tag") String tag);
+}

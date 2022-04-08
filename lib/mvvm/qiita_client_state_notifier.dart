@@ -14,15 +14,16 @@ class QiitaClientStateNotifier extends StateNotifier<QiitaClientState> {
   Future<void> fetchQiitaItems(String tag) async {
     state = state.copyWith(isLoading: true);
 
-    final qiitaItems = await _read(qiitaRepositoryProvider).fetchQiitaItems(tag);
+    final qiitaItems =
+        await _read(qiitaRepositoryProvider).fetchQiitaItems(tag);
 
     if (qiitaItems.isNotEmpty) {
       state = state.copyWith(
-          isLoading: false,
-          isReadyData: true,
-          currentTag: tag,
-          qiitaItems: qiitaItems,
-          );
+        isLoading: false,
+        isReadyData: true,
+        currentTag: tag,
+        qiitaItems: qiitaItems,
+      );
     } else {
       state = state.copyWith(
         isLoading: false,
