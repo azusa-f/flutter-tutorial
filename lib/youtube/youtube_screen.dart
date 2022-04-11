@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tutorial/youtube/model/youtube_item.dart';
+
 import 'package:tutorial/youtube/youtube_state_notifier.dart';
 
 class YoutubeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(youtubeStateNotifier);
-    print(state.youtubeItems);
-    // var youtubeItems = state.youtubeItems;
 
     return Scaffold(
         appBar: _buildAppBar(context),
@@ -16,7 +14,7 @@ class YoutubeScreen extends ConsumerWidget {
           child: Column(
             children: [
               _buildCategorySection(), // カテゴリーボタンを構築
-              _buildPopularMovieSection(), // 急上昇動画を構築
+              _buildPopularMovieSection(state.youtubeItems), // 急上昇動画を構築
             ],
           ),
         ),
@@ -156,7 +154,7 @@ class YoutubeScreen extends ConsumerWidget {
   }
 
   // 急上昇動画セクションを構築
-  Widget _buildPopularMovieSection() {
+  Widget _buildPopularMovieSection(videoItems) {
     return Container(
       color: const Color.fromARGB(
         255,
@@ -166,13 +164,13 @@ class YoutubeScreen extends ConsumerWidget {
       ),
       width: double.infinity,
       child: Column(
-        children: _buildVideoItems(),
+        children: _buildVideoItems(videoItems),
       ),
     );
   }
 
   // 急上昇動画セクションに表示するアイテムを構築
-  List<Widget> _buildVideoItems() {
+  List<Widget> _buildVideoItems(videoItems) {
     List<Widget> children = [];
     children.add(
       const Padding(
@@ -190,21 +188,18 @@ class YoutubeScreen extends ConsumerWidget {
       ),
     );
 
-    for (var i = 0; i < 10; i++) {
+    var numYoutubeVideos = videoItems.length;
+    for (var i = 0; i < numYoutubeVideos; i++) {
       final container = Column(
         children: [
           Image.asset(
-            "images/icons/pooh.png",
-            //youtubeItems[i].imagePath,
+            videoItems[i].imagePath,
             fit: BoxFit.contain,
           ),
           _buildVideoTitle(
-            "images/icons/pooh.png",
-            "images/icons/pooh.png",
-            "images/icons/pooh.png",
-            // youtubeItems[i].title,
-            // youtubeItems[i].subTitle,
-            // youtubeItems[i].iconPath,
+            videoItems[i].title,
+            videoItems[i].subTitle,
+            videoItems[i].iconPath,
           ),
         ],
       );
