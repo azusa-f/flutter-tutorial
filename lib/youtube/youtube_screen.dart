@@ -1,31 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tutorial/youtube/model/youtube_item.dart';
+import 'package:tutorial/youtube/youtube_state_notifier.dart';
 
-class YoutubeScreen extends StatelessWidget {
-  YoutubeScreen({Key? key}) : super(key: key);
-
-  final List<MovieInfo> _dummyMovieData = [
-    MovieInfo(
-      imagePath: 'images/charch.JPG',
-      iconPath: 'images/icons/pooh.png',
-      title: 'test~~~~test~~~~test~~~~test~~~~test~~~',
-      subTitle: 'donadona_pooh',
-    ),
-    MovieInfo(
-      imagePath: 'images/charch.JPG',
-      iconPath: 'images/icons/pooh_2.jpeg',
-      title: 'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~',
-      subTitle: 'kawaii_pooh',
-    ),
-    MovieInfo(
-      imagePath: 'images/charch.JPG',
-      iconPath: 'images/icons/pooh_2.jpeg',
-      title: 'pooh~~~~pooh~~~~pooh~~~~pooh~~~~pooh~~~',
-      subTitle: 'kawaii_pooh',
-    ),
-  ];
-
+class YoutubeScreen extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(youtubeStateNotifier);
+    print(state.youtubeItems);
+    // var youtubeItems = state.youtubeItems;
+
     return Scaffold(
         appBar: _buildAppBar(context),
         body: SingleChildScrollView(
@@ -206,17 +190,21 @@ class YoutubeScreen extends StatelessWidget {
       ),
     );
 
-    for (var i = 0; i < _dummyMovieData.length; i++) {
+    for (var i = 0; i < 10; i++) {
       final container = Column(
         children: [
           Image.asset(
-            _dummyMovieData[i].imagePath,
+            "images/icons/pooh.png",
+            //youtubeItems[i].imagePath,
             fit: BoxFit.contain,
           ),
           _buildVideoTitle(
-            _dummyMovieData[i].title,
-            _dummyMovieData[i].subTitle,
-            _dummyMovieData[i].iconPath,
+            "images/icons/pooh.png",
+            "images/icons/pooh.png",
+            "images/icons/pooh.png",
+            // youtubeItems[i].title,
+            // youtubeItems[i].subTitle,
+            // youtubeItems[i].iconPath,
           ),
         ],
       );
@@ -313,18 +301,4 @@ class YoutubeScreen extends StatelessWidget {
       backgroundColor: Colors.black,
     );
   }
-}
-
-class MovieInfo {
-  final String imagePath;
-  final String iconPath;
-  final String title;
-  final String subTitle;
-
-  MovieInfo({
-    required this.imagePath,
-    required this.iconPath,
-    required this.title,
-    required this.subTitle,
-  });
 }
