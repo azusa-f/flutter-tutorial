@@ -7,17 +7,14 @@ class YoutubeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(youtubeStateNotifier);
-    print(state.runtimeType);
 
     return Scaffold(
         appBar: _buildAppBar(context),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              _buildCategorySection(), // カテゴリーボタンを構築
-              _buildPopularMovieSection(state), // 急上昇動画を構築
-            ],
-          ),
+        body: Column(
+          children: [
+            _buildCategorySection(), // カテゴリーボタンを構築
+            _buildPopularMovieSection(state.youtubeItems), // 急上昇動画を構築
+          ],
         ),
         bottomNavigationBar: _buildBottomNavigationBar(context));
   }
@@ -171,23 +168,20 @@ class YoutubeScreen extends ConsumerWidget {
 
 // 急上昇動画セクションに表示するアイテムを構築
   Widget _buildVideoItems(List<YoutubeItem> videoItems) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: videoItems.length,
-        itemBuilder: ((context, index) {
-          return SizedBox(
-            width: double.infinity,
-            child: Column(
-              children: [
-                index == 0 ? _buildPopularMain() : Container(),
-                _buildVideoCapture(videoItems[index])
-              ],
-            ),
-          );
-        }),
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: videoItems.length,
+      itemBuilder: ((context, index) {
+        return SizedBox(
+          width: double.infinity,
+          child: Column(
+            children: [
+              index == 0 ? _buildPopularMain() : Container(),
+              _buildVideoCapture(videoItems[index])
+            ],
+          ),
+        );
+      }),
     );
   }
 

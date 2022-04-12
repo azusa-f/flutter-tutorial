@@ -15,6 +15,6 @@ abstract class YoutubeApiClient {
     return YoutubeApiClient(dio);
   }
 
-  @GET("youtube/youtube.json")
+  @GET("/youtube.json")
   Future<List<YoutubeItem>> fetchYoutubeItems();
 }

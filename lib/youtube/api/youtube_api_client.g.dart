@@ -24,7 +24,7 @@ class _YoutubeApiClient implements YoutubeApiClient {
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<YoutubeItem>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'youtube/youtube.json',
+                .compose(_dio.options, '/youtube.json',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
