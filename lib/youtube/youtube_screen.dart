@@ -49,7 +49,7 @@ class YoutubeScreen extends ConsumerWidget {
   }
 
   //ボディを構築
-  Widget _buildBody(videoItems) {
+  Widget _buildBody(List<YoutubeItem> videoItems) {
     return Expanded(
       child: ListView.builder(
         shrinkWrap: true,
@@ -198,11 +198,11 @@ class YoutubeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildVideoCapture(videoItems) {
+  Widget _buildVideoCapture(YoutubeItem videoItems) {
     return Column(
       children: [
         Image.asset(
-          videoItems.imagePath,
+          videoItems.imagePath.toString(),
           fit: BoxFit.contain,
         ),
         _buildVideoTitle(
@@ -217,64 +217,68 @@ class YoutubeScreen extends ConsumerWidget {
 
 //ビデオの名前などを構築
 Widget _buildVideoTitle(videoTitle, acountName, acountImage) {
-  return Container(
-    color: const Color.fromARGB(
-      255,
-      39,
-      36,
-      36,
-    ),
-    child: Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage(acountImage),
-            ),
-          ),
+  return Column(
+    children: [
+      Container(
+        color: const Color.fromARGB(
+          255,
+          39,
+          36,
+          36,
         ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  videoTitle,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
-                    color: Colors.white,
-                  ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage(acountImage),
                 ),
-                Text(
-                  acountName,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w200,
-                    fontSize: 16,
-                    color: Colors.white,
-                  ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      videoTitle,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      acountName,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w200,
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 30),
-          child: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.more_vert,
-              color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
-      ],
-    ),
+      ),
+    ],
   );
 }
 
