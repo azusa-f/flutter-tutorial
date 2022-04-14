@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tutorial/residence/mvvm/api/residence_api.dart';
+import 'package:tutorial/residence/residence_state_notifier.dart';
+import 'package:tutorial/residence/mvvm/model/residence_item.dart';
+import 'package:tutorial/residence/mvvm/state/residence_state.dart';
 
-class ResidenceScreen extends StatelessWidget {
+class ResidenceScreen extends ConsumerWidget {
   ResidenceScreen({Key? key}) : super(key: key);
 
   static const Color residenceMainColor = Color.fromARGB(
@@ -62,17 +67,16 @@ class ResidenceScreen extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(residenceStateNotifier);
+    print(state.runtimeType);
+    print(state);
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildEditConditionSection(),
-            for (var i = 0; i < _dummyResidenceData.length; i++)
-              _buildRoomInformationSection(_dummyResidenceData[i]),
-          ],
-        ),
+      body: Column(
+        children: [
+          _buildBody(state),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -139,6 +143,22 @@ class ResidenceScreen extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget _buildBody(test) {
+    return Expanded(
+        child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: _dummyResidenceData.length,
+            itemBuilder: (context, index) {
+              return SizedBox(
+                width: double.infinity,
+                child: Column(children: [
+                  index == 0 ? _buildEditConditionSection() : Container(),
+                  _buildRoomInformationSection(_dummyResidenceData[index])
+                ]),
+              );
+            }));
   }
 
   // 条件設定セクションを構築
