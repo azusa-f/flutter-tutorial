@@ -31,7 +31,7 @@ class ResidenceScreen extends ConsumerWidget {
       appBar: _buildAppBar(context),
       body: Column(
         children: [
-          _buildBody(state),
+          _buildBody(state.residenceItems),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -101,8 +101,7 @@ class ResidenceScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildBody(residenceItems) {
-    print(residenceItems);
+  Widget _buildBody(List<ResidenceItem> residenceItems) {
     return Expanded(
       child: ListView.builder(
         itemCount: residenceItems.length,
@@ -113,7 +112,7 @@ class ResidenceScreen extends ConsumerWidget {
             child: Column(
               children: [
                 index == 0 ? _buildEditConditionSection() : Container(),
-                _buildRoomInformationSection(residenceItems)
+                _buildRoomInformationSection(residenceItems[index])
               ],
             ),
           );
@@ -216,8 +215,7 @@ class ResidenceScreen extends ConsumerWidget {
   }
 
   // 部屋情報一覧セクションを構築
-  Widget _buildRoomInformationSection(residenceData) {
-    print(residenceData);
+  Widget _buildRoomInformationSection(ResidenceItem residenceData) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -396,24 +394,4 @@ class ResidenceScreen extends ConsumerWidget {
       type: BottomNavigationBarType.fixed,
     );
   }
-}
-
-class RoomInfo {
-  final String imagePath;
-  final String floorImagePath;
-  final String buildingName;
-  final String residencePrice;
-  final String nearesetStation;
-  final String roomInformation;
-  final String buildingInformation;
-
-  RoomInfo({
-    required this.imagePath,
-    required this.floorImagePath,
-    required this.buildingName,
-    required this.residencePrice,
-    required this.nearesetStation,
-    required this.roomInformation,
-    required this.buildingInformation,
-  });
 }
