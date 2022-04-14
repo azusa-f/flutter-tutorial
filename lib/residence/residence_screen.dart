@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tutorial/residence/residence_state_notifier.dart';
+import 'package:tutorial/residence/mvvm/model/residence_item.dart';
 
-class ResidenceScreen extends StatelessWidget {
+class ResidenceScreen extends ConsumerWidget {
   ResidenceScreen({Key? key}) : super(key: key);
 
   static const Color residenceMainColor = Color.fromARGB(
@@ -18,61 +21,16 @@ class ResidenceScreen extends StatelessWidget {
     182,
   );
 
-  final List<RoomInfo> _dummyResidenceData = [
-    RoomInfo(
-      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
-      floorImagePath:
-          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
-      buildingName: 'Rising place 川崎',
-      residencePrice: '2,000万円',
-      nearesetStation: 'test駅徒歩３分',
-      roomInformation: 'test情報',
-      buildingInformation: '西向き',
-    ),
-    RoomInfo(
-      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
-      floorImagePath:
-          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
-      buildingName: 'Rising place 川崎',
-      residencePrice: '2,000万円',
-      nearesetStation: 'test駅徒歩３分',
-      roomInformation: 'test情報',
-      buildingInformation: '西向き',
-    ),
-    RoomInfo(
-      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
-      floorImagePath:
-          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
-      buildingName: 'Rising place 川崎',
-      residencePrice: '2,000万円',
-      nearesetStation: 'test駅徒歩３分',
-      roomInformation: 'test情報',
-      buildingInformation: '西向き',
-    ),
-    RoomInfo(
-      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
-      floorImagePath:
-          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
-      buildingName: 'Rising place 川崎',
-      residencePrice: '2,000万円',
-      nearesetStation: 'test駅徒歩３分',
-      roomInformation: 'test情報',
-      buildingInformation: '西向き',
-    ),
-  ];
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(residenceStateNotifier);
+
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildEditConditionSection(),
-            for (var i = 0; i < _dummyResidenceData.length; i++)
-              _buildRoomInformationSection(_dummyResidenceData[i]),
-          ],
-        ),
+      body: Column(
+        children: [
+          _buildBody(state.residenceItems),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -138,6 +96,26 @@ class ResidenceScreen extends StatelessWidget {
           color: residenceMainColor,
         ),
       ],
+    );
+  }
+
+  Widget _buildBody(List<ResidenceItem> residenceItems) {
+    return Expanded(
+      child: ListView.builder(
+        itemCount: residenceItems.length,
+        shrinkWrap: true,
+        itemBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            width: double.infinity,
+            child: Column(
+              children: [
+                index == 0 ? _buildEditConditionSection() : Container(),
+                _buildRoomInformationSection(residenceItems[index])
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -235,7 +213,7 @@ class ResidenceScreen extends StatelessWidget {
   }
 
   // 部屋情報一覧セクションを構築
-  Widget _buildRoomInformationSection(residenceData) {
+  Widget _buildRoomInformationSection(ResidenceItem residenceData) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -249,17 +227,21 @@ class ResidenceScreen extends StatelessWidget {
             Row(
               children: <Widget>[
                 Expanded(
-                  child: Image.network(residenceData.imagePath),
+                  child: Image.network(
+                    residenceData.imagePath.toString(),
+                  ),
                 ),
                 Expanded(
-                  child: Image.network(residenceData.floorImagePath),
+                  child: Image.network(
+                    residenceData.floorImagePath.toString(),
+                  ),
                 )
               ],
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: Text(
-                residenceData.buildingName,
+                residenceData.buildingName.toString(),
                 style: const TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 20,
@@ -269,7 +251,7 @@ class ResidenceScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: Text(
-                residenceData.residencePrice,
+                residenceData.residencePrice.toString(),
                 style: const TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 20,
@@ -289,19 +271,25 @@ class ResidenceScreen extends StatelessWidget {
                   Row(
                     children: [
                       const Icon(Icons.train),
-                      Text(residenceData.nearesetStation),
+                      Text(
+                        residenceData.nearesetStation.toString(),
+                      ),
                     ],
                   ),
                   Row(
                     children: [
                       const Icon(Icons.dashboard),
-                      Text(residenceData.roomInformation),
+                      Text(
+                        residenceData.roomInformation.toString(),
+                      ),
                     ],
                   ),
                   Row(
                     children: [
                       const Icon(Icons.apartment),
-                      Text(residenceData.buildingInformation),
+                      Text(
+                        residenceData.buildingInformation.toString(),
+                      ),
                     ],
                   ),
                 ],
@@ -414,24 +402,4 @@ class ResidenceScreen extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
     );
   }
-}
-
-class RoomInfo {
-  final String imagePath;
-  final String floorImagePath;
-  final String buildingName;
-  final String residencePrice;
-  final String nearesetStation;
-  final String roomInformation;
-  final String buildingInformation;
-
-  RoomInfo({
-    required this.imagePath,
-    required this.floorImagePath,
-    required this.buildingName,
-    required this.residencePrice,
-    required this.nearesetStation,
-    required this.roomInformation,
-    required this.buildingInformation,
-  });
 }
