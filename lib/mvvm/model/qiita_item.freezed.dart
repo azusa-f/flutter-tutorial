@@ -144,7 +144,7 @@ class __$QiitaItemCopyWithImpl<$Res> extends _$QiitaItemCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      url: url== freezed
+      url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
