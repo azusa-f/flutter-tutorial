@@ -7,7 +7,9 @@ final residenceStateNotifier =
         (ref) => ResidenceStateNotifier(ref.read));
 
 class ResidenceStateNotifier extends StateNotifier<ResidenceState> {
-  ResidenceStateNotifier(this._read) : super(ResidenceState());
+  ResidenceStateNotifier(this._read) : super(const ResidenceState()) {
+    fetchResidenceItems();
+  }
 
   final Reader _read;
 

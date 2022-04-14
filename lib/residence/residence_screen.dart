@@ -23,54 +23,10 @@ class ResidenceScreen extends ConsumerWidget {
     182,
   );
 
-  final List<RoomInfo> _dummyResidenceData = [
-    RoomInfo(
-      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
-      floorImagePath:
-          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
-      buildingName: 'Rising place 川崎',
-      residencePrice: '2,000万円',
-      nearesetStation: 'test駅徒歩３分',
-      roomInformation: 'test情報',
-      buildingInformation: '西向き',
-    ),
-    RoomInfo(
-      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
-      floorImagePath:
-          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
-      buildingName: 'Rising place 川崎',
-      residencePrice: '2,000万円',
-      nearesetStation: 'test駅徒歩３分',
-      roomInformation: 'test情報',
-      buildingInformation: '西向き',
-    ),
-    RoomInfo(
-      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
-      floorImagePath:
-          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
-      buildingName: 'Rising place 川崎',
-      residencePrice: '2,000万円',
-      nearesetStation: 'test駅徒歩３分',
-      roomInformation: 'test情報',
-      buildingInformation: '西向き',
-    ),
-    RoomInfo(
-      imagePath: 'https://content.es-ws.jp/cpool/5060/000/000/020/047/14-1.jpg',
-      floorImagePath:
-          'https://suumo.jp/article/oyakudachi/wp-content/uploads/2019/03/madorizu_sub04.jpg',
-      buildingName: 'Rising place 川崎',
-      residencePrice: '2,000万円',
-      nearesetStation: 'test駅徒歩３分',
-      roomInformation: 'test情報',
-      buildingInformation: '西向き',
-    ),
-  ];
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(residenceStateNotifier);
-    print(state.runtimeType);
-    print(state);
+
     return Scaffold(
       appBar: _buildAppBar(context),
       body: Column(
@@ -145,20 +101,25 @@ class ResidenceScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildBody(test) {
+  Widget _buildBody(residenceItems) {
+    print(residenceItems);
     return Expanded(
-        child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: _dummyResidenceData.length,
-            itemBuilder: (context, index) {
-              return SizedBox(
-                width: double.infinity,
-                child: Column(children: [
-                  index == 0 ? _buildEditConditionSection() : Container(),
-                  _buildRoomInformationSection(_dummyResidenceData[index])
-                ]),
-              );
-            }));
+      child: ListView.builder(
+        itemCount: residenceItems.length,
+        shrinkWrap: true,
+        itemBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            width: double.infinity,
+            child: Column(
+              children: [
+                index == 0 ? _buildEditConditionSection() : Container(),
+                _buildRoomInformationSection(residenceItems)
+              ],
+            ),
+          );
+        },
+      ),
+    );
   }
 
   // 条件設定セクションを構築
@@ -256,6 +217,7 @@ class ResidenceScreen extends ConsumerWidget {
 
   // 部屋情報一覧セクションを構築
   Widget _buildRoomInformationSection(residenceData) {
+    print(residenceData);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
