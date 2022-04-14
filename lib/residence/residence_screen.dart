@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tutorial/residence/mvvm/api/residence_api.dart';
 import 'package:tutorial/residence/residence_state_notifier.dart';
 import 'package:tutorial/residence/mvvm/model/residence_item.dart';
-import 'package:tutorial/residence/mvvm/state/residence_state.dart';
 
 class ResidenceScreen extends ConsumerWidget {
   ResidenceScreen({Key? key}) : super(key: key);
@@ -229,17 +227,21 @@ class ResidenceScreen extends ConsumerWidget {
             Row(
               children: <Widget>[
                 Expanded(
-                  child: Image.network(residenceData.imagePath),
+                  child: Image.network(
+                    residenceData.imagePath.toString(),
+                  ),
                 ),
                 Expanded(
-                  child: Image.network(residenceData.floorImagePath),
+                  child: Image.network(
+                    residenceData.floorImagePath.toString(),
+                  ),
                 )
               ],
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: Text(
-                residenceData.buildingName,
+                residenceData.buildingName.toString(),
                 style: const TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 20,
@@ -249,7 +251,7 @@ class ResidenceScreen extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: Text(
-                residenceData.residencePrice,
+                residenceData.residencePrice.toString(),
                 style: const TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 20,
@@ -269,19 +271,25 @@ class ResidenceScreen extends ConsumerWidget {
                   Row(
                     children: [
                       const Icon(Icons.train),
-                      Text(residenceData.nearesetStation),
+                      Text(
+                        residenceData.nearesetStation.toString(),
+                      ),
                     ],
                   ),
                   Row(
                     children: [
                       const Icon(Icons.dashboard),
-                      Text(residenceData.roomInformation),
+                      Text(
+                        residenceData.roomInformation.toString(),
+                      ),
                     ],
                   ),
                   Row(
                     children: [
                       const Icon(Icons.apartment),
-                      Text(residenceData.buildingInformation),
+                      Text(
+                        residenceData.buildingInformation.toString(),
+                      ),
                     ],
                   ),
                 ],
