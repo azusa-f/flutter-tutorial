@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutorial/youtube/model/youtube_item.dart';
 import 'package:tutorial/youtube/youtube_state_notifier.dart';
 
-mixin YoutubeScreen implements ConsumerWidget {
+class YoutubeScreen extends ConsumerWidget {
+  const YoutubeScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(youtubeStateNotifier);
