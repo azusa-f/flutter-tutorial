@@ -12,11 +12,7 @@ class MerukariScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: Column(
-        children: [
-          _buildBody(state.merukariItems),
-        ],
-      ),
+      body: _buildBody(state.merukariItems),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.camera_alt),
@@ -50,7 +46,7 @@ class MerukariScreen extends ConsumerWidget {
             return SizedBox(
               width: double.infinity,
               child: Column(children: [
-                index == 0 ? _buildGuideSection() : Container(),
+                index == 0 ? _buildGuideSection() : SizedBox.shrink(),
                 _buildPopularArticle(articleData[index]),
               ]),
             );

@@ -206,9 +206,9 @@ class YoutubeScreen extends ConsumerWidget {
           fit: BoxFit.contain,
         ),
         _buildVideoTitle(
-          videoItems.title,
-          videoItems.subTitle,
-          videoItems.iconPath,
+          videoItems.title.toString(),
+          videoItems.subTitle.toString(),
+          videoItems.iconPath.toString(),
         ),
       ],
     );
@@ -216,7 +216,8 @@ class YoutubeScreen extends ConsumerWidget {
 }
 
 //ビデオの名前などを構築
-Widget _buildVideoTitle(videoTitle, acountName, acountImage) {
+Widget _buildVideoTitle(
+    String videoTitle, String acountName, String acountImage) {
   return Column(
     children: [
       Container(
