@@ -1,10 +1,11 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutorial/residence/mvvm/repository/residence_repository.dart';
 import 'package:tutorial/residence/mvvm/state/residence_state.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final residenceStateNotifier =
     StateNotifierProvider.autoDispose<ResidenceStateNotifier, ResidenceState>(
-        (ref) => ResidenceStateNotifier(ref.read));
+  (ref) => ResidenceStateNotifier(ref.read),
+);
 
 class ResidenceStateNotifier extends StateNotifier<ResidenceState> {
   ResidenceStateNotifier(this._read) : super(const ResidenceState()) {

@@ -1,5 +1,5 @@
-import 'package:tutorial/residence/mvvm/model/residence_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tutorial/residence/mvvm/model/residence_item.dart';
 
 part 'residence_state.freezed.dart';
 

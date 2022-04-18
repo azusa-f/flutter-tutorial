@@ -1,5 +1,5 @@
-import '/mvvm/model/qiita_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '/mvvm/model/qiita_item.dart';
 
 part 'qiita_client_state.freezed.dart';
 

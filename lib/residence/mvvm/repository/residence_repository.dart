@@ -1,12 +1,12 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutorial/residence/mvvm/api/residence_api.dart';
 import 'package:tutorial/residence/mvvm/model/residence_item.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final residenceRepositoryProvider =
     Provider<ResidenceRepository>((_) => ResidenceRepository());
 
 class ResidenceRepository {
-  final ResidenceApi _api = ResidenceApi.create();
+  final ResidenceApi _api = ResidenceApi.create() as ResidenceApi;
 
   Future<List<ResidenceItem>> fetchResidenceItems() async {
     return _api.fetchResidenceItems();

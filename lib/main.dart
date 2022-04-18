@@ -35,55 +35,60 @@ class IndexPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-                child: const Text('AnimationTutorial'),
-                onPressed: () {
-                  Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AnimationPage(),
-                    ),
-                  );
-                }),
+              child: const Text('AnimationTutorial'),
+              onPressed: () {
+                Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AnimationPage(),
+                  ),
+                );
+              },
+            ),
             ElevatedButton(
-                child: const Text('YouTube'),
-                onPressed: () {
-                  Navigator.push<void>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => YoutubeScreen(),
-                    ),
-                  );
-                }),
+              child: const Text('YouTube'),
+              onPressed: () {
+                Navigator.push<void>(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const YoutubeScreen(),
+                  ),
+                );
+              },
+            ),
             ElevatedButton(
-                child: const Text('賃貸アプリ'),
-                onPressed: () {
-                  Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ResidenceScreen(),
-                    ),
-                  );
-                }),
+              child: const Text('賃貸アプリ'),
+              onPressed: () {
+                Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ResidenceScreen(),
+                  ),
+                );
+              },
+            ),
             ElevatedButton(
-                child: const Text('メルカリ'),
-                onPressed: () {
-                  Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MerukariScreen(),
-                    ),
-                  );
-                }),
+              child: const Text('メルカリ'),
+              onPressed: () {
+                Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MerukariScreen(),
+                  ),
+                );
+              },
+            ),
             ElevatedButton(
-                child: const Text('Async'),
-                onPressed: () {
-                  Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AsyncScreen(),
-                    ),
-                  );
-                }),
+              child: const Text('Async'),
+              onPressed: () {
+                Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AsyncScreen(),
+                  ),
+                );
+              },
+            ),
             ElevatedButton(
               child: const Text('qiita'),
               onPressed: () {
