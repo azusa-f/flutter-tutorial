@@ -27,7 +27,7 @@ class MerukariScreen extends ConsumerWidget {
     return AppBar(
       backgroundColor: Colors.white,
       title: const Text(
-        "出品",
+        '出品',
         style: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.w600,
@@ -74,7 +74,7 @@ class MerukariScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
                   Text(
-                    "出品へのショートカット",
+                    '出品へのショートカット',
                     style: TextStyle(
                       color: Color.fromARGB(255, 58, 52, 52),
                       fontSize: 20,
@@ -87,10 +87,10 @@ class MerukariScreen extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildListingButton(Icons.photo_camera, "写真を撮る"),
-                _buildListingButton(Icons.photo_library, "アルバム"),
-                _buildListingButton(Icons.qr_code_2, "バーコード\n(本・コスメ)"),
-                _buildListingButton(Icons.edit_note, "下書き一覧"),
+                _buildListingButton(Icons.photo_camera, '写真を撮る'),
+                _buildListingButton(Icons.photo_library, 'アルバム'),
+                _buildListingButton(Icons.qr_code_2, 'バーコード\n(本・コスメ)'),
+                _buildListingButton(Icons.edit_note, '下書き一覧'),
               ],
             ),
             _buildPopularArticlesSection(),
