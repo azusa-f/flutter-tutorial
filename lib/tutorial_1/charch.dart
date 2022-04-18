@@ -6,7 +6,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    Widget titleSection = Container(
+    final Widget titleSection = Container(
       padding: const EdgeInsets.all(32),
       child: Row(
         children: [
@@ -37,9 +37,9 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    Color color = Theme.of(context).primaryColor;
+    final color = Theme.of(context).primaryColor;
 
-    Widget buttonSection = Row(
+    final Widget buttonSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         _buildButtonColumn(color, Icons.call, 'CALL'),
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         _buildButtonColumn(color, Icons.share, 'SHARE'),
       ],
     );
-    Widget textSection = const Padding(
+    const Widget textSection = Padding(
       padding: EdgeInsets.all(32),
       child: Text(
         'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
@@ -135,17 +135,13 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Container(
-          padding: const EdgeInsets.all(0),
-          child: IconButton(
-            padding: const EdgeInsets.all(0),
-            alignment: Alignment.centerRight,
-            icon: (_isFavorited
-                ? const Icon(Icons.star)
-                : const Icon(Icons.star_border)),
-            color: Colors.red[500],
-            onPressed: _toggleFavorite,
-          ),
+        IconButton(
+          alignment: Alignment.centerRight,
+          icon: _isFavorited
+              ? const Icon(Icons.star)
+              : const Icon(Icons.star_border),
+          color: Colors.red[500],
+          onPressed: _toggleFavorite,
         ),
         SizedBox(
           width: 18,

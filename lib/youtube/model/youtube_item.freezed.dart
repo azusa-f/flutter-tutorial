@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, prefer_single_quotes, require_trailing_commas
 
 part of 'youtube_item.dart';
 
@@ -11,7 +11,8 @@ part of 'youtube_item.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods',
+);
 
 YoutubeItem _$YoutubeItemFromJson(Map<String, dynamic> json) {
   return _YoutubeItem.fromJson(json);
@@ -125,8 +126,8 @@ abstract class _$YoutubeItemCopyWith<$Res>
 class __$YoutubeItemCopyWithImpl<$Res> extends _$YoutubeItemCopyWithImpl<$Res>
     implements _$YoutubeItemCopyWith<$Res> {
   __$YoutubeItemCopyWithImpl(
-      _YoutubeItem _value, $Res Function(_YoutubeItem) _then)
-      : super(_value, (v) => _then(v as _YoutubeItem));
+      _YoutubeItem value, $Res Function(_YoutubeItem) then)
+      : super(value, (v) => then(v as _YoutubeItem));
 
   @override
   _YoutubeItem get _value => super._value as _YoutubeItem;

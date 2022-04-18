@@ -11,15 +11,17 @@ part of 'residence_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods',
+);
 
 /// @nodoc
 class _$ResidenceStateTearOff {
   const _$ResidenceStateTearOff();
 
-  _ResidenceState call(
-      {bool isLoading = false,
-      List<ResidenceItem> residenceItems = const <ResidenceItem>[]}) {
+  _ResidenceState call({
+    bool isLoading = false,
+    List<ResidenceItem> residenceItems = const <ResidenceItem>[],
+  }) {
     return _ResidenceState(
       isLoading: isLoading,
       residenceItems: residenceItems,
@@ -43,8 +45,9 @@ mixin _$ResidenceState {
 /// @nodoc
 abstract class $ResidenceStateCopyWith<$Res> {
   factory $ResidenceStateCopyWith(
-          ResidenceState value, $Res Function(ResidenceState) then) =
-      _$ResidenceStateCopyWithImpl<$Res>;
+    ResidenceState value,
+    $Res Function(ResidenceState) then,
+  ) = _$ResidenceStateCopyWithImpl<$Res>;
   $Res call({bool isLoading, List<ResidenceItem> residenceItems});
 }
 
@@ -62,16 +65,18 @@ class _$ResidenceStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? residenceItems = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      residenceItems: residenceItems == freezed
-          ? _value.residenceItems
-          : residenceItems // ignore: cast_nullable_to_non_nullable
-              as List<ResidenceItem>,
-    ));
+    return _then(
+      _value.copyWith(
+        isLoading: isLoading == freezed
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        residenceItems: residenceItems == freezed
+            ? _value.residenceItems
+            : residenceItems // ignore: cast_nullable_to_non_nullable
+                as List<ResidenceItem>,
+      ),
+    );
   }
 }
 
@@ -79,8 +84,9 @@ class _$ResidenceStateCopyWithImpl<$Res>
 abstract class _$ResidenceStateCopyWith<$Res>
     implements $ResidenceStateCopyWith<$Res> {
   factory _$ResidenceStateCopyWith(
-          _ResidenceState value, $Res Function(_ResidenceState) then) =
-      __$ResidenceStateCopyWithImpl<$Res>;
+    _ResidenceState value,
+    $Res Function(_ResidenceState) then,
+  ) = __$ResidenceStateCopyWithImpl<$Res>;
   @override
   $Res call({bool isLoading, List<ResidenceItem> residenceItems});
 }
@@ -90,8 +96,12 @@ class __$ResidenceStateCopyWithImpl<$Res>
     extends _$ResidenceStateCopyWithImpl<$Res>
     implements _$ResidenceStateCopyWith<$Res> {
   __$ResidenceStateCopyWithImpl(
-      _ResidenceState _value, $Res Function(_ResidenceState) _then)
-      : super(_value, (v) => _then(v as _ResidenceState));
+    _ResidenceState value,
+    $Res Function(_ResidenceState) then,
+  ) : super(
+          value,
+          (v) => then(v as _ResidenceState),
+        );
 
   @override
   _ResidenceState get _value => super._value as _ResidenceState;
@@ -101,24 +111,28 @@ class __$ResidenceStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? residenceItems = freezed,
   }) {
-    return _then(_ResidenceState(
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      residenceItems: residenceItems == freezed
-          ? _value.residenceItems
-          : residenceItems // ignore: cast_nullable_to_non_nullable
-              as List<ResidenceItem>,
-    ));
+    return _then(
+      _ResidenceState(
+        isLoading: isLoading == freezed
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        residenceItems: residenceItems == freezed
+            ? _value.residenceItems
+            : residenceItems // ignore: cast_nullable_to_non_nullable
+                as List<ResidenceItem>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$_ResidenceState implements _ResidenceState {
-  const _$_ResidenceState(
-      {this.isLoading = false, this.residenceItems = const <ResidenceItem>[]});
+  const _$_ResidenceState({
+    this.isLoading = false,
+    this.residenceItems = const <ResidenceItem>[],
+  });
 
   @JsonKey()
   @override
@@ -144,9 +158,10 @@ class _$_ResidenceState implements _ResidenceState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(residenceItems));
+        runtimeType,
+        const DeepCollectionEquality().hash(isLoading),
+        const DeepCollectionEquality().hash(residenceItems),
+      );
 
   @JsonKey(ignore: true)
   @override
@@ -155,8 +170,10 @@ class _$_ResidenceState implements _ResidenceState {
 }
 
 abstract class _ResidenceState implements ResidenceState {
-  const factory _ResidenceState(
-      {bool isLoading, List<ResidenceItem> residenceItems}) = _$_ResidenceState;
+  const factory _ResidenceState({
+    bool isLoading,
+    List<ResidenceItem> residenceItems,
+  }) = _$_ResidenceState;
 
   @override
   bool get isLoading;

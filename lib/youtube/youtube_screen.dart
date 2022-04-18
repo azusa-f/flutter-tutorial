@@ -10,13 +10,14 @@ class YoutubeScreen extends ConsumerWidget {
     final state = ref.watch(youtubeStateNotifier);
 
     return Scaffold(
-        appBar: _buildAppBar(context),
-        body: Column(
-          children: [
-            _buildBody(state.youtubeItems),
-          ],
-        ),
-        bottomNavigationBar: _buildBottomNavigationBar(context));
+      appBar: _buildAppBar(context),
+      body: Column(
+        children: [
+          _buildBody(state.youtubeItems),
+        ],
+      ),
+      bottomNavigationBar: _buildBottomNavigationBar(context),
+    );
   }
 
   // appBarを構築

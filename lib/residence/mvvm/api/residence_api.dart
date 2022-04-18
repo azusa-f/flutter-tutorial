@@ -12,7 +12,7 @@ abstract class ResidenceApi {
     String baseUrl,
   }) = _ResidenceApi;
 
-  static ResidenceApi create() {
+  static Future<ResidenceApi> create() async {
     final dio = Dio();
     dio.interceptors.add(PrettyDioLogger());
     return ResidenceApi(dio);

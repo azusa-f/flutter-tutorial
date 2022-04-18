@@ -1,6 +1,11 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use,
+//deprecated_member_use_from_same_package,
+//use_function_type_syntax_for_parameters, unnecessary_const,
+//avoid_init_to_null, invalid_override_different_default_values_named,
+//prefer_expression_function_bodies, annotate_overrides,
+//invalid_annotation_target
 
 part of 'qiita_item.dart';
 
@@ -11,7 +16,8 @@ part of 'qiita_item.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods',
+);
 
 QiitaItem _$QiitaItemFromJson(Map<String, dynamic> json) {
   return _QiitaItem.fromJson(json);
@@ -21,10 +27,12 @@ QiitaItem _$QiitaItemFromJson(Map<String, dynamic> json) {
 class _$QiitaItemTearOff {
   const _$QiitaItemTearOff();
 
-  _QiitaItem call(
-      {@JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'url') String? url,
-      @JsonKey(name: 'user') QiitaUser? user}) {
+  _QiitaItem call({
+    @JsonKey(name: 'title') String? title,
+    // ignore: invalid_annotation_target
+    @JsonKey(name: 'url') String? url,
+    @JsonKey(name: 'user') QiitaUser? user,
+  }) {
     return _QiitaItem(
       title: title,
       url: url,
@@ -59,10 +67,11 @@ mixin _$QiitaItem {
 abstract class $QiitaItemCopyWith<$Res> {
   factory $QiitaItemCopyWith(QiitaItem value, $Res Function(QiitaItem) then) =
       _$QiitaItemCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'url') String? url,
-      @JsonKey(name: 'user') QiitaUser? user});
+  $Res call({
+    @JsonKey(name: 'title') String? title,
+    @JsonKey(name: 'url') String? url,
+    @JsonKey(name: 'user') QiitaUser? user,
+  });
 
   $QiitaUserCopyWith<$Res>? get user;
 }
@@ -81,20 +90,22 @@ class _$QiitaItemCopyWithImpl<$Res> implements $QiitaItemCopyWith<$Res> {
     Object? url = freezed,
     Object? user = freezed,
   }) {
-    return _then(_value.copyWith(
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      user: user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as QiitaUser?,
-    ));
+    return _then(
+      _value.copyWith(
+        title: title == freezed
+            ? _value.title
+            : title // ignore: cast_nullable_to_non_nullable
+                as String?,
+        url: url == freezed
+            ? _value.url
+            : url // ignore: cast_nullable_to_non_nullable
+                as String?,
+        user: user == freezed
+            ? _value.user
+            : user // ignore: cast_nullable_to_non_nullable
+                as QiitaUser?,
+      ),
+    );
   }
 
   @override
@@ -112,13 +123,15 @@ class _$QiitaItemCopyWithImpl<$Res> implements $QiitaItemCopyWith<$Res> {
 /// @nodoc
 abstract class _$QiitaItemCopyWith<$Res> implements $QiitaItemCopyWith<$Res> {
   factory _$QiitaItemCopyWith(
-          _QiitaItem value, $Res Function(_QiitaItem) then) =
-      __$QiitaItemCopyWithImpl<$Res>;
+    _QiitaItem value,
+    $Res Function(_QiitaItem) then,
+  ) = __$QiitaItemCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {@JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'url') String? url,
-      @JsonKey(name: 'user') QiitaUser? user});
+  $Res call({
+    @JsonKey(name: 'title') String? title,
+    @JsonKey(name: 'url') String? url,
+    @JsonKey(name: 'user') QiitaUser? user,
+  });
 
   @override
   $QiitaUserCopyWith<$Res>? get user;
@@ -127,8 +140,8 @@ abstract class _$QiitaItemCopyWith<$Res> implements $QiitaItemCopyWith<$Res> {
 /// @nodoc
 class __$QiitaItemCopyWithImpl<$Res> extends _$QiitaItemCopyWithImpl<$Res>
     implements _$QiitaItemCopyWith<$Res> {
-  __$QiitaItemCopyWithImpl(_QiitaItem _value, $Res Function(_QiitaItem) _then)
-      : super(_value, (v) => _then(v as _QiitaItem));
+  __$QiitaItemCopyWithImpl(_QiitaItem value, $Res Function(_QiitaItem) then)
+      : super(value, (v) => then(v as _QiitaItem));
 
   @override
   _QiitaItem get _value => super._value as _QiitaItem;
@@ -139,30 +152,33 @@ class __$QiitaItemCopyWithImpl<$Res> extends _$QiitaItemCopyWithImpl<$Res>
     Object? url = freezed,
     Object? user = freezed,
   }) {
-    return _then(_QiitaItem(
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      user: user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as QiitaUser?,
-    ));
+    return _then(
+      _QiitaItem(
+        title: title == freezed
+            ? _value.title
+            : title // ignore: cast_nullable_to_non_nullable
+                as String?,
+        url: url == freezed
+            ? _value.url
+            : url // ignore: cast_nullable_to_non_nullable
+                as String?,
+        user: user == freezed
+            ? _value.user
+            : user // ignore: cast_nullable_to_non_nullable
+                as QiitaUser?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$_QiitaItem implements _QiitaItem {
-  const _$_QiitaItem(
-      {@JsonKey(name: 'title') this.title,
-      @JsonKey(name: 'url') this.url,
-      @JsonKey(name: 'user') this.user});
+  const _$_QiitaItem({
+    @JsonKey(name: 'title') this.title,
+    @JsonKey(name: 'url') this.url,
+    @JsonKey(name: 'user') this.user,
+  });
 
   factory _$_QiitaItem.fromJson(Map<String, dynamic> json) =>
       _$$_QiitaItemFromJson(json);
@@ -194,10 +210,11 @@ class _$_QiitaItem implements _QiitaItem {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(user));
+        runtimeType,
+        const DeepCollectionEquality().hash(title),
+        const DeepCollectionEquality().hash(url),
+        const DeepCollectionEquality().hash(user),
+      );
 
   @JsonKey(ignore: true)
   @override
@@ -211,10 +228,11 @@ class _$_QiitaItem implements _QiitaItem {
 }
 
 abstract class _QiitaItem implements QiitaItem {
-  const factory _QiitaItem(
-      {@JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'url') String? url,
-      @JsonKey(name: 'user') QiitaUser? user}) = _$_QiitaItem;
+  const factory _QiitaItem({
+    @JsonKey(name: 'title') String? title,
+    @JsonKey(name: 'url') String? url,
+    @JsonKey(name: 'user') QiitaUser? user,
+  }) = _$_QiitaItem;
 
   factory _QiitaItem.fromJson(Map<String, dynamic> json) =
       _$_QiitaItem.fromJson;

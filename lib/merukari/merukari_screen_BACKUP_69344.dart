@@ -130,6 +130,7 @@ class MerukariScreen extends ConsumerWidget {
 
   // 売れやすい物一覧セクションを構築
   Widget _buildPopularArticlesSection() {
+<<<<<<< HEAD
     return Column(children: [
       Container(
         margin: const EdgeInsets.all(15.0),
@@ -155,12 +156,7 @@ class MerukariScreen extends ConsumerWidget {
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.blue,
-              ),
-            ),
-          ],
-        ),
-      ),
-    ]);
+=======
     return Column(
       children: [
         Container(
@@ -188,14 +184,13 @@ class MerukariScreen extends ConsumerWidget {
                   fontSize: 18,
                   color: Colors.blue,
                 ),
+>>>>>>> 76f3505 (大量に修正)
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        for (var i = 0; i < _dummyArticleData.length; i++)
-          _buildPopularArticle(_dummyArticleData[i]),
-      ],
-    );
+      ),
+    ]);
   }
 
   // 売れやすいもの一覧を構築
