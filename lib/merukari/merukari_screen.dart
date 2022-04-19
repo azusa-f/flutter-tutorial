@@ -130,41 +130,10 @@ class MerukariScreen extends ConsumerWidget {
 
   // 売れやすい物一覧セクションを構築
   Widget _buildPopularArticlesSection() {
-    return Column(children: [
-      Container(
-        margin: const EdgeInsets.all(15.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    "売れやすい持ち物",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Text("使わないモノを出品してみよう！"),
-                ],
-              ),
-            ),
-            const Text(
-              "すべて見る＞",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.blue,
-              ),
-            ),
-          ],
-        ),
-      ),
-    ]);
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.all(15),
+          margin: const EdgeInsets.all(15.0),
           child: Row(
             children: [
               Expanded(
@@ -172,18 +141,18 @@ class MerukariScreen extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Text(
-                      '売れやすい持ち物',
+                      "売れやすい持ち物",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Text('使わないモノを出品してみよう！'),
+                    Text("使わないモノを出品してみよう！"),
                   ],
                 ),
               ),
               const Text(
-                'すべて見る＞',
+                "すべて見る＞",
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.blue,
@@ -192,8 +161,6 @@ class MerukariScreen extends ConsumerWidget {
             ],
           ),
         ),
-        for (var i = 0; i < _dummyArticleData.length; i++)
-          _buildPopularArticle(_dummyArticleData[i]),
       ],
     );
   }
