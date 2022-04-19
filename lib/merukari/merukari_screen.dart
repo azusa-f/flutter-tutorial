@@ -27,7 +27,7 @@ class MerukariScreen extends ConsumerWidget {
     return AppBar(
       backgroundColor: Colors.white,
       title: const Text(
-        '出品',
+        "出品",
         style: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.w600,
@@ -74,7 +74,7 @@ class MerukariScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
                   Text(
-                    '出品へのショートカット',
+                    "出品へのショートカット",
                     style: TextStyle(
                       color: Color.fromARGB(255, 58, 52, 52),
                       fontSize: 20,
@@ -87,10 +87,10 @@ class MerukariScreen extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildListingButton(Icons.photo_camera, '写真を撮る'),
-                _buildListingButton(Icons.photo_library, 'アルバム'),
-                _buildListingButton(Icons.qr_code_2, 'バーコード\n(本・コスメ)'),
-                _buildListingButton(Icons.edit_note, '下書き一覧'),
+                _buildListingButton(Icons.photo_camera, "写真を撮る"),
+                _buildListingButton(Icons.photo_library, "アルバム"),
+                _buildListingButton(Icons.qr_code_2, "バーコード\n(本・コスメ)"),
+                _buildListingButton(Icons.edit_note, "下書き一覧"),
               ],
             ),
             _buildPopularArticlesSection(),
@@ -130,45 +130,43 @@ class MerukariScreen extends ConsumerWidget {
 
   // 売れやすい物一覧セクションを構築
   Widget _buildPopularArticlesSection() {
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.all(15.0),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      "売れやすい持ち物",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
+    return Column(children: [
+      Container(
+        margin: const EdgeInsets.all(15.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    "売れやすい持ち物",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
                     ),
-                    Text("使わないモノを出品してみよう！"),
-                  ],
-                ),
+                  ),
+                  Text("使わないモノを出品してみよう！"),
+                ],
               ),
-              const Text(
-                "すべて見る＞",
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.blue,
-                ),
+            ),
+            const Text(
+              "すべて見る＞",
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.blue,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      ],
-    );
+      ),
+    ]);
   }
 
   // 売れやすいもの一覧を構築
   Widget _buildPopularArticle(MerukariItem articleData) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
           Row(
@@ -185,7 +183,7 @@ class MerukariScreen extends ConsumerWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -207,7 +205,7 @@ class MerukariScreen extends ConsumerWidget {
               const Spacer(),
               ElevatedButton(
                 onPressed: () {},
-                child: const Text('出品する'),
+                child: const Text("出品する"),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.red,
                 ),
@@ -252,19 +250,19 @@ class MerukariScreen extends ConsumerWidget {
         ),
         const BottomNavigationBarItem(
           icon: Icon(Icons.notifications),
-          label: 'お知らせ',
+          label: "お知らせ",
         ),
         const BottomNavigationBarItem(
           icon: Icon(Icons.local_see),
-          label: '出品',
+          label: "出品",
         ),
         const BottomNavigationBarItem(
           icon: Icon(Icons.add_comment),
-          label: 'メッセージ',
+          label: "メッセージ",
         ),
         const BottomNavigationBarItem(
           icon: Icon(Icons.account_circle),
-          label: 'マイページ',
+          label: "マイページ",
         ),
       ],
       type: BottomNavigationBarType.fixed,
