@@ -11,8 +11,7 @@ part of 'residence_item.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ResidenceItem _$ResidenceItemFromJson(Map<String, dynamic> json) {
   return _ResidenceItem.fromJson(json);
@@ -22,15 +21,14 @@ ResidenceItem _$ResidenceItemFromJson(Map<String, dynamic> json) {
 class _$ResidenceItemTearOff {
   const _$ResidenceItemTearOff();
 
-  _ResidenceItem call({
-    @JsonKey(name: 'imagePath') String? imagePath,
-    @JsonKey(name: 'floorImagePath') String? floorImagePath,
-    @JsonKey(name: 'buildingName') String? buildingName,
-    @JsonKey(name: 'residencePrice') String? residencePrice,
-    @JsonKey(name: 'nearesetStation') String? nearesetStation,
-    @JsonKey(name: 'roomInformation') String? roomInformation,
-    @JsonKey(name: 'buildingInformation') String? buildingInformation,
-  }) {
+  _ResidenceItem call(
+      {@JsonKey(name: 'imagePath') String? imagePath,
+      @JsonKey(name: 'floorImagePath') String? floorImagePath,
+      @JsonKey(name: 'buildingName') String? buildingName,
+      @JsonKey(name: 'residencePrice') String? residencePrice,
+      @JsonKey(name: 'nearesetStation') String? nearesetStation,
+      @JsonKey(name: 'roomInformation') String? roomInformation,
+      @JsonKey(name: 'buildingInformation') String? buildingInformation}) {
     return _ResidenceItem(
       imagePath: imagePath,
       floorImagePath: floorImagePath,
@@ -76,18 +74,16 @@ mixin _$ResidenceItem {
 /// @nodoc
 abstract class $ResidenceItemCopyWith<$Res> {
   factory $ResidenceItemCopyWith(
-    ResidenceItem value,
-    $Res Function(ResidenceItem) then,
-  ) = _$ResidenceItemCopyWithImpl<$Res>;
-  $Res call({
-    @JsonKey(name: 'imagePath') String? imagePath,
-    @JsonKey(name: 'floorImagePath') String? floorImagePath,
-    @JsonKey(name: 'buildingName') String? buildingName,
-    @JsonKey(name: 'residencePrice') String? residencePrice,
-    @JsonKey(name: 'nearesetStation') String? nearesetStation,
-    @JsonKey(name: 'roomInformation') String? roomInformation,
-    @JsonKey(name: 'buildingInformation') String? buildingInformation,
-  });
+          ResidenceItem value, $Res Function(ResidenceItem) then) =
+      _$ResidenceItemCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'imagePath') String? imagePath,
+      @JsonKey(name: 'floorImagePath') String? floorImagePath,
+      @JsonKey(name: 'buildingName') String? buildingName,
+      @JsonKey(name: 'residencePrice') String? residencePrice,
+      @JsonKey(name: 'nearesetStation') String? nearesetStation,
+      @JsonKey(name: 'roomInformation') String? roomInformation,
+      @JsonKey(name: 'buildingInformation') String? buildingInformation});
 }
 
 /// @nodoc
@@ -109,38 +105,36 @@ class _$ResidenceItemCopyWithImpl<$Res>
     Object? roomInformation = freezed,
     Object? buildingInformation = freezed,
   }) {
-    return _then(
-      _value.copyWith(
-        imagePath: imagePath == freezed
-            ? _value.imagePath
-            : imagePath // ignore: cast_nullable_to_non_nullable
-                as String?,
-        floorImagePath: floorImagePath == freezed
-            ? _value.floorImagePath
-            : floorImagePath // ignore: cast_nullable_to_non_nullable
-                as String?,
-        buildingName: buildingName == freezed
-            ? _value.buildingName
-            : buildingName // ignore: cast_nullable_to_non_nullable
-                as String?,
-        residencePrice: residencePrice == freezed
-            ? _value.residencePrice
-            : residencePrice // ignore: cast_nullable_to_non_nullable
-                as String?,
-        nearesetStation: nearesetStation == freezed
-            ? _value.nearesetStation
-            : nearesetStation // ignore: cast_nullable_to_non_nullable
-                as String?,
-        roomInformation: roomInformation == freezed
-            ? _value.roomInformation
-            : roomInformation // ignore: cast_nullable_to_non_nullable
-                as String?,
-        buildingInformation: buildingInformation == freezed
-            ? _value.buildingInformation
-            : buildingInformation // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ),
-    );
+    return _then(_value.copyWith(
+      imagePath: imagePath == freezed
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      floorImagePath: floorImagePath == freezed
+          ? _value.floorImagePath
+          : floorImagePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      buildingName: buildingName == freezed
+          ? _value.buildingName
+          : buildingName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      residencePrice: residencePrice == freezed
+          ? _value.residencePrice
+          : residencePrice // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nearesetStation: nearesetStation == freezed
+          ? _value.nearesetStation
+          : nearesetStation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      roomInformation: roomInformation == freezed
+          ? _value.roomInformation
+          : roomInformation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      buildingInformation: buildingInformation == freezed
+          ? _value.buildingInformation
+          : buildingInformation // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
@@ -148,19 +142,17 @@ class _$ResidenceItemCopyWithImpl<$Res>
 abstract class _$ResidenceItemCopyWith<$Res>
     implements $ResidenceItemCopyWith<$Res> {
   factory _$ResidenceItemCopyWith(
-    _ResidenceItem value,
-    $Res Function(_ResidenceItem) then,
-  ) = __$ResidenceItemCopyWithImpl<$Res>;
+          _ResidenceItem value, $Res Function(_ResidenceItem) then) =
+      __$ResidenceItemCopyWithImpl<$Res>;
   @override
-  $Res call({
-    @JsonKey(name: 'imagePath') String? imagePath,
-    @JsonKey(name: 'floorImagePath') String? floorImagePath,
-    @JsonKey(name: 'buildingName') String? buildingName,
-    @JsonKey(name: 'residencePrice') String? residencePrice,
-    @JsonKey(name: 'nearesetStation') String? nearesetStation,
-    @JsonKey(name: 'roomInformation') String? roomInformation,
-    @JsonKey(name: 'buildingInformation') String? buildingInformation,
-  });
+  $Res call(
+      {@JsonKey(name: 'imagePath') String? imagePath,
+      @JsonKey(name: 'floorImagePath') String? floorImagePath,
+      @JsonKey(name: 'buildingName') String? buildingName,
+      @JsonKey(name: 'residencePrice') String? residencePrice,
+      @JsonKey(name: 'nearesetStation') String? nearesetStation,
+      @JsonKey(name: 'roomInformation') String? roomInformation,
+      @JsonKey(name: 'buildingInformation') String? buildingInformation});
 }
 
 /// @nodoc
@@ -168,9 +160,8 @@ class __$ResidenceItemCopyWithImpl<$Res>
     extends _$ResidenceItemCopyWithImpl<$Res>
     implements _$ResidenceItemCopyWith<$Res> {
   __$ResidenceItemCopyWithImpl(
-    _ResidenceItem value,
-    $Res Function(_ResidenceItem) then,
-  ) : super(value, (v) => then(v as _ResidenceItem));
+      _ResidenceItem _value, $Res Function(_ResidenceItem) _then)
+      : super(_value, (v) => _then(v as _ResidenceItem));
 
   @override
   _ResidenceItem get _value => super._value as _ResidenceItem;
@@ -185,53 +176,50 @@ class __$ResidenceItemCopyWithImpl<$Res>
     Object? roomInformation = freezed,
     Object? buildingInformation = freezed,
   }) {
-    return _then(
-      _ResidenceItem(
-        imagePath: imagePath == freezed
-            ? _value.imagePath
-            : imagePath // ignore: cast_nullable_to_non_nullable
-                as String?,
-        floorImagePath: floorImagePath == freezed
-            ? _value.floorImagePath
-            : floorImagePath // ignore: cast_nullable_to_non_nullable
-                as String?,
-        buildingName: buildingName == freezed
-            ? _value.buildingName
-            : buildingName // ignore: cast_nullable_to_non_nullable
-                as String?,
-        residencePrice: residencePrice == freezed
-            ? _value.residencePrice
-            : residencePrice // ignore: cast_nullable_to_non_nullable
-                as String?,
-        nearesetStation: nearesetStation == freezed
-            ? _value.nearesetStation
-            : nearesetStation // ignore: cast_nullable_to_non_nullable
-                as String?,
-        roomInformation: roomInformation == freezed
-            ? _value.roomInformation
-            : roomInformation // ignore: cast_nullable_to_non_nullable
-                as String?,
-        buildingInformation: buildingInformation == freezed
-            ? _value.buildingInformation
-            : buildingInformation // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ),
-    );
+    return _then(_ResidenceItem(
+      imagePath: imagePath == freezed
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      floorImagePath: floorImagePath == freezed
+          ? _value.floorImagePath
+          : floorImagePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      buildingName: buildingName == freezed
+          ? _value.buildingName
+          : buildingName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      residencePrice: residencePrice == freezed
+          ? _value.residencePrice
+          : residencePrice // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nearesetStation: nearesetStation == freezed
+          ? _value.nearesetStation
+          : nearesetStation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      roomInformation: roomInformation == freezed
+          ? _value.roomInformation
+          : roomInformation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      buildingInformation: buildingInformation == freezed
+          ? _value.buildingInformation
+          : buildingInformation // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$_ResidenceItem with DiagnosticableTreeMixin implements _ResidenceItem {
-  const _$_ResidenceItem({
-    @JsonKey(name: 'imagePath') this.imagePath,
-    @JsonKey(name: 'floorImagePath') this.floorImagePath,
-    @JsonKey(name: 'buildingName') this.buildingName,
-    @JsonKey(name: 'residencePrice') this.residencePrice,
-    @JsonKey(name: 'nearesetStation') this.nearesetStation,
-    @JsonKey(name: 'roomInformation') this.roomInformation,
-    @JsonKey(name: 'buildingInformation') this.buildingInformation,
-  });
+  const _$_ResidenceItem(
+      {@JsonKey(name: 'imagePath') this.imagePath,
+      @JsonKey(name: 'floorImagePath') this.floorImagePath,
+      @JsonKey(name: 'buildingName') this.buildingName,
+      @JsonKey(name: 'residencePrice') this.residencePrice,
+      @JsonKey(name: 'nearesetStation') this.nearesetStation,
+      @JsonKey(name: 'roomInformation') this.roomInformation,
+      @JsonKey(name: 'buildingInformation') this.buildingInformation});
 
   factory _$_ResidenceItem.fromJson(Map<String, dynamic> json) =>
       _$$_ResidenceItemFromJson(json);
@@ -299,15 +287,14 @@ class _$_ResidenceItem with DiagnosticableTreeMixin implements _ResidenceItem {
 
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        const DeepCollectionEquality().hash(imagePath),
-        const DeepCollectionEquality().hash(floorImagePath),
-        const DeepCollectionEquality().hash(buildingName),
-        const DeepCollectionEquality().hash(residencePrice),
-        const DeepCollectionEquality().hash(nearesetStation),
-        const DeepCollectionEquality().hash(roomInformation),
-        const DeepCollectionEquality().hash(buildingInformation),
-      );
+      runtimeType,
+      const DeepCollectionEquality().hash(imagePath),
+      const DeepCollectionEquality().hash(floorImagePath),
+      const DeepCollectionEquality().hash(buildingName),
+      const DeepCollectionEquality().hash(residencePrice),
+      const DeepCollectionEquality().hash(nearesetStation),
+      const DeepCollectionEquality().hash(roomInformation),
+      const DeepCollectionEquality().hash(buildingInformation));
 
   @JsonKey(ignore: true)
   @override
@@ -321,15 +308,15 @@ class _$_ResidenceItem with DiagnosticableTreeMixin implements _ResidenceItem {
 }
 
 abstract class _ResidenceItem implements ResidenceItem {
-  const factory _ResidenceItem({
-    @JsonKey(name: 'imagePath') String? imagePath,
-    @JsonKey(name: 'floorImagePath') String? floorImagePath,
-    @JsonKey(name: 'buildingName') String? buildingName,
-    @JsonKey(name: 'residencePrice') String? residencePrice,
-    @JsonKey(name: 'nearesetStation') String? nearesetStation,
-    @JsonKey(name: 'roomInformation') String? roomInformation,
-    @JsonKey(name: 'buildingInformation') String? buildingInformation,
-  }) = _$_ResidenceItem;
+  const factory _ResidenceItem(
+          {@JsonKey(name: 'imagePath') String? imagePath,
+          @JsonKey(name: 'floorImagePath') String? floorImagePath,
+          @JsonKey(name: 'buildingName') String? buildingName,
+          @JsonKey(name: 'residencePrice') String? residencePrice,
+          @JsonKey(name: 'nearesetStation') String? nearesetStation,
+          @JsonKey(name: 'roomInformation') String? roomInformation,
+          @JsonKey(name: 'buildingInformation') String? buildingInformation}) =
+      _$_ResidenceItem;
 
   factory _ResidenceItem.fromJson(Map<String, dynamic> json) =
       _$_ResidenceItem.fromJson;

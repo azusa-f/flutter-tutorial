@@ -9,7 +9,7 @@ part 'youtube_api_client.g.dart';
 abstract class YoutubeApiClient {
   factory YoutubeApiClient(Dio dio, {String baseUrl}) = _YoutubeApiClient;
 
-  static Future<YoutubeApiClient> create() async {
+  static YoutubeApiClient create() {
     final dio = Dio();
     dio.interceptors.add(PrettyDioLogger());
     return YoutubeApiClient(dio);

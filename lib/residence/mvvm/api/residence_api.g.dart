@@ -17,23 +17,17 @@ class _ResidenceApi implements ResidenceApi {
 
   @override
   Future<List<ResidenceItem>> fetchResidenceItems() async {
-    const extra = <String, dynamic>{};
+    const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final headers = <String, dynamic>{};
-    final data = <String, dynamic>{};
-    final result = await _dio.fetch<List<dynamic>>(
-      _setStreamType<List<ResidenceItem>>(
-        Options(method: 'GET', headers: headers, extra: extra)
-            .compose(
-              _dio.options,
-              '/residence.json',
-              queryParameters: queryParameters,
-              data: data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl),
-      ),
-    );
-    final value = result.data!
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<ResidenceItem>>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/residence.json',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
         .map((dynamic i) => ResidenceItem.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;

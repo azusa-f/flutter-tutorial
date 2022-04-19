@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, require_trailing_commas
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'youtube_state.dart';
 
@@ -96,8 +96,8 @@ abstract class _$YoutubeStateCopyWith<$Res>
 class __$YoutubeStateCopyWithImpl<$Res> extends _$YoutubeStateCopyWithImpl<$Res>
     implements _$YoutubeStateCopyWith<$Res> {
   __$YoutubeStateCopyWithImpl(
-      _YoutubeState value, $Res Function(_YoutubeState) then)
-      : super(value, (v) => then(v as _YoutubeState));
+      _YoutubeState _value, $Res Function(_YoutubeState) _then)
+      : super(_value, (v) => _then(v as _YoutubeState));
 
   @override
   _YoutubeState get _value => super._value as _YoutubeState;
