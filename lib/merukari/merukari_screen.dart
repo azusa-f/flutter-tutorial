@@ -12,7 +12,11 @@ class MerukariScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: _buildBody(state.merukariItems),
+      body: Column(
+        children: [
+          _buildBody(state.merukariItems),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.camera_alt),
