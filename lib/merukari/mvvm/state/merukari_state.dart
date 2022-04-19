@@ -1,5 +1,5 @@
-import 'package:tutorial/merukari/mvvm/model/merukari_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tutorial/merukari/mvvm/model/merukari_item.dart';
 
 part 'merukari_state.freezed.dart';
 

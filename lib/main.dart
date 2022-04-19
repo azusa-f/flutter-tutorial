@@ -73,7 +73,7 @@ class IndexPage extends StatelessWidget {
                 Navigator.push<Widget>(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MerukariScreen(),
+                    builder: (context) => const MerukariScreen(),
                   ),
                 );
               },

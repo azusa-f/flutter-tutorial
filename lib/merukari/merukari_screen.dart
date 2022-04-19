@@ -1,10 +1,12 @@
+// ignore_for_file: prefer_single_quotes
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutorial/merukari/merukari_state_notifier.dart';
 import 'package:tutorial/merukari/mvvm/model/merukari_item.dart';
 
 class MerukariScreen extends ConsumerWidget {
-  MerukariScreen({Key? key}) : super(key: key);
+  const MerukariScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -12,11 +14,15 @@ class MerukariScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: _buildBody(state.merukariItems),
+      body: Column(
+        children: [
+          _buildBody(state.merukariItems),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: const Icon(Icons.camera_alt),
         backgroundColor: Colors.red,
+        child: const Icon(Icons.camera_alt),
       ),
       bottomNavigationBar: _buildBottomNavigationBar(context),
     );
@@ -40,17 +46,20 @@ class MerukariScreen extends ConsumerWidget {
   Widget _buildBody(List<MerukariItem> articleData) {
     return Expanded(
       child: ListView.builder(
-          itemCount: articleData.length,
-          shrinkWrap: true,
-          itemBuilder: (BuildContext context, int index) {
-            return SizedBox(
-              width: double.infinity,
-              child: Column(children: [
-                index == 0 ? _buildGuideSection() : SizedBox.shrink(),
+        itemCount: articleData.length,
+        shrinkWrap: true,
+        itemBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            width: double.infinity,
+            child: Column(
+              children: [
+                index == 0 ? _buildGuideSection() : const SizedBox.shrink(),
                 _buildPopularArticle(articleData[index]),
-              ]),
-            );
-          }),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -64,14 +73,13 @@ class MerukariScreen extends ConsumerWidget {
         188,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15),
         child: Column(
           children: [
             Image.network('https://about.mercari.com/images/about-us-mv.webp'),
             SizedBox(
               height: 60,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
                   Text(
                     "出品へのショートカット",
@@ -130,43 +138,45 @@ class MerukariScreen extends ConsumerWidget {
 
   // 売れやすい物一覧セクションを構築
   Widget _buildPopularArticlesSection() {
-    return Column(children: [
-      Container(
-        margin: const EdgeInsets.all(15.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    "売れやすい持ち物",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.all(15),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      "売れやすい持ち物",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  Text("使わないモノを出品してみよう！"),
-                ],
+                    Text("使わないモノを出品してみよう！"),
+                  ],
+                ),
               ),
-            ),
-            const Text(
-              "すべて見る＞",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.blue,
+              const Text(
+                "すべて見る＞",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.blue,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    ]);
+      ],
+    );
   }
 
   // 売れやすいもの一覧を構築
   Widget _buildPopularArticle(MerukariItem articleData) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           Row(
@@ -183,7 +193,7 @@ class MerukariScreen extends ConsumerWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -205,10 +215,10 @@ class MerukariScreen extends ConsumerWidget {
               const Spacer(),
               ElevatedButton(
                 onPressed: () {},
-                child: const Text("出品する"),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.red,
                 ),
+                child: const Text("出品する"),
               )
             ],
           )

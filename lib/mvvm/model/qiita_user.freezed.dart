@@ -11,7 +11,8 @@ part of 'qiita_user.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods',
+);
 
 QiitaUser _$QiitaUserFromJson(Map<String, dynamic> json) {
   return _QiitaUser.fromJson(json);
@@ -21,8 +22,9 @@ QiitaUser _$QiitaUserFromJson(Map<String, dynamic> json) {
 class _$QiitaUserTearOff {
   const _$QiitaUserTearOff();
 
-  _QiitaUser call(
-      {@JsonKey(name: 'profile_image_url') String? profileImageUrl}) {
+  _QiitaUser call({
+    @JsonKey(name: 'profile_image_url') String? profileImageUrl,
+  }) {
     return _QiitaUser(
       profileImageUrl: profileImageUrl,
     );
@@ -66,20 +68,23 @@ class _$QiitaUserCopyWithImpl<$Res> implements $QiitaUserCopyWith<$Res> {
   $Res call({
     Object? profileImageUrl = freezed,
   }) {
-    return _then(_value.copyWith(
-      profileImageUrl: profileImageUrl == freezed
-          ? _value.profileImageUrl
-          : profileImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _value.copyWith(
+        profileImageUrl: profileImageUrl == freezed
+            ? _value.profileImageUrl
+            : profileImageUrl // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 abstract class _$QiitaUserCopyWith<$Res> implements $QiitaUserCopyWith<$Res> {
   factory _$QiitaUserCopyWith(
-          _QiitaUser value, $Res Function(_QiitaUser) then) =
-      __$QiitaUserCopyWithImpl<$Res>;
+    _QiitaUser value,
+    $Res Function(_QiitaUser) then,
+  ) = __$QiitaUserCopyWithImpl<$Res>;
   @override
   $Res call({@JsonKey(name: 'profile_image_url') String? profileImageUrl});
 }
@@ -87,8 +92,8 @@ abstract class _$QiitaUserCopyWith<$Res> implements $QiitaUserCopyWith<$Res> {
 /// @nodoc
 class __$QiitaUserCopyWithImpl<$Res> extends _$QiitaUserCopyWithImpl<$Res>
     implements _$QiitaUserCopyWith<$Res> {
-  __$QiitaUserCopyWithImpl(_QiitaUser _value, $Res Function(_QiitaUser) _then)
-      : super(_value, (v) => _then(v as _QiitaUser));
+  __$QiitaUserCopyWithImpl(_QiitaUser value, $Res Function(_QiitaUser) then)
+      : super(value, (v) => then(v as _QiitaUser));
 
   @override
   _QiitaUser get _value => super._value as _QiitaUser;
@@ -97,20 +102,23 @@ class __$QiitaUserCopyWithImpl<$Res> extends _$QiitaUserCopyWithImpl<$Res>
   $Res call({
     Object? profileImageUrl = freezed,
   }) {
-    return _then(_QiitaUser(
-      profileImageUrl: profileImageUrl == freezed
-          ? _value.profileImageUrl
-          : profileImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _QiitaUser(
+        profileImageUrl: profileImageUrl == freezed
+            ? _value.profileImageUrl
+            : profileImageUrl // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$_QiitaUser implements _QiitaUser {
-  const _$_QiitaUser(
-      {@JsonKey(name: 'profile_image_url') this.profileImageUrl});
+  const _$_QiitaUser({
+    @JsonKey(name: 'profile_image_url') this.profileImageUrl,
+  });
 
   factory _$_QiitaUser.fromJson(Map<String, dynamic> json) =>
       _$$_QiitaUserFromJson(json);
@@ -135,7 +143,9 @@ class _$_QiitaUser implements _QiitaUser {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(profileImageUrl));
+        runtimeType,
+        const DeepCollectionEquality().hash(profileImageUrl),
+      );
 
   @JsonKey(ignore: true)
   @override
@@ -149,9 +159,9 @@ class _$_QiitaUser implements _QiitaUser {
 }
 
 abstract class _QiitaUser implements QiitaUser {
-  const factory _QiitaUser(
-          {@JsonKey(name: 'profile_image_url') String? profileImageUrl}) =
-      _$_QiitaUser;
+  const factory _QiitaUser({
+    @JsonKey(name: 'profile_image_url') String? profileImageUrl,
+  }) = _$_QiitaUser;
 
   factory _QiitaUser.fromJson(Map<String, dynamic> json) =
       _$_QiitaUser.fromJson;
