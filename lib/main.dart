@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial/todo_app/todo_screen.dart';
 import 'tutorial_1/animation_page.dart';
 import 'youtube/youtube_screen.dart';
 import 'residence/residence_screen.dart';
@@ -86,6 +87,16 @@ class IndexPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => QiitaTopScreen(),
+                    ),
+                  );
+                }),
+            ElevatedButton(
+                child: const Text("qiita"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TodoScreen(),
                     ),
                   );
                 }),
