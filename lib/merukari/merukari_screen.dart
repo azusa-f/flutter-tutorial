@@ -44,17 +44,20 @@ class MerukariScreen extends ConsumerWidget {
   Widget _buildBody(List<MerukariItem> articleData) {
     return Expanded(
       child: ListView.builder(
-          itemCount: articleData.length,
-          shrinkWrap: true,
-          itemBuilder: (BuildContext context, int index) {
-            return SizedBox(
-              width: double.infinity,
-              child: Column(children: [
+        itemCount: articleData.length,
+        shrinkWrap: true,
+        itemBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            width: double.infinity,
+            child: Column(
+              children: [
                 index == 0 ? _buildGuideSection() : SizedBox.shrink(),
                 _buildPopularArticle(articleData[index]),
-              ]),
-            );
-          }),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -134,43 +137,49 @@ class MerukariScreen extends ConsumerWidget {
 
   // 売れやすい物一覧セクションを構築
   Widget _buildPopularArticlesSection() {
-    return Column(children: [
-      Container(
-        margin: const EdgeInsets.all(15.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    "売れやすい持ち物",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.all(15.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      "売れやすい持ち物",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  Text("使わないモノを出品してみよう！"),
-                ],
+                    Text("使わないモノを出品してみよう！"),
+                  ],
+                ),
               ),
-            ),
-            const Text(
-              "すべて見る＞",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.blue,
+              const Text(
+                "すべて見る＞",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.blue,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    ]);
+      ],
+    );
   }
 
   // 売れやすいもの一覧を構築
   Widget _buildPopularArticle(MerukariItem articleData) {
+    final imagePath = articleData.imagePath ?? '';
+    final articleName = articleData.articleName ?? '';
+    final articlePrice = articleData.articlePrice ?? '';
+
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           Row(
@@ -181,7 +190,7 @@ class MerukariScreen extends ConsumerWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.network(
-                    articleData.imagePath.toString(),
+                    imagePath,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -191,8 +200,8 @@ class MerukariScreen extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(articleData.articleName.toString()),
-                    Text(articleData.articlePrice.toString()),
+                    Text(articleName),
+                    Text(articlePrice),
                     Row(
                       children: [
                         const Icon(

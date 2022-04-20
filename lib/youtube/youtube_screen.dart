@@ -217,7 +217,10 @@ class YoutubeScreen extends ConsumerWidget {
 
 //ビデオの名前などを構築
 Widget _buildVideoTitle(
-    String videoTitle, String acountName, String acountImage) {
+  String videoTitle,
+  String acountName,
+  String acountImage,
+) {
   return Column(
     children: [
       Container(
