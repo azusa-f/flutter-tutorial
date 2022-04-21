@@ -14,9 +14,75 @@ class TodoScreen extends ConsumerWidget {
     final _notifier = ref.watch(todoStateNotifier.notifier);
 
     return Scaffold(
-      body: _buildTodoList(_state, _notifier),
-    );
+        body: _buildTodoList(_state, _notifier),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            _showEditDialog(context);
+          },
+          child: const Icon(Icons.edit),
+        ));
   }
+}
+
+_showEditDialog(BuildContext context) {
+  final _formKey = GlobalKey<FormState>();
+  return showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        content: SizedBox(
+          height: 300,
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: "タイトルを入力してください",
+                    icon: Icon(Icons.text_fields_outlined),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '入力してください';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: "内容を入力してください",
+                    icon: Icon(Icons.notes),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '入力してください';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                    decoration: const InputDecoration(
+                      hintText: '期限を選択してください',
+                      icon: Icon(Icons.calendar_today),
+                    ),
+                    onTap: () async {
+                      final _date = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2022),
+                        lastDate: DateTime(2023),
+                        helpText: '日付を選択',
+                        cancelText: 'キャンセル',
+                        confirmText: '決定',
+                      );
+                    }),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }
 
 Widget _buildTodoList(_state, _notifier) {
