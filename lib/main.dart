@@ -91,7 +91,7 @@ class IndexPage extends StatelessWidget {
                   );
                 }),
             ElevatedButton(
-                child: const Text("qiita"),
+                child: const Text("ToDo"),
                 onPressed: () {
                   Navigator.push(
                     context,

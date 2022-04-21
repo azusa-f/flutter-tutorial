@@ -2,13 +2,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutorial/todo_app/todo_db.dart';
 
 final todoRepository = Provider(
-  (ref) => todoRepository(),
+  (ref) => TodoRepository(),
 );
 
 class TodoRepository {
   MyDatabase database = MyDatabase();
-  Future getAllTodoData() async {
-    return database.readAllTodoData;
+  Future<List<Todo>> getAllTodoData() async {
+    final todoList = database.readAllTodoData;
+    return todoList;
   }
 
   Future insertTodoData(todo) async {

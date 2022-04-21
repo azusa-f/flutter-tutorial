@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutorial/todo_app/repository/todo_repository.dart';
 import 'package:tutorial/todo_app/state/todo_client_state.dart';
+import 'package:tutorial/todo_app/todo_db.dart';
 
 final todoStateNotifier =
     StateNotifierProvider<TodoStateNotifier, TodoClientState>(
@@ -16,7 +17,7 @@ class TodoStateNotifier extends StateNotifier<TodoClientState> {
   Future getTodoData() async {
     state = state.copyWith(isLoading: true);
 
-    final todos = await _repository.getAllTodoData();
+    final List<Todo> todos = await _repository.getAllTodoData();
 
     if (todos.isNotEmpty) {
       state = state.copyWith(

@@ -14,8 +14,8 @@ class Todos extends Table {
   DateTimeColumn get limitDate => dateTime()();
 }
 
-TodoDatabase _openConnection() {
-  return TodoDatabase(() async {
+LazyDatabase _openConnection() {
+  return LazyDatabase(() async {
     final dbFolder = await getApplicationDocumentsDirectory();
     final file = File(p.join(dbFolder.path, 'db.sqlite'));
     return NativeDatabase(file);
@@ -27,9 +27,9 @@ class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());
 
   @override
-  int get shemaVersion => 1;
+  int get schemaVersion => 1;
 
-  Future<List<Todo>> readAllTodoData() => select(todos).get();
+  Future<List<Todo>> get readAllTodoData => select(todos).get();
 
   Future writeTodo(TodosCompanion todo) => into(todos).insert(todo);
 
