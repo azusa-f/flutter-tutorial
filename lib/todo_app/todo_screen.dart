@@ -27,11 +27,14 @@ Widget _buildTodoList(_state, _notifier) {
           shrinkWrap: true,
           itemCount: _state.todoItems.length,
           itemBuilder: ((context, index) {
+            final _todoData = _state.todoItems[index];
             return Slidable(
               endActionPane:
                   ActionPane(motion: const ScrollMotion(), children: [
                 SlidableAction(
-                  onPressed: (_) {},
+                  onPressed: (context) {
+                    _notifier.deleteTodoData(_todoData.id);
+                  },
                   backgroundColor: Colors.red,
                   icon: Icons.delete,
                 )
@@ -39,7 +42,7 @@ Widget _buildTodoList(_state, _notifier) {
               child: SizedBox(
                 width: double.infinity,
                 child: Column(children: [
-                  _buildToDo(_state.todoItems[index]),
+                  _buildToDo(_todoData),
                 ]),
               ),
             );

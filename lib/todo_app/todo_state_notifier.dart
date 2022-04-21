@@ -33,4 +33,15 @@ class TodoStateNotifier extends StateNotifier<TodoClientState> {
       );
     }
   }
+
+  Future insertTodoData(todo) async {
+    state = state.copyWith(isLoading: true);
+    _repository.insertTodoData(todo);
+    await getTodoData();
+  }
+
+  Future deleteTodoData(int id) async {
+    await _repository.deleteTodoData(id);
+    getTodoData();
+  }
 }
