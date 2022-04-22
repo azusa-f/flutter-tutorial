@@ -1,50 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tutorial/merukari/merukari_state_notifier.dart';
+import 'package:tutorial/merukari/mvvm/model/merukari_item.dart';
 
-class MerukariScreen extends StatelessWidget {
+class MerukariScreen extends ConsumerWidget {
   MerukariScreen({Key? key}) : super(key: key);
 
-  final List<PopulaArticleInfo> _dummyArticleData = [
-    PopulaArticleInfo(
-      imagePath:
-          'https://tshop.r10s.jp/goodgoodsshop/cabinet/07493463/08669315/new.jpg?fitin=720%3A720',
-      articleName: 'カメラ',
-      articlePrice: '¥50000',
-      articleInformation: '20人が探しています',
-    ),
-    PopulaArticleInfo(
-      imagePath:
-          'https://network.mobile.rakuten.co.jp/assets/img/product/iphone/iphone-13/pht-device-20.png?220309-01',
-      articleName: 'iphone',
-      articlePrice: '¥100000',
-      articleInformation: '500人が探しています',
-    ),
-    PopulaArticleInfo(
-      imagePath:
-          'https://tshop.r10s.jp/goodgoodsshop/cabinet/07493463/08669315/new.jpg?fitin=720%3A720',
-      articleName: 'カメラ',
-      articlePrice: '¥50000',
-      articleInformation: '20人が探しています',
-    ),
-    PopulaArticleInfo(
-      imagePath:
-          'https://network.mobile.rakuten.co.jp/assets/img/product/iphone/iphone-13/pht-device-20.png?220309-01',
-      articleName: 'iphone',
-      articlePrice: '¥100000',
-      articleInformation: '500人が探しています',
-    ),
-  ];
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(merukariStateNotifier);
+
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildGuideSection(),
-            _buildPopularArticlesSection(),
-          ],
-        ),
+      body: Column(
+        children: [
+          _buildBody(state.merukariItems),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -66,6 +37,26 @@ class MerukariScreen extends StatelessWidget {
           fontWeight: FontWeight.w600,
           fontSize: 25,
         ),
+      ),
+    );
+  }
+
+  Widget _buildBody(List<MerukariItem> articleData) {
+    return Expanded(
+      child: ListView.builder(
+        itemCount: articleData.length,
+        shrinkWrap: true,
+        itemBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            width: double.infinity,
+            child: Column(
+              children: [
+                index == 0 ? _buildGuideSection() : SizedBox.shrink(),
+                _buildPopularArticle(articleData[index]),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
@@ -109,6 +100,7 @@ class MerukariScreen extends StatelessWidget {
                 _buildListingButton(Icons.edit_note, "下書き一覧"),
               ],
             ),
+            _buildPopularArticlesSection(),
           ],
         ),
       ),
@@ -116,7 +108,7 @@ class MerukariScreen extends StatelessWidget {
   }
 
   // 出品ボタンを構築
-  Widget _buildListingButton(listingIcon, listingText) {
+  Widget _buildListingButton(IconData listingIcon, String listingText) {
     return Container(
       height: 90,
       width: 80,
@@ -176,16 +168,18 @@ class MerukariScreen extends StatelessWidget {
             ],
           ),
         ),
-        for (var i = 0; i < _dummyArticleData.length; i++)
-          _buildPopularArticle(_dummyArticleData[i]),
       ],
     );
   }
 
   // 売れやすいもの一覧を構築
-  Widget _buildPopularArticle(PopulaArticleInfo articleData) {
+  Widget _buildPopularArticle(MerukariItem articleData) {
+    final imagePath = articleData.imagePath ?? '';
+    final articleName = articleData.articleName ?? '';
+    final articlePrice = articleData.articlePrice ?? '';
+
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           Row(
@@ -196,7 +190,7 @@ class MerukariScreen extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.network(
-                    articleData.imagePath,
+                    imagePath,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -206,8 +200,8 @@ class MerukariScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(articleData.articleName),
-                    Text(articleData.articlePrice),
+                    Text(articleName),
+                    Text(articlePrice),
                     Row(
                       children: [
                         const Icon(
@@ -215,7 +209,7 @@ class MerukariScreen extends StatelessWidget {
                           color: Colors.blue,
                           size: 20,
                         ),
-                        Text(articleData.articleInformation),
+                        Text(articleData.articleInformation.toString()),
                       ],
                     ),
                   ],
@@ -287,18 +281,4 @@ class MerukariScreen extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
     );
   }
-}
-
-class PopulaArticleInfo {
-  final String imagePath;
-  final String articleName;
-  final String articlePrice;
-  final String articleInformation;
-
-  PopulaArticleInfo({
-    required this.imagePath,
-    required this.articleName,
-    required this.articlePrice,
-    required this.articleInformation,
-  });
 }

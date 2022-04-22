@@ -57,12 +57,12 @@ class _AsyncScreen extends State<AsyncScreen> {
     );
   }
 
-  _showInputDialog(context) {
+  Future _showInputDialog(BuildContext context) async {
     return showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text("登録"),
+          title: const Text('登録'),
           content: SizedBox(
             height: 300,
             child: Form(
@@ -70,7 +70,7 @@ class _AsyncScreen extends State<AsyncScreen> {
               child: Column(
                 children: [
                   TextFormField(
-                    decoration: const InputDecoration(hintText: "名前"),
+                    decoration: const InputDecoration(hintText: '名前'),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return '入力してください';
@@ -82,7 +82,7 @@ class _AsyncScreen extends State<AsyncScreen> {
                     },
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(hintText: "年齢"),
+                    decoration: const InputDecoration(hintText: '年齢'),
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     validator: (value) {
@@ -96,7 +96,7 @@ class _AsyncScreen extends State<AsyncScreen> {
                     },
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(hintText: "誕生日"),
+                    decoration: const InputDecoration(hintText: '誕生日'),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return '入力してください';
@@ -114,10 +114,10 @@ class _AsyncScreen extends State<AsyncScreen> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text("Cancel"),
+                        child: const Text('Cancel'),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8),
                         child: ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
@@ -125,7 +125,7 @@ class _AsyncScreen extends State<AsyncScreen> {
                               _setData();
                             }
                           },
-                          child: const Text("保存"),
+                          child: const Text('保存'),
                         ),
                       ),
                     ],
