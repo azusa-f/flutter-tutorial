@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tutorial/todo_app/todo_screen.dart';
 
 import 'async/async.dart';
 import 'merukari/merukari_screen.dart';
@@ -97,17 +96,6 @@ class IndexPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const QiitaTopScreen(),
-                  ),
-                );
-              },
-            ),
-            ElevatedButton(
-              child: const Text('ToDo'),
-              onPressed: () {
-                Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const TodoScreen(),
                   ),
                 );
               },
