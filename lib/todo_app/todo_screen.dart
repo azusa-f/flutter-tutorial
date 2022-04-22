@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:tutorial/todo_app/todo_db.dart';
 import 'package:tutorial/todo_app/todo_state_notifier.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:drift/drift.dart' as drift;
 
 class TodoScreen extends ConsumerWidget {
   const TodoScreen({Key? key}) : super(key: key);
@@ -26,9 +27,12 @@ class TodoScreen extends ConsumerWidget {
 
 _showEditDialog(BuildContext context) {
   final _formKey = GlobalKey<FormState>();
+  final _date = DateTime.now();
+  final _addDate = DateTime.now();
   final _title = TextEditingController();
-  final _description =  TextEditingController();
-  final _
+  final _description = TextEditingController();
+  var _limitData = TextEditingController();
+  final _format = DateFormat('yyyy-MM-dd');
 
   return showDialog(
     context: context,
@@ -41,6 +45,7 @@ _showEditDialog(BuildContext context) {
             child: Column(
               children: [
                 TextFormField(
+                  controller: _title,
                   decoration: const InputDecoration(
                     hintText: "タイトルを入力してください",
                     icon: Icon(Icons.text_fields_outlined),
@@ -53,6 +58,7 @@ _showEditDialog(BuildContext context) {
                   },
                 ),
                 TextFormField(
+                  controller: _description,
                   decoration: const InputDecoration(
                     hintText: "内容を入力してください",
                     icon: Icon(Icons.notes),
@@ -65,25 +71,56 @@ _showEditDialog(BuildContext context) {
                   },
                 ),
                 TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: '期限を選択してください',
-                      icon: Icon(Icons.calendar_today),
-                    ),
-                    onTap: () async {
-                      final _date = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(2022),
-                        lastDate: DateTime(2023),
-                        helpText: '日付を選択',
-                        cancelText: 'キャンセル',
-                        confirmText: '決定',
-                      );
-                    },),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return '入力してください';
+                    }
+                    return null;
+                  },
+                  controller: _limitData,
+                  onTap: () async {
+                    final _date = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(2022),
+                      lastDate: DateTime(2023),
+                      helpText: '日付を選択',
+                      cancelText: 'キャンセル',
+                      confirmText: '決定',
+                    );
+                    final _formatDate = _format.format(_date!);
+                    _limitData.text = _formatDate;
+                  },
+                  decoration: const InputDecoration(
+                    hintText: '期限を選択してください',
+                    icon: Icon(Icons.calendar_today),
+                  ),
+                ),
               ],
             ),
           ),
         ),
+        actions: <Widget>[
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text("キャンセル"),
+          ),
+          ElevatedButton(
+            onPressed: () async {
+              if (_formKey.currentState!.validate()) {
+                final _newTodo = TodosCompanion(
+                  title: drift.Value(_title.text),
+                  description: drift.Value(_description.text),
+                  addDate: drift.Value(_addDate),
+                  //limitDate: drift.Value(_formatDate),
+                );
+              }
+            },
+            child: const Text("保存"),
+          )
+        ],
       );
     },
   );
