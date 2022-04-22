@@ -14,7 +14,9 @@ class TodoScreen extends ConsumerWidget {
     final _state = ref.watch(todoStateNotifier);
     final _notifier = ref.watch(todoStateNotifier.notifier);
     return Scaffold(
-      body: _buildTodoList(_state, _notifier),
+      body: _state.todoItems.isEmpty
+          ? _buildEmptyTodo()
+          : _buildTodoList(_state, _notifier),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _showEditDialog(context, _notifier);
@@ -130,34 +132,56 @@ class TodoScreen extends ConsumerWidget {
   Widget _buildTodoList(_state, _notifier) {
     return Stack(
       children: [
-        Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: _state.todoItems.length,
-            itemBuilder: ((context, index) {
-              final _todoData = _state.todoItems[index];
-              return Slidable(
-                endActionPane:
-                    ActionPane(motion: const ScrollMotion(), children: [
-                  SlidableAction(
-                    onPressed: (context) {
-                      _notifier.deleteTodoData(_todoData.id);
-                    },
-                    backgroundColor: Colors.red,
-                    icon: Icons.delete,
-                  )
-                ]),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: Column(children: [
-                    _buildToDo(_todoData),
+        Column(
+          children: [
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: _state.todoItems.length,
+              itemBuilder: ((context, index) {
+                final _todoData = _state.todoItems[index];
+                return Slidable(
+                  endActionPane:
+                      ActionPane(motion: const ScrollMotion(), children: [
+                    SlidableAction(
+                      onPressed: (context) {
+                        _notifier.deleteTodoData(_todoData.id);
+                      },
+                      backgroundColor: Colors.red,
+                      icon: Icons.delete,
+                      label: 'Delete',
+                    )
                   ]),
-                ),
-              );
-            }),
-          ),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Column(children: [
+                      _buildToDo(_todoData),
+                    ]),
+                  ),
+                );
+              }),
+            ),
+          ],
         )
       ],
+    );
+  }
+
+  Widget _buildEmptyTodo() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 300),
+      child: Column(
+        children: const [
+          Center(
+            child: Text(
+              "登録されていません。",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
