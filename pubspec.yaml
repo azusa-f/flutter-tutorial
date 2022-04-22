@@ -45,6 +45,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+flutter_localizations:
+  sdk: flutter
+
   assets:
     - images/
     - images/icons/
