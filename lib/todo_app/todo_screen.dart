@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:tutorial/todo_app/state/todo_client_state.dart';
 import 'package:tutorial/todo_app/todo_db.dart';
 import 'package:tutorial/todo_app/todo_state_notifier.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -26,7 +27,7 @@ class TodoScreen extends ConsumerWidget {
     );
   }
 
-  _showEditDialog(BuildContext context, _notifier) {
+  _showEditDialog(BuildContext context, TodoStateNotifier _notifier) {
     final _formKey = GlobalKey<FormState>();
     final _addDate = DateTime.now();
     final _title = TextEditingController();
@@ -129,7 +130,7 @@ class TodoScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildTodoList(_state, _notifier) {
+  Widget _buildTodoList(TodoClientState _state, TodoStateNotifier _notifier) {
     return Stack(
       children: [
         Column(
