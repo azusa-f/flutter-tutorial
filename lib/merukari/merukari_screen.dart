@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_single_quotes
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutorial/merukari/merukari_state_notifier.dart';
