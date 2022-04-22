@@ -26,6 +26,10 @@ class TodoScreen extends ConsumerWidget {
 
 _showEditDialog(BuildContext context) {
   final _formKey = GlobalKey<FormState>();
+  final _title = TextEditingController();
+  final _description =  TextEditingController();
+  final _
+
   return showDialog(
     context: context,
     builder: (context) {
@@ -75,7 +79,7 @@ _showEditDialog(BuildContext context) {
                         cancelText: 'キャンセル',
                         confirmText: '決定',
                       );
-                    }),
+                    },),
               ],
             ),
           ),
