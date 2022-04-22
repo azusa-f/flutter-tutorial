@@ -173,6 +173,10 @@ class MerukariScreen extends ConsumerWidget {
 
   // 売れやすいもの一覧を構築
   Widget _buildPopularArticle(MerukariItem articleData) {
+    final imagePath = articleData.imagePath ?? '';
+    final articleName = articleData.articleName ?? '';
+    final articlePrice = articleData.articlePrice ?? '';
+
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -185,7 +189,7 @@ class MerukariScreen extends ConsumerWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.network(
-                    articleData.imagePath.toString(),
+                    imagePath,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -195,8 +199,8 @@ class MerukariScreen extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(articleData.articleName.toString()),
-                    Text(articleData.articlePrice.toString()),
+                    Text(articleName),
+                    Text(articlePrice),
                     Row(
                       children: [
                         const Icon(
