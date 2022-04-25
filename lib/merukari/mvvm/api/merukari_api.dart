@@ -9,7 +9,7 @@ part 'merukari_api.g.dart';
 abstract class MerukariApi {
   factory MerukariApi(Dio dio, {String baseUrl}) = _MerukariApi;
 
-  static MerukariApi create() {
+  static MerukariApi get create {
     final dio = Dio();
     dio.interceptors.add(PrettyDioLogger());
     return MerukariApi(dio);

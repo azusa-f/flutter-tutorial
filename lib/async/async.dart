@@ -21,17 +21,20 @@ class _AsyncScreen extends State<AsyncScreen> {
     _checkData();
   }
 
-  void _setData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      prefs.setString('name', _name);
-      prefs.setInt('age', _age);
-      prefs.setString('birthday', _birthday);
-    });
+  Future<void> _setData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(
+      () {
+        prefs
+          ..setString('name', _name)
+          ..setString('birthday', _birthday)
+          ..setInt('age', _age);
+      },
+    );
   }
 
-  void _checkData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  Future<void> _checkData() async {
+    final prefs = await SharedPreferences.getInstance();
     setState(() {
       _name = prefs.getString('name') ?? '未設定';
       _age = prefs.getInt('age') ?? -1;
@@ -57,7 +60,7 @@ class _AsyncScreen extends State<AsyncScreen> {
     );
   }
 
-  Future _showInputDialog(BuildContext context) async {
+  Future<void> _showInputDialog(BuildContext context) async {
     return showDialog(
       context: context,
       builder: (context) {

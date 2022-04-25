@@ -1,6 +1,11 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, require_trailing_commas
+// ignore_for_file: unused_element, deprecated_member_use,
+//deprecated_member_use_from_same_package,
+//use_function_type_syntax_for_parameters, unnecessary_const,
+//avoid_init_to_null, invalid_override_different_default_values_named,
+//prefer_expression_function_bodies, annotate_overrides,
+//invalid_annotation_target, require_trailing_commas
 
 part of 'merukari_item.dart';
 
@@ -22,11 +27,12 @@ MerukariItem _$MerukariItemFromJson(Map<String, dynamic> json) {
 class _$MerukariItemTearOff {
   const _$MerukariItemTearOff();
 
-  _MerukariItem call(
-      {@JsonKey(name: 'imagePath') String? imagePath,
-      @JsonKey(name: 'articleName') String? articleName,
-      @JsonKey(name: 'articlePrice') String? articlePrice,
-      @JsonKey(name: 'articleInformation') String? articleInformation}) {
+  _MerukariItem call({
+    @JsonKey(name: 'imagePath') String? imagePath,
+    @JsonKey(name: 'articleName') String? articleName,
+    @JsonKey(name: 'articlePrice') String? articlePrice,
+    @JsonKey(name: 'articleInformation') String? articleInformation,
+  }) {
     return _MerukariItem(
       imagePath: imagePath,
       articleName: articleName,
@@ -63,13 +69,15 @@ mixin _$MerukariItem {
 /// @nodoc
 abstract class $MerukariItemCopyWith<$Res> {
   factory $MerukariItemCopyWith(
-          MerukariItem value, $Res Function(MerukariItem) then) =
-      _$MerukariItemCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(name: 'imagePath') String? imagePath,
-      @JsonKey(name: 'articleName') String? articleName,
-      @JsonKey(name: 'articlePrice') String? articlePrice,
-      @JsonKey(name: 'articleInformation') String? articleInformation});
+    MerukariItem value,
+    $Res Function(MerukariItem) then,
+  ) = _$MerukariItemCopyWithImpl<$Res>;
+  $Res call({
+    @JsonKey(name: 'imagePath') String? imagePath,
+    @JsonKey(name: 'articleName') String? articleName,
+    @JsonKey(name: 'articlePrice') String? articlePrice,
+    @JsonKey(name: 'articleInformation') String? articleInformation,
+  });
 }
 
 /// @nodoc
@@ -114,22 +122,25 @@ class _$MerukariItemCopyWithImpl<$Res> implements $MerukariItemCopyWith<$Res> {
 abstract class _$MerukariItemCopyWith<$Res>
     implements $MerukariItemCopyWith<$Res> {
   factory _$MerukariItemCopyWith(
-          _MerukariItem value, $Res Function(_MerukariItem) then) =
-      __$MerukariItemCopyWithImpl<$Res>;
+    _MerukariItem value,
+    $Res Function(_MerukariItem) then,
+  ) = __$MerukariItemCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {@JsonKey(name: 'imagePath') String? imagePath,
-      @JsonKey(name: 'articleName') String? articleName,
-      @JsonKey(name: 'articlePrice') String? articlePrice,
-      @JsonKey(name: 'articleInformation') String? articleInformation});
+  $Res call({
+    @JsonKey(name: 'imagePath') String? imagePath,
+    @JsonKey(name: 'articleName') String? articleName,
+    @JsonKey(name: 'articlePrice') String? articlePrice,
+    @JsonKey(name: 'articleInformation') String? articleInformation,
+  });
 }
 
 /// @nodoc
 class __$MerukariItemCopyWithImpl<$Res> extends _$MerukariItemCopyWithImpl<$Res>
     implements _$MerukariItemCopyWith<$Res> {
   __$MerukariItemCopyWithImpl(
-      _MerukariItem value, $Res Function(_MerukariItem) then)
-      : super(value, (v) => then(v as _MerukariItem));
+    _MerukariItem value,
+    $Res Function(_MerukariItem) then,
+  ) : super(value, (v) => then(v as _MerukariItem));
 
   @override
   _MerukariItem get _value => super._value as _MerukariItem;
@@ -167,11 +178,12 @@ class __$MerukariItemCopyWithImpl<$Res> extends _$MerukariItemCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MerukariItem with DiagnosticableTreeMixin implements _MerukariItem {
-  const _$_MerukariItem(
-      {@JsonKey(name: 'imagePath') this.imagePath,
-      @JsonKey(name: 'articleName') this.articleName,
-      @JsonKey(name: 'articlePrice') this.articlePrice,
-      @JsonKey(name: 'articleInformation') this.articleInformation});
+  const _$_MerukariItem({
+    @JsonKey(name: 'imagePath') this.imagePath,
+    @JsonKey(name: 'articleName') this.articleName,
+    @JsonKey(name: 'articlePrice') this.articlePrice,
+    @JsonKey(name: 'articleInformation') this.articleInformation,
+  });
 
   factory _$_MerukariItem.fromJson(Map<String, dynamic> json) =>
       _$$_MerukariItemFromJson(json);
@@ -240,12 +252,12 @@ class _$_MerukariItem with DiagnosticableTreeMixin implements _MerukariItem {
 }
 
 abstract class _MerukariItem implements MerukariItem {
-  const factory _MerukariItem(
-          {@JsonKey(name: 'imagePath') String? imagePath,
-          @JsonKey(name: 'articleName') String? articleName,
-          @JsonKey(name: 'articlePrice') String? articlePrice,
-          @JsonKey(name: 'articleInformation') String? articleInformation}) =
-      _$_MerukariItem;
+  const factory _MerukariItem({
+    @JsonKey(name: 'imagePath') String? imagePath,
+    @JsonKey(name: 'articleName') String? articleName,
+    @JsonKey(name: 'articlePrice') String? articlePrice,
+    @JsonKey(name: 'articleInformation') String? articleInformation,
+  }) = _$_MerukariItem;
 
   factory _MerukariItem.fromJson(Map<String, dynamic> json) =
       _$_MerukariItem.fromJson;

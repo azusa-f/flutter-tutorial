@@ -33,7 +33,7 @@ class _YoutubeApiClient implements YoutubeApiClient {
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl),
       ),
     );
-    var value = result.data!
+    final value = result.data!
         .map((dynamic i) => YoutubeItem.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;

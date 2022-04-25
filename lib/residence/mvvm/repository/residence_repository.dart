@@ -6,7 +6,7 @@ final residenceRepositoryProvider =
     Provider<ResidenceRepository>((_) => ResidenceRepository());
 
 class ResidenceRepository {
-  final ResidenceApi _api = ResidenceApi.create() as ResidenceApi;
+  final ResidenceApi _api = ResidenceApi.create();
 
   Future<List<ResidenceItem>> fetchResidenceItems() async {
     return _api.fetchResidenceItems();
