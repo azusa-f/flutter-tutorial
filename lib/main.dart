@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'async/async.dart';
-import 'merukari/merukari_screen.dart';
-import 'mvvm/qiita_top_screen.dart';
-import 'residence/residence_screen.dart';
+import 'package:tutorial/todo_app/todo_screen.dart';
 import 'tutorial_1/animation_page.dart';
 import 'youtube/youtube_screen.dart';
+import 'residence/residence_screen.dart';
+import 'merukari/merukari_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'async/async.dart';
+import 'mvvm/qiita_top_screen.dart';
 
 void main() => runApp(const ProviderScope(child: MainApp()));
 
@@ -96,6 +97,17 @@ class IndexPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const QiitaTopScreen(),
+                  ),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: const Text('ToDo'),
+              onPressed: () {
+                Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TodoScreen(),
                   ),
                 );
               },
