@@ -1,6 +1,12 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use,
+//deprecated_member_use_from_same_package,
+//use_function_type_syntax_for_parameters,
+//unnecessary_const, avoid_init_to_null,
+//invalid_override_different_default_values_named,
+//prefer_expression_function_bodies, annotate_overrides,
+//invalid_annotation_target
 
 part of 'youtube_state.dart';
 
@@ -11,16 +17,18 @@ part of 'youtube_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods',
+);
 
 /// @nodoc
 class _$YoutubeStateTearOff {
   const _$YoutubeStateTearOff();
 
-  _YoutubeState call(
-      {bool isLoading = false,
-      bool isReadyDate = false,
-      List<YoutubeItem> youtubeItems = const <YoutubeItem>[]}) {
+  _YoutubeState call({
+    bool isLoading = false,
+    bool isReadyDate = false,
+    List<YoutubeItem> youtubeItems = const <YoutubeItem>[],
+  }) {
     return _YoutubeState(
       isLoading: isLoading,
       isReadyDate: isReadyDate,
@@ -46,8 +54,9 @@ mixin _$YoutubeState {
 /// @nodoc
 abstract class $YoutubeStateCopyWith<$Res> {
   factory $YoutubeStateCopyWith(
-          YoutubeState value, $Res Function(YoutubeState) then) =
-      _$YoutubeStateCopyWithImpl<$Res>;
+    YoutubeState value,
+    $Res Function(YoutubeState) then,
+  ) = _$YoutubeStateCopyWithImpl<$Res>;
   $Res call({bool isLoading, bool isReadyDate, List<YoutubeItem> youtubeItems});
 }
 
@@ -65,20 +74,22 @@ class _$YoutubeStateCopyWithImpl<$Res> implements $YoutubeStateCopyWith<$Res> {
     Object? isReadyDate = freezed,
     Object? youtubeItems = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isReadyDate: isReadyDate == freezed
-          ? _value.isReadyDate
-          : isReadyDate // ignore: cast_nullable_to_non_nullable
-              as bool,
-      youtubeItems: youtubeItems == freezed
-          ? _value.youtubeItems
-          : youtubeItems // ignore: cast_nullable_to_non_nullable
-              as List<YoutubeItem>,
-    ));
+    return _then(
+      _value.copyWith(
+        isLoading: isLoading == freezed
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isReadyDate: isReadyDate == freezed
+            ? _value.isReadyDate
+            : isReadyDate // ignore: cast_nullable_to_non_nullable
+                as bool,
+        youtubeItems: youtubeItems == freezed
+            ? _value.youtubeItems
+            : youtubeItems // ignore: cast_nullable_to_non_nullable
+                as List<YoutubeItem>,
+      ),
+    );
   }
 }
 
@@ -86,8 +97,9 @@ class _$YoutubeStateCopyWithImpl<$Res> implements $YoutubeStateCopyWith<$Res> {
 abstract class _$YoutubeStateCopyWith<$Res>
     implements $YoutubeStateCopyWith<$Res> {
   factory _$YoutubeStateCopyWith(
-          _YoutubeState value, $Res Function(_YoutubeState) then) =
-      __$YoutubeStateCopyWithImpl<$Res>;
+    _YoutubeState value,
+    $Res Function(_YoutubeState) then,
+  ) = __$YoutubeStateCopyWithImpl<$Res>;
   @override
   $Res call({bool isLoading, bool isReadyDate, List<YoutubeItem> youtubeItems});
 }
@@ -96,8 +108,9 @@ abstract class _$YoutubeStateCopyWith<$Res>
 class __$YoutubeStateCopyWithImpl<$Res> extends _$YoutubeStateCopyWithImpl<$Res>
     implements _$YoutubeStateCopyWith<$Res> {
   __$YoutubeStateCopyWithImpl(
-      _YoutubeState _value, $Res Function(_YoutubeState) _then)
-      : super(_value, (v) => _then(v as _YoutubeState));
+    _YoutubeState value,
+    $Res Function(_YoutubeState) then,
+  ) : super(value, (v) => then(v as _YoutubeState));
 
   @override
   _YoutubeState get _value => super._value as _YoutubeState;
@@ -108,30 +121,33 @@ class __$YoutubeStateCopyWithImpl<$Res> extends _$YoutubeStateCopyWithImpl<$Res>
     Object? isReadyDate = freezed,
     Object? youtubeItems = freezed,
   }) {
-    return _then(_YoutubeState(
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isReadyDate: isReadyDate == freezed
-          ? _value.isReadyDate
-          : isReadyDate // ignore: cast_nullable_to_non_nullable
-              as bool,
-      youtubeItems: youtubeItems == freezed
-          ? _value.youtubeItems
-          : youtubeItems // ignore: cast_nullable_to_non_nullable
-              as List<YoutubeItem>,
-    ));
+    return _then(
+      _YoutubeState(
+        isLoading: isLoading == freezed
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isReadyDate: isReadyDate == freezed
+            ? _value.isReadyDate
+            : isReadyDate // ignore: cast_nullable_to_non_nullable
+                as bool,
+        youtubeItems: youtubeItems == freezed
+            ? _value.youtubeItems
+            : youtubeItems // ignore: cast_nullable_to_non_nullable
+                as List<YoutubeItem>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$_YoutubeState implements _YoutubeState {
-  const _$_YoutubeState(
-      {this.isLoading = false,
-      this.isReadyDate = false,
-      this.youtubeItems = const <YoutubeItem>[]});
+  const _$_YoutubeState({
+    this.isLoading = false,
+    this.isReadyDate = false,
+    this.youtubeItems = const <YoutubeItem>[],
+  });
 
   @JsonKey()
   @override
@@ -162,10 +178,11 @@ class _$_YoutubeState implements _YoutubeState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isReadyDate),
-      const DeepCollectionEquality().hash(youtubeItems));
+        runtimeType,
+        const DeepCollectionEquality().hash(isLoading),
+        const DeepCollectionEquality().hash(isReadyDate),
+        const DeepCollectionEquality().hash(youtubeItems),
+      );
 
   @JsonKey(ignore: true)
   @override
@@ -174,10 +191,11 @@ class _$_YoutubeState implements _YoutubeState {
 }
 
 abstract class _YoutubeState implements YoutubeState {
-  const factory _YoutubeState(
-      {bool isLoading,
-      bool isReadyDate,
-      List<YoutubeItem> youtubeItems}) = _$_YoutubeState;
+  const factory _YoutubeState({
+    bool isLoading,
+    bool isReadyDate,
+    List<YoutubeItem> youtubeItems,
+  }) = _$_YoutubeState;
 
   @override
   bool get isLoading;

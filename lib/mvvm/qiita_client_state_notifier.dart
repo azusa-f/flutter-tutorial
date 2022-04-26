@@ -1,13 +1,14 @@
-import '/mvvm/repository/qiita_repository.dart';
-import '/mvvm/state/qiita_client_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tutorial/mvvm/state/qiita_client_state.dart';
+
+import '/mvvm/repository/qiita_repository.dart';
 
 final qiitaClientStateNotifier = StateNotifierProvider.autoDispose<
     QiitaClientStateNotifier,
     QiitaClientState>((ref) => QiitaClientStateNotifier(ref.read));
 
 class QiitaClientStateNotifier extends StateNotifier<QiitaClientState> {
-  QiitaClientStateNotifier(this._read) : super(QiitaClientState());
+  QiitaClientStateNotifier(this._read) : super(const QiitaClientState());
 
   final Reader _read;
 
@@ -33,11 +34,11 @@ class QiitaClientStateNotifier extends StateNotifier<QiitaClientState> {
     }
   }
 
-  onBackHome() {
+  void onBackHome() {
     state = state.copyWith(
       isLoading: false,
       isReadyData: false,
-      currentTag: "",
+      currentTag: '',
     );
   }
 }

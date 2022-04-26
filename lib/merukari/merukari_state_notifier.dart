@@ -1,10 +1,11 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutorial/merukari/mvvm/repository/merukari_repository.dart';
 import 'package:tutorial/merukari/mvvm/state/merukari_state.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final merukariStateNotifier =
     StateNotifierProvider.autoDispose<MerukaristateNotifier, MerukariState>(
-        (ref) => MerukaristateNotifier(ref.read));
+  (ref) => MerukaristateNotifier(ref.read),
+);
 
 class MerukaristateNotifier extends StateNotifier<MerukariState> {
   MerukaristateNotifier(this._read) : super(const MerukariState()) {

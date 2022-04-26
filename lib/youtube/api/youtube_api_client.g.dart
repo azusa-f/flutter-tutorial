@@ -17,17 +17,23 @@ class _YoutubeApiClient implements YoutubeApiClient {
 
   @override
   Future<List<YoutubeItem>> fetchYoutubeItems() async {
-    const _extra = <String, dynamic>{};
+    const extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<YoutubeItem>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/youtube.json',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
+    final headers = <String, dynamic>{};
+    final data = <String, dynamic>{};
+    final result = await _dio.fetch<List<dynamic>>(
+      _setStreamType<List<YoutubeItem>>(
+        Options(method: 'GET', headers: headers, extra: extra)
+            .compose(
+              _dio.options,
+              '/youtube.json',
+              queryParameters: queryParameters,
+              data: data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl),
+      ),
+    );
+    final value = result.data!
         .map((dynamic i) => YoutubeItem.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;

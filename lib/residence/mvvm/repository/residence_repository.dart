@@ -1,6 +1,6 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutorial/residence/mvvm/api/residence_api.dart';
 import 'package:tutorial/residence/mvvm/model/residence_item.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final residenceRepositoryProvider =
     Provider<ResidenceRepository>((_) => ResidenceRepository());

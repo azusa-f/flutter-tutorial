@@ -1,7 +1,8 @@
-import '/mvvm/model/qiita_item.dart';
-import '/mvvm/qiita_client_state_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '/mvvm/model/qiita_item.dart';
+import '/mvvm/qiita_client_state_notifier.dart';
 
 class QiitaTopScreen extends ConsumerWidget {
   const QiitaTopScreen({Key? key}) : super(key: key);
@@ -36,7 +37,7 @@ class QiitaTopScreen extends ConsumerWidget {
             Visibility(
               visible: state.isLoading,
               child: Container(
-                color: Color(0x88000000),
+                color: const Color(0x88000000),
                 child: const Center(
                   child: CircularProgressIndicator(),
                 ),

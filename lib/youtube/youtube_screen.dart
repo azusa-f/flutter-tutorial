@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'model/youtube_item.dart';
+import 'package:tutorial/youtube/model/youtube_item.dart';
 import 'package:tutorial/youtube/youtube_state_notifier.dart';
 
 class YoutubeScreen extends ConsumerWidget {
+  const YoutubeScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(youtubeStateNotifier);
 
     return Scaffold(
-        appBar: _buildAppBar(context),
-        body: Column(
-          children: [
-            _buildBody(state.youtubeItems),
-          ],
-        ),
-        bottomNavigationBar: _buildBottomNavigationBar(context));
+      appBar: _buildAppBar(context),
+      body: Column(
+        children: [
+          _buildBody(state.youtubeItems),
+        ],
+      ),
+      bottomNavigationBar: _buildBottomNavigationBar(context),
+    );
   }
 
   // appBarを構築
@@ -54,7 +56,7 @@ class YoutubeScreen extends ConsumerWidget {
       child: ListView.builder(
         shrinkWrap: true,
         itemCount: videoItems.length,
-        itemBuilder: ((context, index) {
+        itemBuilder: (context, index) {
           return SizedBox(
             width: double.infinity,
             child: Column(
@@ -64,7 +66,7 @@ class YoutubeScreen extends ConsumerWidget {
               ],
             ),
           );
-        }),
+        },
       ),
     );
   }
@@ -163,7 +165,7 @@ class YoutubeScreen extends ConsumerWidget {
   // カテゴリーボタンを構築
   Widget _buildCategoryButton(Color color, IconData icon, String label) {
     return Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(5),
       child: ElevatedButton.icon(
         onPressed: () {},
         icon: Icon(icon),
@@ -186,9 +188,9 @@ class YoutubeScreen extends ConsumerWidget {
       ),
       width: double.infinity,
       child: const Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16),
         child: Text(
-          "急上昇動画",
+          '急上昇動画',
           style: TextStyle(
             fontSize: 20,
             color: Colors.white,
@@ -245,7 +247,7 @@ Widget _buildVideoTitle(
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
