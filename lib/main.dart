@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
+
 import 'package:tutorial/todo_app/todo_screen.dart';
 import 'tutorial_1/animation_page.dart';
 import 'youtube/youtube_screen.dart';
 import 'residence/residence_screen.dart';
 import 'merukari/merukari_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'async/async.dart';
 import 'mvvm/qiita_top_screen.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() => runApp(ProviderScope(child: MainApp()));
+void main() => runApp(const ProviderScope(child: MainApp()));
 
 class MainApp extends StatelessWidget {
+  const MainApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: IndexPage(),
     );
   }
 }
 
 class IndexPage extends StatelessWidget {
+  const IndexPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +36,9 @@ class IndexPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              child: const Text("AnimationTutorial"),
+              child: const Text('AnimationTutorial'),
               onPressed: () {
-                Navigator.push(
+                Navigator.push<Widget>(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const AnimationPage(),
@@ -42,42 +47,42 @@ class IndexPage extends StatelessWidget {
               },
             ),
             ElevatedButton(
-              child: const Text("YouTube"),
+              child: const Text('YouTube'),
               onPressed: () {
-                Navigator.push(
+                Navigator.push<void>(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => YoutubeScreen(),
+                    builder: (context) => const YoutubeScreen(),
                   ),
                 );
               },
             ),
             ElevatedButton(
-              child: const Text("賃貸アプリ"),
+              child: const Text('賃貸アプリ'),
               onPressed: () {
-                Navigator.push(
+                Navigator.push<Widget>(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ResidenceScreen(),
+                    builder: (context) => const ResidenceScreen(),
                   ),
                 );
               },
             ),
             ElevatedButton(
-              child: const Text("メルカリ"),
+              child: const Text('メルカリ'),
               onPressed: () {
-                Navigator.push(
+                Navigator.push<Widget>(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MerukariScreen(),
+                    builder: (context) => const MerukariScreen(),
                   ),
                 );
               },
             ),
             ElevatedButton(
-              child: const Text("Async"),
+              child: const Text('Async'),
               onPressed: () {
-                Navigator.push(
+                Navigator.push<Widget>(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const AsyncScreen(),
@@ -86,23 +91,23 @@ class IndexPage extends StatelessWidget {
               },
             ),
             ElevatedButton(
-              child: const Text("qiita"),
+              child: const Text('qiita'),
               onPressed: () {
-                Navigator.push(
+                Navigator.push<Widget>(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QiitaTopScreen(),
+                    builder: (context) => const QiitaTopScreen(),
                   ),
                 );
               },
             ),
             ElevatedButton(
-              child: const Text("ToDo"),
+              child: const Text('ToDo'),
               onPressed: () {
-                Navigator.push(
+                Navigator.push<Widget>(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => TodoScreen(),
+                    builder: (context) => const TodoScreen(),
                   ),
                 );
               },

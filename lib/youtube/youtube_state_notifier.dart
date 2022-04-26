@@ -1,13 +1,14 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutorial/youtube/repository/youtube_repository.dart';
 import 'package:tutorial/youtube/state/youtube_state.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final youtubeStateNotifier =
     StateNotifierProvider.autoDispose<YoutubeStateNotifer, YoutubeState>(
-        (ref) => YoutubeStateNotifer(ref.read));
+  (ref) => YoutubeStateNotifer(ref.read),
+);
 
 class YoutubeStateNotifer extends StateNotifier<YoutubeState> {
-  YoutubeStateNotifer(this._read) : super(YoutubeState()) {
+  YoutubeStateNotifer(this._read) : super(const YoutubeState()) {
     fetchYoutubeItems();
   }
 
