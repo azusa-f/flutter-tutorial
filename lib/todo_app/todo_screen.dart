@@ -141,22 +141,26 @@ class TodoScreen extends ConsumerWidget {
               itemBuilder: ((context, index) {
                 final _todoData = _state.todoItems[index];
                 return Slidable(
-                  endActionPane:
-                      ActionPane(motion: const ScrollMotion(), children: [
-                    SlidableAction(
-                      onPressed: (context) {
-                        _notifier.deleteTodoData(_todoData.id);
-                      },
-                      backgroundColor: Colors.red,
-                      icon: Icons.delete,
-                      label: 'Delete',
-                    )
-                  ]),
+                  endActionPane: ActionPane(
+                    motion: const ScrollMotion(),
+                    children: [
+                      SlidableAction(
+                        onPressed: (context) {
+                          _notifier.deleteTodoData(_todoData.id);
+                        },
+                        backgroundColor: Colors.red,
+                        icon: Icons.delete,
+                        label: 'Delete',
+                      )
+                    ],
+                  ),
                   child: SizedBox(
                     width: double.infinity,
-                    child: Column(children: [
-                      _buildToDo(_todoData),
-                    ]),
+                    child: Column(
+                      children: [
+                        _buildToDo(_todoData),
+                      ],
+                    ),
                   ),
                 );
               }),
