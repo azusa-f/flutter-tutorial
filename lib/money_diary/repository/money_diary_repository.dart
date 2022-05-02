@@ -11,4 +11,12 @@ class MoneyDiaryRepository {
     final paymentList = database.readAllPayments;
     return paymentList;
   }
+
+  Future insertPaymentData(payment) async {
+    return await database.writePayment(payment);
+  }
+
+  Future deletePaymentData(int id) async {
+    return await database.deletePayment(id);
+  }
 }

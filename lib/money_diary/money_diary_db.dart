@@ -11,7 +11,7 @@ class Payments extends Table {
   IntColumn get id => integer().autoIncrement()();
   IntColumn get amount => integer()();
   DateTimeColumn get addDate => dateTime()();
-  IntColumn get category => integer()();
+  TextColumn get category => text()();
 }
 
 LazyDatabase _openConnection() {
@@ -30,4 +30,10 @@ class MoneyDiaryDatabase extends _$MoneyDiaryDatabase {
   int get schemaVersion => 1;
 
   Future<List<Payment>> get readAllPayments => select(payments).get();
+
+  Future writePayment(PaymentsCompanion payment) =>
+      into(payments).insert(payment);
+
+  Future deletePayment(int id) =>
+      (delete(payments)..where((tbl) => tbl.id.equals(id))).go();
 }

@@ -11,7 +11,7 @@ class Payment extends DataClass implements Insertable<Payment> {
   final int id;
   final int amount;
   final DateTime addDate;
-  final int category;
+  final String category;
   Payment(
       {required this.id,
       required this.amount,
@@ -26,7 +26,7 @@ class Payment extends DataClass implements Insertable<Payment> {
           .mapFromDatabaseResponse(data['${effectivePrefix}amount'])!,
       addDate: const DateTimeType()
           .mapFromDatabaseResponse(data['${effectivePrefix}add_date'])!,
-      category: const IntType()
+      category: const StringType()
           .mapFromDatabaseResponse(data['${effectivePrefix}category'])!,
     );
   }
@@ -36,7 +36,7 @@ class Payment extends DataClass implements Insertable<Payment> {
     map['id'] = Variable<int>(id);
     map['amount'] = Variable<int>(amount);
     map['add_date'] = Variable<DateTime>(addDate);
-    map['category'] = Variable<int>(category);
+    map['category'] = Variable<String>(category);
     return map;
   }
 
@@ -56,7 +56,7 @@ class Payment extends DataClass implements Insertable<Payment> {
       id: serializer.fromJson<int>(json['id']),
       amount: serializer.fromJson<int>(json['amount']),
       addDate: serializer.fromJson<DateTime>(json['addDate']),
-      category: serializer.fromJson<int>(json['category']),
+      category: serializer.fromJson<String>(json['category']),
     );
   }
   @override
@@ -66,11 +66,12 @@ class Payment extends DataClass implements Insertable<Payment> {
       'id': serializer.toJson<int>(id),
       'amount': serializer.toJson<int>(amount),
       'addDate': serializer.toJson<DateTime>(addDate),
-      'category': serializer.toJson<int>(category),
+      'category': serializer.toJson<String>(category),
     };
   }
 
-  Payment copyWith({int? id, int? amount, DateTime? addDate, int? category}) =>
+  Payment copyWith(
+          {int? id, int? amount, DateTime? addDate, String? category}) =>
       Payment(
         id: id ?? this.id,
         amount: amount ?? this.amount,
@@ -104,7 +105,7 @@ class PaymentsCompanion extends UpdateCompanion<Payment> {
   final Value<int> id;
   final Value<int> amount;
   final Value<DateTime> addDate;
-  final Value<int> category;
+  final Value<String> category;
   const PaymentsCompanion({
     this.id = const Value.absent(),
     this.amount = const Value.absent(),
@@ -115,7 +116,7 @@ class PaymentsCompanion extends UpdateCompanion<Payment> {
     this.id = const Value.absent(),
     required int amount,
     required DateTime addDate,
-    required int category,
+    required String category,
   })  : amount = Value(amount),
         addDate = Value(addDate),
         category = Value(category);
@@ -123,7 +124,7 @@ class PaymentsCompanion extends UpdateCompanion<Payment> {
     Expression<int>? id,
     Expression<int>? amount,
     Expression<DateTime>? addDate,
-    Expression<int>? category,
+    Expression<String>? category,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -137,7 +138,7 @@ class PaymentsCompanion extends UpdateCompanion<Payment> {
       {Value<int>? id,
       Value<int>? amount,
       Value<DateTime>? addDate,
-      Value<int>? category}) {
+      Value<String>? category}) {
     return PaymentsCompanion(
       id: id ?? this.id,
       amount: amount ?? this.amount,
@@ -159,7 +160,7 @@ class PaymentsCompanion extends UpdateCompanion<Payment> {
       map['add_date'] = Variable<DateTime>(addDate.value);
     }
     if (category.present) {
-      map['category'] = Variable<int>(category.value);
+      map['category'] = Variable<String>(category.value);
     }
     return map;
   }
@@ -200,9 +201,9 @@ class $PaymentsTable extends Payments with TableInfo<$PaymentsTable, Payment> {
       type: const IntType(), requiredDuringInsert: true);
   final VerificationMeta _categoryMeta = const VerificationMeta('category');
   @override
-  late final GeneratedColumn<int?> category = GeneratedColumn<int?>(
+  late final GeneratedColumn<String?> category = GeneratedColumn<String?>(
       'category', aliasedName, false,
-      type: const IntType(), requiredDuringInsert: true);
+      type: const StringType(), requiredDuringInsert: true);
   @override
   List<GeneratedColumn> get $columns => [id, amount, addDate, category];
   @override

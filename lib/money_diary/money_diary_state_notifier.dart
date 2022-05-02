@@ -25,6 +25,25 @@ class MoneyDiaryStateNotifier extends StateNotifier<MoneyDiaryState> {
         isReadyData: true,
         payments: payments,
       );
+    } else {
+      state = state.copyWith(
+        isLoading: false,
+        isReadyData: false,
+        payments: [],
+      );
     }
+  }
+
+  insertPatmentData() {}
+
+  Future insertPaymentData(payment) async {
+    state = state.copyWith(isLoading: true);
+    _repository.insertPaymentData(payment);
+    await getPaymentData();
+  }
+
+  Future deletePaymentData(int id) async {
+    await _repository.deletePaymentData(id);
+    getPaymentData();
   }
 }
