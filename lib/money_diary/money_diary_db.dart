@@ -10,7 +10,7 @@ part 'money_diary_db.g.dart';
 class Payments extends Table {
   IntColumn get id => integer().autoIncrement()();
   IntColumn get amount => integer()();
-  DateTimeColumn get addDate => dateTime()();
+  DateTimeColumn get usedDate => dateTime()();
   TextColumn get category => text()();
 }
 

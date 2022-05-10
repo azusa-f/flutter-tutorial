@@ -10,12 +10,12 @@ part of 'money_diary_db.dart';
 class Payment extends DataClass implements Insertable<Payment> {
   final int id;
   final int amount;
-  final DateTime addDate;
+  final DateTime usedDate;
   final String category;
   Payment(
       {required this.id,
       required this.amount,
-      required this.addDate,
+      required this.usedDate,
       required this.category});
   factory Payment.fromData(Map<String, dynamic> data, {String? prefix}) {
     final effectivePrefix = prefix ?? '';
@@ -24,8 +24,8 @@ class Payment extends DataClass implements Insertable<Payment> {
           .mapFromDatabaseResponse(data['${effectivePrefix}id'])!,
       amount: const IntType()
           .mapFromDatabaseResponse(data['${effectivePrefix}amount'])!,
-      addDate: const DateTimeType()
-          .mapFromDatabaseResponse(data['${effectivePrefix}add_date'])!,
+      usedDate: const DateTimeType()
+          .mapFromDatabaseResponse(data['${effectivePrefix}used_date'])!,
       category: const StringType()
           .mapFromDatabaseResponse(data['${effectivePrefix}category'])!,
     );
@@ -35,7 +35,7 @@ class Payment extends DataClass implements Insertable<Payment> {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     map['amount'] = Variable<int>(amount);
-    map['add_date'] = Variable<DateTime>(addDate);
+    map['used_date'] = Variable<DateTime>(usedDate);
     map['category'] = Variable<String>(category);
     return map;
   }
@@ -44,7 +44,7 @@ class Payment extends DataClass implements Insertable<Payment> {
     return PaymentsCompanion(
       id: Value(id),
       amount: Value(amount),
-      addDate: Value(addDate),
+      usedDate: Value(usedDate),
       category: Value(category),
     );
   }
@@ -55,7 +55,7 @@ class Payment extends DataClass implements Insertable<Payment> {
     return Payment(
       id: serializer.fromJson<int>(json['id']),
       amount: serializer.fromJson<int>(json['amount']),
-      addDate: serializer.fromJson<DateTime>(json['addDate']),
+      usedDate: serializer.fromJson<DateTime>(json['usedDate']),
       category: serializer.fromJson<String>(json['category']),
     );
   }
@@ -65,17 +65,17 @@ class Payment extends DataClass implements Insertable<Payment> {
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
       'amount': serializer.toJson<int>(amount),
-      'addDate': serializer.toJson<DateTime>(addDate),
+      'usedDate': serializer.toJson<DateTime>(usedDate),
       'category': serializer.toJson<String>(category),
     };
   }
 
   Payment copyWith(
-          {int? id, int? amount, DateTime? addDate, String? category}) =>
+          {int? id, int? amount, DateTime? usedDate, String? category}) =>
       Payment(
         id: id ?? this.id,
         amount: amount ?? this.amount,
-        addDate: addDate ?? this.addDate,
+        usedDate: usedDate ?? this.usedDate,
         category: category ?? this.category,
       );
   @override
@@ -83,53 +83,53 @@ class Payment extends DataClass implements Insertable<Payment> {
     return (StringBuffer('Payment(')
           ..write('id: $id, ')
           ..write('amount: $amount, ')
-          ..write('addDate: $addDate, ')
+          ..write('usedDate: $usedDate, ')
           ..write('category: $category')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, amount, addDate, category);
+  int get hashCode => Object.hash(id, amount, usedDate, category);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is Payment &&
           other.id == this.id &&
           other.amount == this.amount &&
-          other.addDate == this.addDate &&
+          other.usedDate == this.usedDate &&
           other.category == this.category);
 }
 
 class PaymentsCompanion extends UpdateCompanion<Payment> {
   final Value<int> id;
   final Value<int> amount;
-  final Value<DateTime> addDate;
+  final Value<DateTime> usedDate;
   final Value<String> category;
   const PaymentsCompanion({
     this.id = const Value.absent(),
     this.amount = const Value.absent(),
-    this.addDate = const Value.absent(),
+    this.usedDate = const Value.absent(),
     this.category = const Value.absent(),
   });
   PaymentsCompanion.insert({
     this.id = const Value.absent(),
     required int amount,
-    required DateTime addDate,
+    required DateTime usedDate,
     required String category,
   })  : amount = Value(amount),
-        addDate = Value(addDate),
+        usedDate = Value(usedDate),
         category = Value(category);
   static Insertable<Payment> custom({
     Expression<int>? id,
     Expression<int>? amount,
-    Expression<DateTime>? addDate,
+    Expression<DateTime>? usedDate,
     Expression<String>? category,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (amount != null) 'amount': amount,
-      if (addDate != null) 'add_date': addDate,
+      if (usedDate != null) 'used_date': usedDate,
       if (category != null) 'category': category,
     });
   }
@@ -137,12 +137,12 @@ class PaymentsCompanion extends UpdateCompanion<Payment> {
   PaymentsCompanion copyWith(
       {Value<int>? id,
       Value<int>? amount,
-      Value<DateTime>? addDate,
+      Value<DateTime>? usedDate,
       Value<String>? category}) {
     return PaymentsCompanion(
       id: id ?? this.id,
       amount: amount ?? this.amount,
-      addDate: addDate ?? this.addDate,
+      usedDate: usedDate ?? this.usedDate,
       category: category ?? this.category,
     );
   }
@@ -156,8 +156,8 @@ class PaymentsCompanion extends UpdateCompanion<Payment> {
     if (amount.present) {
       map['amount'] = Variable<int>(amount.value);
     }
-    if (addDate.present) {
-      map['add_date'] = Variable<DateTime>(addDate.value);
+    if (usedDate.present) {
+      map['used_date'] = Variable<DateTime>(usedDate.value);
     }
     if (category.present) {
       map['category'] = Variable<String>(category.value);
@@ -170,7 +170,7 @@ class PaymentsCompanion extends UpdateCompanion<Payment> {
     return (StringBuffer('PaymentsCompanion(')
           ..write('id: $id, ')
           ..write('amount: $amount, ')
-          ..write('addDate: $addDate, ')
+          ..write('usedDate: $usedDate, ')
           ..write('category: $category')
           ..write(')'))
         .toString();
@@ -194,10 +194,10 @@ class $PaymentsTable extends Payments with TableInfo<$PaymentsTable, Payment> {
   late final GeneratedColumn<int?> amount = GeneratedColumn<int?>(
       'amount', aliasedName, false,
       type: const IntType(), requiredDuringInsert: true);
-  final VerificationMeta _addDateMeta = const VerificationMeta('addDate');
+  final VerificationMeta _usedDateMeta = const VerificationMeta('usedDate');
   @override
-  late final GeneratedColumn<DateTime?> addDate = GeneratedColumn<DateTime?>(
-      'add_date', aliasedName, false,
+  late final GeneratedColumn<DateTime?> usedDate = GeneratedColumn<DateTime?>(
+      'used_date', aliasedName, false,
       type: const IntType(), requiredDuringInsert: true);
   final VerificationMeta _categoryMeta = const VerificationMeta('category');
   @override
@@ -205,7 +205,7 @@ class $PaymentsTable extends Payments with TableInfo<$PaymentsTable, Payment> {
       'category', aliasedName, false,
       type: const StringType(), requiredDuringInsert: true);
   @override
-  List<GeneratedColumn> get $columns => [id, amount, addDate, category];
+  List<GeneratedColumn> get $columns => [id, amount, usedDate, category];
   @override
   String get aliasedName => _alias ?? 'payments';
   @override
@@ -224,11 +224,11 @@ class $PaymentsTable extends Payments with TableInfo<$PaymentsTable, Payment> {
     } else if (isInserting) {
       context.missing(_amountMeta);
     }
-    if (data.containsKey('add_date')) {
-      context.handle(_addDateMeta,
-          addDate.isAcceptableOrUnknown(data['add_date']!, _addDateMeta));
+    if (data.containsKey('used_date')) {
+      context.handle(_usedDateMeta,
+          usedDate.isAcceptableOrUnknown(data['used_date']!, _usedDateMeta));
     } else if (isInserting) {
-      context.missing(_addDateMeta);
+      context.missing(_usedDateMeta);
     }
     if (data.containsKey('category')) {
       context.handle(_categoryMeta,
