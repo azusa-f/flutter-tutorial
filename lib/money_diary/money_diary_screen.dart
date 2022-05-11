@@ -9,7 +9,7 @@ import 'package:tutorial/money_diary/money_diary_state_notifier.dart';
 import 'controller/dropdown_button_controller.dart';
 import 'money_diary_db.dart';
 
-class MoneyDiaryScreen extends ConsumerStatefulWidget {
+class MoneyDiaryScreen extends ConsumerWidget {
   const MoneyDiaryScreen({Key? key}) : super(key: key);
 
   static const Color MoneyDiaryMainColor = Color.fromARGB(
@@ -244,7 +244,6 @@ class MoneyDiaryScreen extends ConsumerStatefulWidget {
 
                 // }
                 print(selectedCategory);
-                print(_paymentAmount);
               },
               child: const Text('登録'),
             ),
@@ -267,11 +266,5 @@ class MoneyDiaryScreen extends ConsumerStatefulWidget {
         ),
       ],
     );
-  }
-
-  @override
-  ConsumerState<ConsumerStatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
   }
 }
