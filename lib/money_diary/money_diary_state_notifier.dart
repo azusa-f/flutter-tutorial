@@ -18,6 +18,7 @@ class MoneyDiaryStateNotifier extends StateNotifier<MoneyDiaryState> {
     state = state.copyWith(isLoading: true);
 
     final List<Payment> payments = await _repository.getAllPaymentsDate();
+    payments.sort((a, b) => b.usedDate.compareTo(a.usedDate));
 
     if (payments.isNotEmpty) {
       state = state.copyWith(
@@ -33,8 +34,6 @@ class MoneyDiaryStateNotifier extends StateNotifier<MoneyDiaryState> {
       );
     }
   }
-
-  insertPatmentData() {}
 
   Future insertPaymentData(payment) async {
     state = state.copyWith(isLoading: true);

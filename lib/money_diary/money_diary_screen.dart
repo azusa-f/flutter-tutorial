@@ -5,12 +5,11 @@ import 'package:intl/intl.dart';
 import 'package:path/path.dart';
 import 'package:tutorial/money_diary/money_diary_state_notifier.dart';
 import 'package:tutorial/money_diary/payment_dialog.dart';
-import 'package:tutorial/todo_app/todo_db.dart';
 
 import 'money_diary_db.dart';
 
 class MoneyDiaryScreen extends ConsumerWidget {
-  MoneyDiaryScreen({Key? key}) : super(key: key);
+  const MoneyDiaryScreen({Key? key}) : super(key: key);
 
   static const Color MoneyDiaryMainColor = Color.fromARGB(
     255,
@@ -149,14 +148,12 @@ class MoneyDiaryScreen extends ConsumerWidget {
   _showEditDialog(BuildContext context, MoneyDiaryStateNotifier notifier) {
     final _payedAmount = TextEditingController();
     var _payedDate = TextEditingController();
-    String _selectedCategory = '家賃';
     final _format = DateFormat('yyyy-MM-dd');
+    final _formKey = GlobalKey<FormState>();
+    String _selectedCategory = '家賃';
+
     final PaymentEditDialog _paymentEditDialog = PaymentEditDialog(
-      _selectedCategory,
-      _payedAmount,
-      _payedDate,
-      _format,
-    );
+        _selectedCategory, _payedAmount, _payedDate, _format, _formKey);
     return showDialog(
         context: context,
         builder: (context) {
@@ -173,16 +170,19 @@ class MoneyDiaryScreen extends ConsumerWidget {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  final _payedDate =
-                      _format.parseStrict(_paymentEditDialog.payedDate.text);
-                  final _newPayment = PaymentsCompanion(
-                    amount: drift.Value(
-                        int.parse(_paymentEditDialog.payedAmount.text)),
-                    usedDate: drift.Value(_payedDate),
-                    category: drift.Value(_paymentEditDialog.selectedCategory),
-                  );
-                  notifier.insertPaymentData(_newPayment);
-                  Navigator.pop(context);
+                  if (_formKey.currentState!.validate()) {
+                    final _payedDate =
+                        _format.parseStrict(_paymentEditDialog.payedDate.text);
+                    final _newPayment = PaymentsCompanion(
+                      amount: drift.Value(
+                          int.parse(_paymentEditDialog.payedAmount.text)),
+                      usedDate: drift.Value(_payedDate),
+                      category:
+                          drift.Value(_paymentEditDialog.selectedCategory),
+                    );
+                    notifier.insertPaymentData(_newPayment);
+                    Navigator.pop(context);
+                  }
                 },
                 child: const Text('登録'),
               )
