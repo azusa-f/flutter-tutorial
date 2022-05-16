@@ -4,13 +4,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:path/path.dart';
 import 'package:tutorial/money_diary/money_diary_state_notifier.dart';
+import 'package:tutorial/money_diary/payment_add_button.dart';
 import 'package:tutorial/money_diary/payment_dialog.dart';
+import 'package:tutorial/money_diary/payment_list.dart';
+import 'package:tutorial/money_diary/payment_totalling.dart';
 
 import 'money_diary_db.dart';
 
-class MoneyDiaryScreen extends ConsumerWidget {
-  const MoneyDiaryScreen({Key? key}) : super(key: key);
+class MoneyDiaryHome extends StatefulWidget {
+  const MoneyDiaryHome({Key? key}) : super(key: key);
 
+  @override
+  _MoneyDiaryHome createState() => _MoneyDiaryHome();
+}
+
+class _MoneyDiaryHome extends State {
   static const Color MoneyDiaryMainColor = Color.fromARGB(
     255,
     180,
@@ -18,22 +26,36 @@ class MoneyDiaryScreen extends ConsumerWidget {
     173,
   );
 
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final _state = ref.watch(moneyDiaryStateNotifier);
-    final _notifier = ref.watch(moneyDiaryStateNotifier.notifier);
+  var _selectIndex = 0;
 
-    final paymentItems = _state.payments;
-    //var test = paymentItems.where((payment) => payment.category == '家賃');
+  static final List<Widget> _pageList = [
+    const PaymentList(),
+    const PaymentTotalling(),
+  ];
+  static final List<String> _appBarTitleList = [
+    '支出一覧',
+    '集計',
+  ];
+
+  void _onTapItem(int index) {
+    setState(() {
+      _selectIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // final _state = ref.watch(moneyDiaryStateNotifier);
+    // final _notifier = ref.watch(moneyDiaryStateNotifier.notifier);
 
     return Scaffold(
       appBar: _buildAppBar(
         context,
       ),
-      body: _buildPaymentLists(paymentItems),
+      body: _pageList[_selectIndex],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _showEditDialog(context, _notifier);
+          PaymentAddButton();
         },
         backgroundColor: MoneyDiaryMainColor,
         child: const Icon(Icons.edit),
@@ -44,151 +66,9 @@ class MoneyDiaryScreen extends ConsumerWidget {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-        backgroundColor: MoneyDiaryMainColor, title: const Text("支出一覧"));
-  }
-
-  Widget _buildPaymentLists(List<Payment> paymentItems) {
-    return Stack(
-      children: [
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: paymentItems.length,
-          itemBuilder: ((context, index) {
-            final _paymentData = paymentItems[index];
-
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      color: Colors.black12,
-                    ),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          DateFormat('yyyy年M月d日').format(_paymentData.usedDate),
-                          style: const TextStyle(fontSize: 15),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              _paymentData.category == "家賃"
-                                  ? const Icon(
-                                      Icons.maps_home_work,
-                                    )
-                                  : const SizedBox.shrink(),
-                              _paymentData.category == "食費"
-                                  ? const Icon(
-                                      Icons.restaurant,
-                                    )
-                                  : const SizedBox.shrink(),
-                              _paymentData.category == "光熱費"
-                                  ? const Icon(
-                                      Icons.local_fire_department,
-                                    )
-                                  : const SizedBox.shrink(),
-                              _paymentData.category == "娯楽"
-                                  ? const Icon(
-                                      Icons.auto_awesome,
-                                    )
-                                  : const SizedBox.shrink(),
-                              _paymentData.category == "日用品"
-                                  ? const Icon(
-                                      Icons.soap,
-                                    )
-                                  : const SizedBox.shrink(),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      _paymentData.category,
-                                      style: const TextStyle(fontSize: 20),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              const Text("¥", style: TextStyle(fontSize: 20)),
-                              Text(
-                                _paymentData.amount.toString(),
-                                style: const TextStyle(fontSize: 20),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }),
-        ),
-      ],
+      backgroundColor: MoneyDiaryMainColor,
+      title: Text(_appBarTitleList[_selectIndex]),
     );
-  }
-
-  _showEditDialog(BuildContext context, MoneyDiaryStateNotifier notifier) {
-    final _payedAmount = TextEditingController();
-    var _payedDate = TextEditingController();
-    final _format = DateFormat('yyyy-MM-dd');
-    final _formKey = GlobalKey<FormState>();
-    String _selectedCategory = '家賃';
-
-    final PaymentEditDialog _paymentEditDialog = PaymentEditDialog(
-        _selectedCategory, _payedAmount, _payedDate, _format, _formKey);
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            content: SizedBox(
-              child: _paymentEditDialog,
-            ),
-            actions: <Widget>[
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('キャンセル'),
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  if (_formKey.currentState!.validate()) {
-                    final _payedDate =
-                        _format.parseStrict(_paymentEditDialog.payedDate.text);
-                    final _newPayment = PaymentsCompanion(
-                      amount: drift.Value(
-                          int.parse(_paymentEditDialog.payedAmount.text)),
-                      usedDate: drift.Value(_payedDate),
-                      category:
-                          drift.Value(_paymentEditDialog.selectedCategory),
-                    );
-                    notifier.insertPaymentData(_newPayment);
-                    Navigator.pop(context);
-                  }
-                },
-                child: const Text('登録'),
-              )
-            ],
-          );
-        });
   }
 
   BottomNavigationBar _buildBottomNavigationBar(BuildContext context) {
@@ -203,6 +83,8 @@ class MoneyDiaryScreen extends ConsumerWidget {
           label: "集計",
         ),
       ],
+      currentIndex: _selectIndex,
+      onTap: _onTapItem,
     );
   }
 }

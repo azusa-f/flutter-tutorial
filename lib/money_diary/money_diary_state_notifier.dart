@@ -17,7 +17,7 @@ class MoneyDiaryStateNotifier extends StateNotifier<MoneyDiaryState> {
   Future getPaymentData() async {
     state = state.copyWith(isLoading: true);
 
-    final List<Payment> payments = await _repository.getAllPaymentsDate();
+    final List<Payment> payments = await _repository.getAllPaymentsData();
     payments.sort((a, b) => b.usedDate.compareTo(a.usedDate));
 
     if (payments.isNotEmpty) {

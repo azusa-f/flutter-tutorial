@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -106,6 +104,7 @@ class _PaymentEditDialog extends State<PaymentEditDialog> {
                 if (_formatDate == null || _formatDate.isEmpty) {
                   return '入力してください';
                 }
+
                 return null;
               },
               decoration: const InputDecoration(
