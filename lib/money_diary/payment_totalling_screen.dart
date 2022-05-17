@@ -18,23 +18,13 @@ class PaymentTotalling extends ConsumerWidget {
     final paymentItems = _state.totallingPayments;
     //var test = paymentItems.where((payment) => payment.category == '家賃');
 
-    final List monthList = [
-      '１月',
-      '２月',
-      '３月',
-      '４月',
-      '５月',
-      '６月',
-      '７月',
-      '８月',
-      '９月',
-      '１０月',
-      '１１月',
-      '１２月',
-    ];
+    int _selectedMonth = DateTime.now().month;
+
+    final _stateTest =
+        ref.read(paymentTotallingNotifier.notifier).filteredMonth(5);
 
     return Column(children: [
-      SelectMonthDropdown(),
+      SelectMonthDropdown(_selectedMonth, _state),
     ]);
   }
 }

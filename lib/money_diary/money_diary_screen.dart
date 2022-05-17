@@ -55,7 +55,7 @@ class _MoneyDiaryHome extends State {
       body: _pageList[_selectIndex],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          PaymentAddButton();
+          const PaymentAddButton();
         },
         backgroundColor: MoneyDiaryMainColor,
         child: const Icon(Icons.edit),
