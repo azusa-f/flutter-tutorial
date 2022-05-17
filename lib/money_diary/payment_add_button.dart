@@ -18,7 +18,7 @@ class PaymentAddButton extends ConsumerWidget {
     final _notifier = ref.watch(moneyDiaryStateNotifier.notifier);
     print("aaa");
 
-    return SizedBox(
+    return Container(
       child: _showEditDialog(context, _notifier),
     );
   }
