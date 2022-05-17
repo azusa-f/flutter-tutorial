@@ -22,14 +22,10 @@ class _$TotallingPaymentTearOff {
   const _$TotallingPaymentTearOff();
 
   _TotallingPayment call(
-      {@JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'amount') int? amount,
-      @JsonKey(name: 'usedDate') DateTime? usedDate,
-      @JsonKey(name: 'category') int? category}) {
+      {@JsonKey(name: 'amount') int? amount,
+      @JsonKey(name: 'category') String? category}) {
     return _TotallingPayment(
-      id: id,
       amount: amount,
-      usedDate: usedDate,
       category: category,
     );
   }
@@ -44,14 +40,10 @@ const $TotallingPayment = _$TotallingPaymentTearOff();
 
 /// @nodoc
 mixin _$TotallingPayment {
-  @JsonKey(name: 'id')
-  int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'amount')
   int? get amount => throw _privateConstructorUsedError;
-  @JsonKey(name: 'usedDate')
-  DateTime? get usedDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'category')
-  int? get category => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -65,10 +57,8 @@ abstract class $TotallingPaymentCopyWith<$Res> {
           TotallingPayment value, $Res Function(TotallingPayment) then) =
       _$TotallingPaymentCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'amount') int? amount,
-      @JsonKey(name: 'usedDate') DateTime? usedDate,
-      @JsonKey(name: 'category') int? category});
+      {@JsonKey(name: 'amount') int? amount,
+      @JsonKey(name: 'category') String? category});
 }
 
 /// @nodoc
@@ -82,28 +72,18 @@ class _$TotallingPaymentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? amount = freezed,
-    Object? usedDate = freezed,
     Object? category = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int?,
-      usedDate: usedDate == freezed
-          ? _value.usedDate
-          : usedDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
     ));
   }
 }
@@ -116,10 +96,8 @@ abstract class _$TotallingPaymentCopyWith<$Res>
       __$TotallingPaymentCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'amount') int? amount,
-      @JsonKey(name: 'usedDate') DateTime? usedDate,
-      @JsonKey(name: 'category') int? category});
+      {@JsonKey(name: 'amount') int? amount,
+      @JsonKey(name: 'category') String? category});
 }
 
 /// @nodoc
@@ -135,28 +113,18 @@ class __$TotallingPaymentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? amount = freezed,
-    Object? usedDate = freezed,
     Object? category = freezed,
   }) {
     return _then(_TotallingPayment(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int?,
-      usedDate: usedDate == freezed
-          ? _value.usedDate
-          : usedDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
     ));
   }
 }
@@ -165,30 +133,22 @@ class __$TotallingPaymentCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TotallingPayment implements _TotallingPayment {
   const _$_TotallingPayment(
-      {@JsonKey(name: 'id') this.id,
-      @JsonKey(name: 'amount') this.amount,
-      @JsonKey(name: 'usedDate') this.usedDate,
+      {@JsonKey(name: 'amount') this.amount,
       @JsonKey(name: 'category') this.category});
 
   factory _$_TotallingPayment.fromJson(Map<String, dynamic> json) =>
       _$$_TotallingPaymentFromJson(json);
 
   @override
-  @JsonKey(name: 'id')
-  final int? id;
-  @override
   @JsonKey(name: 'amount')
   final int? amount;
   @override
-  @JsonKey(name: 'usedDate')
-  final DateTime? usedDate;
-  @override
   @JsonKey(name: 'category')
-  final int? category;
+  final String? category;
 
   @override
   String toString() {
-    return 'TotallingPayment(id: $id, amount: $amount, usedDate: $usedDate, category: $category)';
+    return 'TotallingPayment(amount: $amount, category: $category)';
   }
 
   @override
@@ -196,18 +156,14 @@ class _$_TotallingPayment implements _TotallingPayment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TotallingPayment &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.usedDate, usedDate) &&
             const DeepCollectionEquality().equals(other.category, category));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(usedDate),
       const DeepCollectionEquality().hash(category));
 
   @JsonKey(ignore: true)
@@ -223,26 +179,18 @@ class _$_TotallingPayment implements _TotallingPayment {
 
 abstract class _TotallingPayment implements TotallingPayment {
   const factory _TotallingPayment(
-      {@JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'amount') int? amount,
-      @JsonKey(name: 'usedDate') DateTime? usedDate,
-      @JsonKey(name: 'category') int? category}) = _$_TotallingPayment;
+      {@JsonKey(name: 'amount') int? amount,
+      @JsonKey(name: 'category') String? category}) = _$_TotallingPayment;
 
   factory _TotallingPayment.fromJson(Map<String, dynamic> json) =
       _$_TotallingPayment.fromJson;
 
   @override
-  @JsonKey(name: 'id')
-  int? get id;
-  @override
   @JsonKey(name: 'amount')
   int? get amount;
   @override
-  @JsonKey(name: 'usedDate')
-  DateTime? get usedDate;
-  @override
   @JsonKey(name: 'category')
-  int? get category;
+  String? get category;
   @override
   @JsonKey(ignore: true)
   _$TotallingPaymentCopyWith<_TotallingPayment> get copyWith =>

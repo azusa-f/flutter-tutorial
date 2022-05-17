@@ -4,7 +4,7 @@ import 'package:drift/native.dart';
 
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
-import 'package:tutorial/money_diary/payment_totalling.dart';
+import 'package:tutorial/money_diary/model/totalling_item.dart';
 
 part 'money_diary_db.g.dart';
 
@@ -19,6 +19,7 @@ LazyDatabase _openConnection() {
   return LazyDatabase(() async {
     final dbFolder = await getApplicationDocumentsDirectory();
     final file = File(p.join(dbFolder.path, 'db.splite'));
+    driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
     return NativeDatabase(file);
   });
 }

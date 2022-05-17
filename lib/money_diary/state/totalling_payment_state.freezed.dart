@@ -18,9 +18,11 @@ class _$TotallingPaymentStateTearOff {
   const _$TotallingPaymentStateTearOff();
 
   _TotallingPaymentState call(
-      {bool isLoading = false,
+      {required int month,
+      bool isLoading = false,
       List<TotallingPayment> totallingPayments = const []}) {
     return _TotallingPaymentState(
+      month: month,
       isLoading: isLoading,
       totallingPayments: totallingPayments,
     );
@@ -32,6 +34,7 @@ const $TotallingPaymentState = _$TotallingPaymentStateTearOff();
 
 /// @nodoc
 mixin _$TotallingPaymentState {
+  int get month => throw _privateConstructorUsedError;
   bool get isLoading =>
       throw _privateConstructorUsedError; // @Default(false) bool isReadyData,
   List<TotallingPayment> get totallingPayments =>
@@ -47,7 +50,8 @@ abstract class $TotallingPaymentStateCopyWith<$Res> {
   factory $TotallingPaymentStateCopyWith(TotallingPaymentState value,
           $Res Function(TotallingPaymentState) then) =
       _$TotallingPaymentStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, List<TotallingPayment> totallingPayments});
+  $Res call(
+      {int month, bool isLoading, List<TotallingPayment> totallingPayments});
 }
 
 /// @nodoc
@@ -61,10 +65,15 @@ class _$TotallingPaymentStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? month = freezed,
     Object? isLoading = freezed,
     Object? totallingPayments = freezed,
   }) {
     return _then(_value.copyWith(
+      month: month == freezed
+          ? _value.month
+          : month // ignore: cast_nullable_to_non_nullable
+              as int,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -84,7 +93,8 @@ abstract class _$TotallingPaymentStateCopyWith<$Res>
           $Res Function(_TotallingPaymentState) then) =
       __$TotallingPaymentStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, List<TotallingPayment> totallingPayments});
+  $Res call(
+      {int month, bool isLoading, List<TotallingPayment> totallingPayments});
 }
 
 /// @nodoc
@@ -100,10 +110,15 @@ class __$TotallingPaymentStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? month = freezed,
     Object? isLoading = freezed,
     Object? totallingPayments = freezed,
   }) {
     return _then(_TotallingPaymentState(
+      month: month == freezed
+          ? _value.month
+          : month // ignore: cast_nullable_to_non_nullable
+              as int,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -120,8 +135,12 @@ class __$TotallingPaymentStateCopyWithImpl<$Res>
 
 class _$_TotallingPaymentState implements _TotallingPaymentState {
   const _$_TotallingPaymentState(
-      {this.isLoading = false, this.totallingPayments = const []});
+      {required this.month,
+      this.isLoading = false,
+      this.totallingPayments = const []});
 
+  @override
+  final int month;
   @JsonKey()
   @override
   final bool isLoading;
@@ -131,7 +150,7 @@ class _$_TotallingPaymentState implements _TotallingPaymentState {
 
   @override
   String toString() {
-    return 'TotallingPaymentState(isLoading: $isLoading, totallingPayments: $totallingPayments)';
+    return 'TotallingPaymentState(month: $month, isLoading: $isLoading, totallingPayments: $totallingPayments)';
   }
 
   @override
@@ -139,6 +158,7 @@ class _$_TotallingPaymentState implements _TotallingPaymentState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TotallingPaymentState &&
+            const DeepCollectionEquality().equals(other.month, month) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
                 .equals(other.totallingPayments, totallingPayments));
@@ -147,6 +167,7 @@ class _$_TotallingPaymentState implements _TotallingPaymentState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(month),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(totallingPayments));
 
@@ -159,9 +180,12 @@ class _$_TotallingPaymentState implements _TotallingPaymentState {
 
 abstract class _TotallingPaymentState implements TotallingPaymentState {
   const factory _TotallingPaymentState(
-      {bool isLoading,
+      {required int month,
+      bool isLoading,
       List<TotallingPayment> totallingPayments}) = _$_TotallingPaymentState;
 
+  @override
+  int get month;
   @override
   bool get isLoading;
   @override // @Default(false) bool isReadyData,

@@ -6,10 +6,8 @@ part 'totalling_item.g.dart';
 @freezed
 class TotallingPayment with _$TotallingPayment {
   const factory TotallingPayment({
-    @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'amount') int? amount,
-    @JsonKey(name: 'usedDate') DateTime? usedDate,
-    @JsonKey(name: 'category') int? category,
+    @JsonKey(name: 'category') String? category,
   }) = _TotallingPayment;
 
   factory TotallingPayment.fromJson(Map<String, dynamic> json) =>

@@ -7,7 +7,7 @@ import 'package:tutorial/money_diary/money_diary_state_notifier.dart';
 import 'package:tutorial/money_diary/payment_add_button.dart';
 import 'package:tutorial/money_diary/payment_dialog.dart';
 import 'package:tutorial/money_diary/payment_list.dart';
-import 'package:tutorial/money_diary/payment_totalling.dart';
+import 'package:tutorial/money_diary/payment_totalling_screen.dart';
 
 import 'money_diary_db.dart';
 

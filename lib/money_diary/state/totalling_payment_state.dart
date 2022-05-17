@@ -7,6 +7,7 @@ part 'totalling_payment_state.freezed.dart';
 @freezed
 class TotallingPaymentState with _$TotallingPaymentState {
   const factory TotallingPaymentState({
+    required int month,
     @Default(false) bool isLoading,
     // @Default(false) bool isReadyData,
     @Default([]) List<TotallingPayment> totallingPayments,
