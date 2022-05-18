@@ -19,12 +19,7 @@ class MoneyDiaryHome extends StatefulWidget {
 }
 
 class _MoneyDiaryHome extends State {
-  static const Color MoneyDiaryMainColor = Color.fromARGB(
-    255,
-    180,
-    173,
-    173,
-  );
+  static const Color moneyDiaryMainColor = Color.fromARGB(255, 94, 71, 59);
 
   var _selectIndex = 0;
 
@@ -49,6 +44,7 @@ class _MoneyDiaryHome extends State {
     // final _notifier = ref.watch(moneyDiaryStateNotifier.notifier);
 
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 245, 242, 228),
       appBar: _buildAppBar(
         context,
       ),
@@ -57,7 +53,7 @@ class _MoneyDiaryHome extends State {
         onPressed: () {
           const PaymentAddButton();
         },
-        backgroundColor: MoneyDiaryMainColor,
+        backgroundColor: moneyDiaryMainColor,
         child: const Icon(Icons.edit),
       ),
       bottomNavigationBar: _buildBottomNavigationBar(context),
@@ -66,13 +62,15 @@ class _MoneyDiaryHome extends State {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-      backgroundColor: MoneyDiaryMainColor,
+      backgroundColor: moneyDiaryMainColor,
       title: Text(_appBarTitleList[_selectIndex]),
     );
   }
 
   BottomNavigationBar _buildBottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: moneyDiaryMainColor,
+      selectedItemColor: Colors.white,
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.format_list_bulleted),

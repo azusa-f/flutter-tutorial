@@ -19,19 +19,25 @@ class PaymentTotallingNotifier extends StateNotifier<TotallingPaymentState> {
   final _totallingRepository = MoneyDiaryRepository();
 
   Future filteredMonth(int month) async {
-    state = state.copyWith(month: month);
-    getPaymentTotallingData();
+    // 引数のmonthとstateのmonthが同一だった場合は実行しないようにする
+    if (month == state.month) {
+      return;
+    } else {
+      getPaymentTotallingData(month: month);
+    }
   }
 
-  Future getPaymentTotallingData() async {
-    state = state.copyWith(isLoading: true);
+  Future getPaymentTotallingData({int? month}) async {
+    final currentMonth = month ?? state.month;
+    state = state.copyWith(isLoading: true, month: currentMonth);
 
+    // 全ての支払い状況を取得する
     final List<Payment> payments =
         await _totallingRepository.getAllPaymentsData();
 
-    final month = state.month;
+    // 月で絞り込みをする
     final Iterable<Payment> filteredPayments =
-        payments.where((payment) => payment.usedDate.month == month);
+        payments.where((payment) => payment.usedDate.month == currentMonth);
 
     final List<TotallingPayment> totallingPayments = [];
     totallingPayments.add(convertToTotallingPayment(filteredPayments, '家賃'));
