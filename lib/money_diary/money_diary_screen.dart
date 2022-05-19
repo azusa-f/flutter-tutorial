@@ -51,13 +51,23 @@ class _MoneyDiaryHome extends State {
       body: _pageList[_selectIndex],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          const PaymentAddButton();
+          _showEditDialog(context);
         },
         backgroundColor: moneyDiaryMainColor,
         child: const Icon(Icons.edit),
       ),
       bottomNavigationBar: _buildBottomNavigationBar(context),
     );
+  }
+
+  Future _showEditDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+              //content: ,
+              );
+        });
   }
 
   AppBar _buildAppBar(BuildContext context) {

@@ -23,10 +23,12 @@ class PaymentTotalling extends ConsumerWidget {
     final priceFormat = NumberFormat("#,###");
     //var test = paymentItems.where((payment) => payment.category == '家賃');
 
-    int _selectedMonth = DateTime.now().month;
-
     return Column(children: [
-      SelectMonthDropdown(_selectedMonth, _notifier),
+      SelectMonthDropdown(
+        _state.month,
+        _notifier,
+        key: UniqueKey(),
+      ),
       _buildTotallingByCategory(totallingItems, priceFormat),
     ]);
   }
@@ -85,7 +87,8 @@ class PaymentTotalling extends ConsumerWidget {
                                 )
                               : const SizedBox.shrink(),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.symmetric(vertical: 8)
+                                .copyWith(left: 16),
                             child: Text(
                               _totallingData.category.toString(),
                               style: const TextStyle(fontSize: 20),
