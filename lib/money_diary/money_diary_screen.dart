@@ -2,9 +2,7 @@ import 'package:drift/drift.dart' as drift;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:path/path.dart';
 import 'package:tutorial/money_diary/money_diary_state_notifier.dart';
-import 'package:tutorial/money_diary/payment_add_button.dart';
 import 'package:tutorial/money_diary/payment_dialog.dart';
 import 'package:tutorial/money_diary/payment_list.dart';
 import 'package:tutorial/money_diary/payment_totalling_screen.dart';
@@ -19,7 +17,12 @@ class MoneyDiaryHome extends StatefulWidget {
 }
 
 class _MoneyDiaryHome extends State {
-  static const Color moneyDiaryMainColor = Color.fromARGB(255, 94, 71, 59);
+  static const Color moneyDiaryMainColor = Color.fromARGB(
+    255,
+    94,
+    71,
+    59,
+  );
 
   var _selectIndex = 0;
 
@@ -40,18 +43,20 @@ class _MoneyDiaryHome extends State {
 
   @override
   Widget build(BuildContext context) {
-    // final _state = ref.watch(moneyDiaryStateNotifier);
-    // final _notifier = ref.watch(moneyDiaryStateNotifier.notifier);
-
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 245, 242, 228),
+      backgroundColor: const Color.fromARGB(
+        255,
+        245,
+        242,
+        228,
+      ),
       appBar: _buildAppBar(
         context,
       ),
       body: _pageList[_selectIndex],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _showEditDialog(context);
+          _showEditDialog(context, moneyDiaryMainColor);
         },
         backgroundColor: moneyDiaryMainColor,
         child: const Icon(Icons.edit),
@@ -60,13 +65,15 @@ class _MoneyDiaryHome extends State {
     );
   }
 
-  Future _showEditDialog(BuildContext context) {
+  Future _showEditDialog(BuildContext context, Color moneyDiaryMainColor) {
     return showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-              //content: ,
-              );
+            content: SizedBox(
+              child: PaymentAddButton(),
+            ),
+          );
         });
   }
 
@@ -93,6 +100,59 @@ class _MoneyDiaryHome extends State {
       ],
       currentIndex: _selectIndex,
       onTap: _onTapItem,
+    );
+  }
+}
+
+class PaymentAddButton extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final _notifier = ref.watch(moneyDiaryStateNotifier.notifier);
+
+    return SizedBox(height: 400, child: _showEditDialog(context, _notifier));
+  }
+
+  _showEditDialog(
+    BuildContext context,
+    MoneyDiaryStateNotifier notifier,
+  ) {
+    final _payedAmount = TextEditingController();
+    var _payedDate = TextEditingController();
+    final _format = DateFormat('yyyy-MM-dd');
+    final _formKey = GlobalKey<FormState>();
+    String _selectedCategory = '家賃';
+    final PaymentEditDialog _paymentEditDialog = PaymentEditDialog(
+        _selectedCategory, _payedAmount, _payedDate, _format, _formKey);
+
+    return Column(
+      children: [
+        _paymentEditDialog,
+        ElevatedButton(
+          onPressed: () async {
+            if (_formKey.currentState!.validate()) {
+              final _payedDate =
+                  _format.parseStrict(_paymentEditDialog.payedDate.text);
+              final _newPayment = PaymentsCompanion(
+                amount:
+                    drift.Value(int.parse(_paymentEditDialog.payedAmount.text)),
+                usedDate: drift.Value(_payedDate),
+                category: drift.Value(_paymentEditDialog.selectedCategory),
+              );
+              notifier.insertPaymentData(_newPayment);
+              Navigator.pop(context);
+            }
+          },
+          child: const Text('登録'),
+          style: ElevatedButton.styleFrom(
+            primary: const Color.fromARGB(
+              255,
+              94,
+              71,
+              59,
+            ),
+          ),
+        )
+      ],
     );
   }
 }
