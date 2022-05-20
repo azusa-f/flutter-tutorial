@@ -12,9 +12,9 @@ class PaymentList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final _state = ref.watch(moneyDiaryStateNotifier);
-    final _notifier = ref.watch(moneyDiaryStateNotifier.notifier);
-
+    final priceFormat = NumberFormat("#,###");
     final paymentItems = _state.payments;
+
     return Stack(
       children: [
         ListView.builder(
@@ -94,7 +94,7 @@ class PaymentList extends ConsumerWidget {
                             children: [
                               const Text("¥", style: TextStyle(fontSize: 20)),
                               Text(
-                                _paymentData.amount.toString(),
+                                priceFormat.format(_paymentData.amount),
                                 style: const TextStyle(fontSize: 20),
                               )
                             ],

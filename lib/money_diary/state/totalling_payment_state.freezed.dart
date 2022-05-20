@@ -18,11 +18,11 @@ class _$TotallingPaymentStateTearOff {
   const _$TotallingPaymentStateTearOff();
 
   _TotallingPaymentState call(
-      {required int month,
+      {required DateTime yearMonth,
       bool isLoading = false,
       List<TotallingPayment> totallingPayments = const []}) {
     return _TotallingPaymentState(
-      month: month,
+      yearMonth: yearMonth,
       isLoading: isLoading,
       totallingPayments: totallingPayments,
     );
@@ -34,9 +34,8 @@ const $TotallingPaymentState = _$TotallingPaymentStateTearOff();
 
 /// @nodoc
 mixin _$TotallingPaymentState {
-  int get month => throw _privateConstructorUsedError;
-  bool get isLoading =>
-      throw _privateConstructorUsedError; // @Default(false) bool isReadyData,
+  DateTime get yearMonth => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
   List<TotallingPayment> get totallingPayments =>
       throw _privateConstructorUsedError;
 
@@ -51,7 +50,9 @@ abstract class $TotallingPaymentStateCopyWith<$Res> {
           $Res Function(TotallingPaymentState) then) =
       _$TotallingPaymentStateCopyWithImpl<$Res>;
   $Res call(
-      {int month, bool isLoading, List<TotallingPayment> totallingPayments});
+      {DateTime yearMonth,
+      bool isLoading,
+      List<TotallingPayment> totallingPayments});
 }
 
 /// @nodoc
@@ -65,15 +66,15 @@ class _$TotallingPaymentStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? month = freezed,
+    Object? yearMonth = freezed,
     Object? isLoading = freezed,
     Object? totallingPayments = freezed,
   }) {
     return _then(_value.copyWith(
-      month: month == freezed
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as int,
+      yearMonth: yearMonth == freezed
+          ? _value.yearMonth
+          : yearMonth // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -94,7 +95,9 @@ abstract class _$TotallingPaymentStateCopyWith<$Res>
       __$TotallingPaymentStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int month, bool isLoading, List<TotallingPayment> totallingPayments});
+      {DateTime yearMonth,
+      bool isLoading,
+      List<TotallingPayment> totallingPayments});
 }
 
 /// @nodoc
@@ -110,15 +113,15 @@ class __$TotallingPaymentStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? month = freezed,
+    Object? yearMonth = freezed,
     Object? isLoading = freezed,
     Object? totallingPayments = freezed,
   }) {
     return _then(_TotallingPaymentState(
-      month: month == freezed
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as int,
+      yearMonth: yearMonth == freezed
+          ? _value.yearMonth
+          : yearMonth // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -135,22 +138,22 @@ class __$TotallingPaymentStateCopyWithImpl<$Res>
 
 class _$_TotallingPaymentState implements _TotallingPaymentState {
   const _$_TotallingPaymentState(
-      {required this.month,
+      {required this.yearMonth,
       this.isLoading = false,
       this.totallingPayments = const []});
 
   @override
-  final int month;
+  final DateTime yearMonth;
   @JsonKey()
   @override
   final bool isLoading;
   @JsonKey()
-  @override // @Default(false) bool isReadyData,
+  @override
   final List<TotallingPayment> totallingPayments;
 
   @override
   String toString() {
-    return 'TotallingPaymentState(month: $month, isLoading: $isLoading, totallingPayments: $totallingPayments)';
+    return 'TotallingPaymentState(yearMonth: $yearMonth, isLoading: $isLoading, totallingPayments: $totallingPayments)';
   }
 
   @override
@@ -158,7 +161,7 @@ class _$_TotallingPaymentState implements _TotallingPaymentState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TotallingPaymentState &&
-            const DeepCollectionEquality().equals(other.month, month) &&
+            const DeepCollectionEquality().equals(other.yearMonth, yearMonth) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
                 .equals(other.totallingPayments, totallingPayments));
@@ -167,7 +170,7 @@ class _$_TotallingPaymentState implements _TotallingPaymentState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(month),
+      const DeepCollectionEquality().hash(yearMonth),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(totallingPayments));
 
@@ -180,15 +183,15 @@ class _$_TotallingPaymentState implements _TotallingPaymentState {
 
 abstract class _TotallingPaymentState implements TotallingPaymentState {
   const factory _TotallingPaymentState(
-      {required int month,
+      {required DateTime yearMonth,
       bool isLoading,
       List<TotallingPayment> totallingPayments}) = _$_TotallingPaymentState;
 
   @override
-  int get month;
+  DateTime get yearMonth;
   @override
   bool get isLoading;
-  @override // @Default(false) bool isReadyData,
+  @override
   List<TotallingPayment> get totallingPayments;
   @override
   @JsonKey(ignore: true)

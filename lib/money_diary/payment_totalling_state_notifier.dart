@@ -12,39 +12,49 @@ final paymentTotallingNotifier =
 
 class PaymentTotallingNotifier extends StateNotifier<TotallingPaymentState> {
   PaymentTotallingNotifier()
-      : super(TotallingPaymentState(month: DateTime.now().month)) {
+      : super(TotallingPaymentState(yearMonth: DateTime.now())) {
     getPaymentTotallingData();
   }
 
   final _totallingRepository = MoneyDiaryRepository();
 
-  Future filteredMonth(int month) async {
+  Future filteredMonth(DateTime yearMonth) async {
     // 引数のmonthとstateのmonthが同一だった場合は実行しないようにする
-    if (month == state.month) {
+    if (yearMonth == state.yearMonth) {
       return;
     } else {
-      getPaymentTotallingData(month: month);
+      getPaymentTotallingData(month: yearMonth);
     }
   }
 
-  Future getPaymentTotallingData({int? month}) async {
-    final currentMonth = month ?? state.month;
-    state = state.copyWith(isLoading: true, month: currentMonth);
+  Future getPaymentTotallingData({DateTime? month}) async {
+    final current = month ?? state.yearMonth;
+    state = state.copyWith(isLoading: true, yearMonth: current);
 
     // 全ての支払い状況を取得する
     final List<Payment> payments =
         await _totallingRepository.getAllPaymentsData();
 
+    // 年で絞り込みをする
+    final Iterable<Payment> filterdPaymentsByYear =
+        payments.where((payment) => payment.usedDate.year == current.year);
+
     // 月で絞り込みをする
-    final Iterable<Payment> filteredPayments =
-        payments.where((payment) => payment.usedDate.month == currentMonth);
+    final Iterable<Payment> filteredPaymentsByMonth = payments.where(
+        (filterdPaymentsByYear) =>
+            filterdPaymentsByYear.usedDate.month == current.month);
 
     final List<TotallingPayment> totallingPayments = [];
-    totallingPayments.add(convertToTotallingPayment(filteredPayments, '家賃'));
-    totallingPayments.add(convertToTotallingPayment(filteredPayments, '日用品'));
-    totallingPayments.add(convertToTotallingPayment(filteredPayments, '食費'));
-    totallingPayments.add(convertToTotallingPayment(filteredPayments, '光熱費'));
-    totallingPayments.add(convertToTotallingPayment(filteredPayments, '娯楽'));
+    totallingPayments
+        .add(convertToTotallingPayment(filteredPaymentsByMonth, '家賃'));
+    totallingPayments
+        .add(convertToTotallingPayment(filteredPaymentsByMonth, '日用品'));
+    totallingPayments
+        .add(convertToTotallingPayment(filteredPaymentsByMonth, '食費'));
+    totallingPayments
+        .add(convertToTotallingPayment(filteredPaymentsByMonth, '光熱費'));
+    totallingPayments
+        .add(convertToTotallingPayment(filteredPaymentsByMonth, '娯楽'));
 
     if (totallingPayments.isNotEmpty) {
       state = state.copyWith(

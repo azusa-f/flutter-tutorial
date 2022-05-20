@@ -19,7 +19,7 @@ class PaymentTotalling extends ConsumerWidget {
 
     return Column(children: [
       SelectMonthDropdown(
-        _state.month,
+        _state.yearMonth,
         _notifier,
         key: UniqueKey(),
       ),
