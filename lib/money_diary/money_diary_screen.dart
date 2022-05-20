@@ -70,8 +70,9 @@ class _MoneyDiaryHome extends State {
         context: context,
         builder: (context) {
           return AlertDialog(
-            content: SizedBox(
-              child: PaymentAddButton(),
+            content: Container(
+              child: const PaymentAddButton(),
+              constraints: const BoxConstraints(maxHeight: 370, minHeight: 350),
             ),
           );
         });
@@ -105,11 +106,13 @@ class _MoneyDiaryHome extends State {
 }
 
 class PaymentAddButton extends ConsumerWidget {
+  const PaymentAddButton({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final _notifier = ref.watch(moneyDiaryStateNotifier.notifier);
 
-    return SizedBox(height: 400, child: _showEditDialog(context, _notifier));
+    return _showEditDialog(context, _notifier);
   }
 
   _showEditDialog(
@@ -127,28 +130,31 @@ class PaymentAddButton extends ConsumerWidget {
     return Column(
       children: [
         _paymentEditDialog,
-        ElevatedButton(
-          onPressed: () async {
-            if (_formKey.currentState!.validate()) {
-              final _payedDate =
-                  _format.parseStrict(_paymentEditDialog.payedDate.text);
-              final _newPayment = PaymentsCompanion(
-                amount:
-                    drift.Value(int.parse(_paymentEditDialog.payedAmount.text)),
-                usedDate: drift.Value(_payedDate),
-                category: drift.Value(_paymentEditDialog.selectedCategory),
-              );
-              notifier.insertPaymentData(_newPayment);
-              Navigator.pop(context);
-            }
-          },
-          child: const Text('登録'),
-          style: ElevatedButton.styleFrom(
-            primary: const Color.fromARGB(
-              255,
-              94,
-              71,
-              59,
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ElevatedButton(
+            onPressed: () async {
+              if (_formKey.currentState!.validate()) {
+                final _payedDate =
+                    _format.parseStrict(_paymentEditDialog.payedDate.text);
+                final _newPayment = PaymentsCompanion(
+                  amount: drift.Value(
+                      int.parse(_paymentEditDialog.payedAmount.text)),
+                  usedDate: drift.Value(_payedDate),
+                  category: drift.Value(_paymentEditDialog.selectedCategory),
+                );
+                notifier.insertPaymentData(_newPayment);
+                Navigator.pop(context);
+              }
+            },
+            child: const Text('登録'),
+            style: ElevatedButton.styleFrom(
+              primary: const Color.fromARGB(
+                255,
+                94,
+                71,
+                59,
+              ),
             ),
           ),
         )

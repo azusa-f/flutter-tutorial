@@ -19,7 +19,6 @@ class PaymentTotallingNotifier extends StateNotifier<TotallingPaymentState> {
   final _totallingRepository = MoneyDiaryRepository();
 
   Future filteredMonth(int month) async {
-    print("filteredMonth$month");
     // 引数のmonthとstateのmonthが同一だった場合は実行しないようにする
     if (month == state.month) {
       return;

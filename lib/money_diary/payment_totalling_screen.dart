@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:path/path.dart';
 import 'package:tutorial/money_diary/payment_totalling_state_notifier.dart';
-
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:drift/drift.dart' as drift;
 import 'package:tutorial/money_diary/select_month_dropdown.dart';
-import 'package:tutorial/money_diary/state/totalling_payment_state.dart';
-
 import 'model/totalling_item.dart';
 
 class PaymentTotalling extends ConsumerWidget {
@@ -44,10 +38,17 @@ class PaymentTotalling extends ConsumerWidget {
               final _totallingData = paymentItems[index];
               return Container(
                 decoration: const BoxDecoration(
-                    border: Border(
-                        bottom: BorderSide(
-                  color: Color.fromARGB(255, 139, 136, 136),
-                ))),
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Color.fromARGB(
+                        255,
+                        139,
+                        136,
+                        136,
+                      ),
+                    ),
+                  ),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
