@@ -1,10 +1,7 @@
-import 'package:drift/drift.dart' as drift;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:tutorial/money_diary/money_diary_state_notifier.dart';
-import 'package:tutorial/money_diary/payment_dialog.dart';
-import 'money_diary_db.dart';
 
 class PaymentList extends ConsumerWidget {
   const PaymentList({Key? key}) : super(key: key);

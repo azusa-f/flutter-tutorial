@@ -72,7 +72,7 @@ class _MoneyDiaryHome extends State {
           return AlertDialog(
             content: Container(
               child: const PaymentAddButton(),
-              constraints: const BoxConstraints(maxHeight: 370, minHeight: 350),
+              constraints: const BoxConstraints(maxHeight: 348),
             ),
           );
         });
@@ -131,7 +131,7 @@ class PaymentAddButton extends ConsumerWidget {
       children: [
         _paymentEditDialog,
         Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.only(top: 16),
           child: ElevatedButton(
             onPressed: () async {
               if (_formKey.currentState!.validate()) {
