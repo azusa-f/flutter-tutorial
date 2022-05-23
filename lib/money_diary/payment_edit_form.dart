@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class PaymentEditDialog extends StatefulWidget {
+class PaymentEditForm extends StatefulWidget {
   String selectedCategory;
   final TextEditingController payedAmount;
   final TextEditingController payedDate;
   final DateFormat format;
   final GlobalKey<FormState> formKey;
 
-  PaymentEditDialog(this.selectedCategory, this.payedAmount, this.payedDate,
+  PaymentEditForm(this.selectedCategory, this.payedAmount, this.payedDate,
       this.format, this.formKey,
       {Key? key})
       : super(key: key);
 
   @override
-  State<PaymentEditDialog> createState() => _PaymentEditDialog();
+  State<PaymentEditForm> createState() => _PaymentEditForm();
 }
 
-class _PaymentEditDialog extends State<PaymentEditDialog> {
+class _PaymentEditForm extends State<PaymentEditForm> {
   @override
   Widget build(BuildContext context) {
     final _format = widget.format;
