@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:tutorial/money_diary/money_diary_state_notifier.dart';
 import 'package:tutorial/money_diary/payment_edit_form.dart';
-import 'package:tutorial/money_diary/payment_list.dart';
+import 'package:tutorial/money_diary/payment_list_screen.dart';
 import 'package:tutorial/money_diary/payment_totalling_screen.dart';
 
 import 'money_diary_db.dart';
@@ -34,7 +34,7 @@ class _MoneyDiaryHome extends State {
   var _selectIndex = 0;
 
   static final List<Widget> _pageList = [
-    const PaymentList(),
+    const PaymentListScreen(),
     const PaymentTotallingScreen(),
   ];
   static final List<String> _appBarTitleList = [
@@ -67,7 +67,7 @@ class _MoneyDiaryHome extends State {
       builder: (context) {
         return AlertDialog(
           content: Container(
-            child: PaymentEditDialog(moneyDiaryMainColor),
+            child: PaymentAddWidget(moneyDiaryMainColor),
             constraints: const BoxConstraints(maxHeight: 348),
           ),
         );
@@ -108,9 +108,9 @@ class _MoneyDiaryHome extends State {
   }
 }
 
-class PaymentEditDialog extends ConsumerWidget {
+class PaymentAddWidget extends ConsumerWidget {
   Color moneyDiaryMainColor;
-  PaymentEditDialog(this.moneyDiaryMainColor, {Key? key}) : super(key: key);
+  PaymentAddWidget(this.moneyDiaryMainColor, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

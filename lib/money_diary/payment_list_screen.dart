@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:tutorial/money_diary/money_diary_state_notifier.dart';
 
-class PaymentList extends ConsumerWidget {
-  const PaymentList({Key? key}) : super(key: key);
+class PaymentListScreen extends ConsumerWidget {
+  const PaymentListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
